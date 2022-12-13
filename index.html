@@ -1,0 +1,175 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ITW - Olympics test App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="myCSS.css" />
+    <link rel="shortcut icon" type="img/png" href="/images/favicon-96x96.png"/>
+    <style>
+        .carousel { width: 100%; margin: 0 auto; }
+        .carousel-item { z-index: -100; height: 500px; background-position: center center; background-repeat: no-repeat; background-size: cover; }
+            .carousel-item:nth-child(1) { background-image: url('/images/banner1.png'); }
+            .carousel-item:nth-child(2) { background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1b/Richmond_Olympic_Oval_front_view.jpg'); }
+            .carousel-item:nth-child(3) { background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/34/Rio2016_julho_VilaAtletas_Barra_002_2659_-c-2016_GabrielHeusi_HeusiAction.jpg'); }
+            .carousel-item:nth-child(4) { background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9d/New_national_stadium_tokyo_1.jpg'); }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" tabindex="Olympics"><img src="/images/Olympic_rings.svg" height="24" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="athletes.html"><i class="fa fa-user text-primary"></i> Athletes</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="competitions.html"><i class="fa fa-trophy text-warning"></i> Competitions</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="countries.html"><i class=" fa fa-flag"></i> Countries</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="games.html"><i class="fa fa-map-marker text-success"></i> Games</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="modalities.html"><i class="fa fa-soccer-ball-o text-danger"></i> Modalities</a></li>
+                    <li class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bars"></i> More
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="history.html">History</a>
+                            <a class="dropdown-item" href="shop.html">Shop</a>
+                            <a class="dropdown-item" href="liveEvents.html">Live Events</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="nav-item "><a class="nav-link" aria-current="page" href="about.html"><i class="fa fa-info-circle text-dark"></i> About us</a></div>   
+            </div>
+        </div>
+    </nav>
+    <!-- Working Area -->
+    <div id="myCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="3" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="display-1">Welcome to the Olympics!</div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="display-1">Vancouver 2010</div>
+                    <p>The 2010 Winter Olympics, officially known as the XXI Olympic Winter Games and also known as Vancouver 2010, were an international winter multi-sport event held from February 12 to 28, 2010 in Vancouver, British Columbia, Canada, with some events held in the surrounding suburbs of Richmond, West Vancouver and the University of British Columbia, and in the nearby resort town of Whistler.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="display-1">Rio de Janeiro 2016</div>
+                    <p>The 2016 Summer Olympics, officially the Games of the XXXI Olympiad and also known as Rio 2016, was an international multi-sport event held from 5 to 21 August 2016 in Rio de Janeiro, Brazil.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="display-1">Tokio 2020</div>
+                    <p>The 2020 Summer Olympics, officially the Games of the XXXII Olympiad and also known as Tokyo 2020, was an international multi-sport event held from 23 July to 8 August 2021 in Tokyo, Japan.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <div class="container my-xs-4">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <div class="card" style="width: 25rem;">
+                    <img src="/images/news 1.png.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Marta Bassino wins giant slalom</h5>
+                        <p class="card-text">The Italian beat some of the world's top skiers finishing ahead of defending Olympic champions Sara Hector and  Petra Vlhová in second and third place respectively.</p>
+                        <a href="https://olympics.com/en/news/marta-bassino-wins-giant-slalom-at-sestriere-world-cup" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <div class="card" style="width: 25rem;">
+                    <img src="/images/news 2.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">World champion Sakamoto Kaori vaults ahead at Grand Prix Final</h5>
+                        <p class="card-text">It was a shining day for Team Japan in Turin, with Sakamoto leading the women and Mihara Mai in second.</p>
+                        <a href="https://olympics.com/en/news/world-champion-sakamoto-kaori-grand-prix-final-japanese-miura-kihara" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <div class="card" style="width: 25rem;">
+                    <img src="/images/news 3.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Alpine skiing: Marco Odermatt dominates giant slalom in Val d’Isere</h5>
+                        <p class="card-text">The Olympic champion in giant slalom further cemented his place at the top of the overall World Cup standings with his win in France.</p>
+                        <a href="https://olympics.com/en/news/marco-odermatt-dominates-giant-slalom-in-val-d-isere" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <div class="card" style="width: 25rem;">
+                    <img src="/images/news 4.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Mihara Mai storms to Grand Prix Final win on debut, capping trio of GP golds this season</h5>
+                        <p class="card-text">The 23-year-old won both of her Grand Prix stops prior to the final. World champion Sakamoto Kaori sunk to fifth.</p>
+                        <a href="https://olympics.com/en/news/mihara-mai-storms-grand-prix-final-win-debut-figure-skating-japan" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <div class="card" style="width: 25rem;">
+                    <img src="/images/news 5.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">France at FIFA World Cup 2022: Stats and records</h5>
+                        <p class="card-text">Discover all the FIFA World Cup 2022 statistics, records, milestones and numbers for defending champions France, featuring star football players Kylian Mbappe, Hugo Lloris and more.</p>
+                        <a href="https://olympics.com/en/news/france-fifa-world-cup-2022-records-and-stats" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 p-3">
+                <div class="card" style="width: 25rem;">
+                    <img src="/images/news 6.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Women's FIH Nations Cup 2022: India start campaign with a 3-1 win over Chile</h5>
+                        <p class="card-text">Sangita Kumari, Sonika and Navneet Kaur scored India’s goals. They will play Asian champions Japan in their second Pool B match on Monday.</p>
+                        <a href="https://olympics.com/en/news/women-fih-nations-cup-2022-india-vs-chile-match-results" class="btn btn-primary">Read more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Working Area -->
+    <nav class="navbar navbar-light bg-light ">
+        <div class="container small">
+            <div class="navbar-text">&copy;  Introdução as Tecnologias Web - 2022/23</div>
+            <div class="navbar-text">Made with <i class="fa fa-heart-o text-danger"></i> for U by <a href="mailto:jsp@ua.pt" class="text-decoration-none text-muted">jsp@ua.pt</a>.</div>
+            <div class="navbar-nav">
+                <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de Aveiro</a></div>
+            </div>
+        </div>
+    </nav>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="myScript.js"></script>
+</body>
+</html>
