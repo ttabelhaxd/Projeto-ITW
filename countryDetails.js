@@ -3,8 +3,8 @@ var vm = function () {
     console.log('ViewModel initiated...');
     //---Variáveis locais
     var self = this;
-    self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/countries/');
-    self.displayName = 'Olympic Games edition Details';
+    self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/Countries/');
+    self.displayName = 'Olympic Countries Details';
     self.error = ko.observable('');
     self.passingMessage = ko.observable('');
     //--- Data Record

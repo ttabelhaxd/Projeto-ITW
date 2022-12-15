@@ -4,27 +4,49 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ITW - Olympics test App</title>
+    <title>ITW - Olympics - HomePage</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="myCSS.css" />
-    <link rel="shortcut icon" type="img/png" href="/images/favicon-96x96.png"/>
+    <link rel="shortcut icon" type="img/png" href="images/favicon-96x96.png" />
     <style>
-        .carousel { width: 100%; margin: 0 auto; }
-        .carousel-item { z-index: -100; height: 500px; background-position: center center; background-repeat: no-repeat; background-size: cover; }
-            .carousel-item:nth-child(1) { background-image: url('/images/banner1.png'); }
-            .carousel-item:nth-child(2) { background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/1b/Richmond_Olympic_Oval_front_view.jpg'); }
-            .carousel-item:nth-child(3) { background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/34/Rio2016_julho_VilaAtletas_Barra_002_2659_-c-2016_GabrielHeusi_HeusiAction.jpg'); }
-            .carousel-item:nth-child(4) { background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9d/New_national_stadium_tokyo_1.jpg'); }
+        .carousel {
+            width: 100%;
+            margin-top: 0px;
+        }
+
+        .carousel-item {
+            z-index: -100;
+            height: 600px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+            .carousel-item:nth-child(1) {
+                background-image: url("images/banner1.png")
+            }
+
+            .carousel-item:nth-child(2) {
+                background-image: url('images/beijing.png');
+            }
+
+            .carousel-item:nth-child(3) {
+                background-image: url('images/athens 1896.png');
+            }
+
+            .carousel-item:nth-child(4) {
+                background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9d/New_national_stadium_tokyo_1.jpg');
+            }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html" tabindex="Olympics"><img src="/images/Olympic_rings.svg" height="24" /></a>
+            <a class="navbar-brand" href="index.html" tabindex="Olympics"><img src="images/Olympic_rings.svg" height="24" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,63 +63,64 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="history.html">History</a>
-                            <a class="dropdown-item" href="shop.html">Shop</a>
-                            <a class="dropdown-item" href="liveEvents.html">Live Events</a>
+                            <a class="dropdown-item" href="loja/shop.html">Shop</a>
+                            <a class="dropdown-item" href="liveEvents.html">Live events</a>
                         </div>
                     </li>
                 </ul>
-                <div class="nav-item "><a class="nav-link" aria-current="page" href="about.html"><i class="fa fa-info-circle text-dark"></i> About us</a></div>   
+                <div class="nav-item "><a class="nav-link" aria-current="page" href="aboutUs.html"><i class="fa fa-info-circle text-dark"></i> About us</a></div>
             </div>
         </div>
     </nav>
     <!-- Working Area -->
     <div id="myCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
-            <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#mycarousel" data-bs-slide-to="3" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="carousel-caption d-none d-md-block">
-                    <div class="display-1">Welcome to the Olympics!</div>
+                    <div class="display-1 fw-bold">Welcome to the Olympics!</div>
+                    <p class="rounded bg-opacity-10 text-bg-dark">This is the (non) official Olympics website. Here you can check all the different modalities, countries, athletes, previous editions and future events!</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-caption d-none d-md-block">
-                    <div class="display-1">Vancouver 2010</div>
-                    <p>The 2010 Winter Olympics, officially known as the XXI Olympic Winter Games and also known as Vancouver 2010, were an international winter multi-sport event held from February 12 to 28, 2010 in Vancouver, British Columbia, Canada, with some events held in the surrounding suburbs of Richmond, West Vancouver and the University of British Columbia, and in the nearby resort town of Whistler.</p>
+                    <div class="display-1 fw-bold rounded-3 text-bg-light bg-opacity-10 text-light">Beijing 2024</div>
+                    <p class="rounded-3 bg-opacity-50 text-bg-dark">The 2024 Summer Olympics, officially the Games of the XXXIII Olympiad and also known as Paris 2024, is an upcoming international multi-sport event that is scheduled to take place from 26 July to 11 August 2024 with Paris as its main host city and 16 cities spread across Metropolitan France.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-caption d-none d-md-block">
-                    <div class="display-1">Rio de Janeiro 2016</div>
-                    <p>The 2016 Summer Olympics, officially the Games of the XXXI Olympiad and also known as Rio 2016, was an international multi-sport event held from 5 to 21 August 2016 in Rio de Janeiro, Brazil.</p>
+                    <div class="display-1 fw-bold">Athens 1896</div>
+                    <p class="rounded-3 bg-opacity-25 text-bg-dark">The 1896 Summer Olympics, officially known as the Games of the I Olympiad and commonly known as Athens 1896, was the first international Olympic Games held in modern history. Organised by the International Olympic Committee, which had been created by French aristocrat Pierre de Coubertin, it was held in Athens, Greece, from 6 to 15 April 1896.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <div class="carousel-caption d-none d-md-block">
-                    <div class="display-1">Tokio 2020</div>
-                    <p>The 2020 Summer Olympics, officially the Games of the XXXII Olympiad and also known as Tokyo 2020, was an international multi-sport event held from 23 July to 8 August 2021 in Tokyo, Japan.</p>
+                    <div class="display-1 fw-bold">Tokio 2020</div>
+                    <p class="rounded bg-opacity-50 text-bg-dark">The 2020 Summer Olympics, officially the Games of the XXXII Olympiad and also known as Tokyo 2020, was an international multi-sport event held from 23 July to 8 August 2021 in Tokyo, Japan.</p>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
     <div class="container my-xs-4">
+        <h1 class="text-start mb-3 fw-bolder">Latest news </h1>
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 p-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card" style="width: 25rem;">
-                    <img src="/images/news 1.png.webp" class="card-img-top" alt="...">
+                    <img src="images/news 1.png.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Marta Bassino wins giant slalom</h5>
                         <p class="card-text">The Italian beat some of the world's top skiers finishing ahead of defending Olympic champions Sara Hector and  Petra Vlhová in second and third place respectively.</p>
@@ -105,9 +128,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 p-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card" style="width: 25rem;">
-                    <img src="/images/news 2.webp" class="card-img-top" alt="...">
+                    <img src="images/news 2.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">World champion Sakamoto Kaori vaults ahead at Grand Prix Final</h5>
                         <p class="card-text">It was a shining day for Team Japan in Turin, with Sakamoto leading the women and Mihara Mai in second.</p>
@@ -115,9 +138,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 p-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card" style="width: 25rem;">
-                    <img src="/images/news 3.webp" class="card-img-top" alt="...">
+                    <img src="images/news 3.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Alpine skiing: Marco Odermatt dominates giant slalom in Val d’Isere</h5>
                         <p class="card-text">The Olympic champion in giant slalom further cemented his place at the top of the overall World Cup standings with his win in France.</p>
@@ -125,9 +148,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 p-3">
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card" style="width: 25rem;">
-                    <img src="/images/news 4.webp" class="card-img-top" alt="...">
+                    <img src="images/news 4.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Mihara Mai storms to Grand Prix Final win on debut, capping trio of GP golds this season</h5>
                         <p class="card-text">The 23-year-old won both of her Grand Prix stops prior to the final. World champion Sakamoto Kaori sunk to fifth.</p>
@@ -135,9 +160,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 p-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card" style="width: 25rem;">
-                    <img src="/images/news 5.webp" class="card-img-top" alt="...">
+                    <img src="images/news 5.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">France at FIFA World Cup 2022: Stats and records</h5>
                         <p class="card-text">Discover all the FIFA World Cup 2022 statistics, records, milestones and numbers for defending champions France, featuring star football players Kylian Mbappe, Hugo Lloris and more.</p>
@@ -145,9 +170,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4 p-3">
+            <div class="col-12 col-md-6 col-lg-4">
                 <div class="card" style="width: 25rem;">
-                    <img src="/images/news 6.webp" class="card-img-top" alt="...">
+                    <img src="images/news 6.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Women's FIH Nations Cup 2022: India start campaign with a 3-1 win over Chile</h5>
                         <p class="card-text">Sangita Kumari, Sonika and Navneet Kaur scored India’s goals. They will play Asian champions Japan in their second Pool B match on Monday.</p>
@@ -157,11 +182,13 @@
             </div>
         </div>
     </div>
+
+
     <!-- End of Working Area -->
-    <nav class="navbar navbar-light bg-light ">
+    <nav class="navbar navbar-light bg-light fixed-bottom">
         <div class="container small">
             <div class="navbar-text">&copy;  Introdução as Tecnologias Web - 2022/23</div>
-            <div class="navbar-text">Made with <i class="fa fa-heart-o text-danger"></i> for U by <a href="mailto:jsp@ua.pt" class="text-decoration-none text-muted">jsp@ua.pt</a>.</div>
+            <div class="navbar-text">Made with <i class="fa fa-heart text-danger"></i> for <a href="mailto: jsp@ua.pt" class="text-decoration-none text-muted">JSP</a><a href="aboutUs.html" class="text-decoration-none text-muted"> by Abel Teixeira and Raquel Vinagre.</a></div>
             <div class="navbar-nav">
                 <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de Aveiro</a></div>
             </div>

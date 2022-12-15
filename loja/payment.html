@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Olympic Shop">
+    <title>ITW - Olympic Shop</title>
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png">
+    <meta name="viewport" content="width=device-width">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../loja/payment.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="img/png" href="../../Olympics_Demo/images/favicon-96x96.png" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="container" style="display: flex;">
+            <div class="navbar-brand">
+                <a href="../loja/shop.html"><img src="../../Olympics_Demo/loja/images/olympicShop.svg" height="40" /></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div style="padding-top: 100px;">
+            <form>
+                <div class="row border-top">
+                    <h3>Shipping address</h3>
+                    <div class="col-12 col-sm-6">
+                        <label for="mor"> Address</label>
+                        <input type="text" id="mor" name="morada">
+                    </div>
+                    <div class="col-12 col-sm-2">
+                        <label for="dist">District</label>
+                        <input type="text" id="dist" name="distrito">
+                    </div>
+                    <div class="col-12 col-sm-2">
+                        <label for="cid"> City</label>
+                        <input type="text" id="cid" name="cidade">
+                    </div>
+                    <div class="col-12 col-sm-2">
+                        <label for="cod"> Zip code</label>
+                        <input type="text" id="cod" name="código postal">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-6" style="padding-right: 100px;">
+                        <h3>Invoice data</h3>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="fname"> First Name</label>
+                                <input type="text" id="fname" name="firstname">
+                            </div>
+                            <div class="col-6">
+                                <label for="fname"> Surname</label>
+                                <input type="text" id="sname" name="surname">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <label>
+                                <input type="checkbox" checked="checked" name="sameadr"> Shipping address is the same of the card
+                            </label>
+                        </div>
+                        <div class="col-12">
+                            <label for="adr"> Address</label>
+                            <input type="text" id="adr" name="address">
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="dist">District</label>
+                                <input type="text" id="dist" name="distrito">
+                            </div>
+                            <div class="col-6">
+                                <label for="cid"> City</label>
+                                <input type="text" id="cid" name="cidade">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="cod"> Zip code</label>
+                                <input type="text" id="cod" name="código postal">
+                            </div>
+                            <div class="col-6"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="tlm"> Phone Number</label>
+                                <input type="text" id="tlm" name="telemovel">
+                            </div>
+                            <div class="col-6"></div>
+                        </div>
+                        <div class="col-12">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email">
+                        </div>
+                        <div class="col-12">
+                            <label for="coment">More Info</label>
+                            <input type="text" id="coment" name="comment" style="height: 150px;">
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6">
+                        <h3>Payment</h3>
+                        <label for="fname">Select Payment Method</label>
+                        <div class="row" style="margin-bottom: 20px;">
+                            <div class="col-3">
+                                <label>
+                                    <input type="radio" name="test" value="small" checked>
+                                    <img src="../../Olympics_Demo/loja/images/mastercard-logo.png" alt="Option 1">
+                                </label>
+                            </div>
+                            <div class="col-3">
+                                <label>
+                                    <input type="radio" name="test" value="small" checked>
+                                    <img src="../../Olympics_Demo/loja/images/logo-visa.svg" alt="Option 1">
+                                </label>
+                            </div>
+                            <div class="col-3">
+                                <label>
+                                    <input type="radio" name="test" value="small" checked>
+                                    <img src="../../Olympics_Demo/loja/images/mb-way-logo.webp" alt="Option 1">
+                                </label>
+                            </div>
+                            <div class="col-3">
+                                <label>
+                                    <input type="radio" name="test" value="small" checked>
+                                    <img src="../../Olympics_Demo/loja/images/paypal-logo.webp" alt="Option 1">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="cname">Card Name</label>
+                                <input type="text" id="cname" name="cardname">
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="ccnum">Card Number</label>
+                                <input type="text" id="ccnum" name="cardnumber">
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <label for="exp">Expire date</label>
+                                        <input type="text" id="exp" name="exp">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" id="cvv" name="cvv">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4"></div>
+                        </div>
+                        <div class="col-12">
+                            <div class="container">
+                                <h4>
+                                    Cart
+                                    <span class="price" style="color:black">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <b>0</b>
+                                    </span>
+                                </h4>
+                                <p>Product 1 <span class="price">0.00€</span></p>
+                                <p>Product 2 <span class="price">0.00€</span></p>
+                                <p>Product 3 <span class="price">0.00€</span></p>
+                                <p>Product 4 <span class="price">0.00€</span></p>
+                                <hr>
+                                <p>Total <span class="price" style="color:black"><b>0.00€</b></span></p>
+                            </div>
+                        </div>
+                        <a href="../loja/shop.html" class="btn btn-primary col-12">Finish</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <footer id="footercontent" style="margin-top:50px;" class="footer-wrapper ">
+            <div class="container-fluid no-padding ct-modal-dialog-secondary-grey1 ct-font--opensans-book">
+                <div class="ct-container">
+                    <div class="row no-gutters footer-container ct-container--px-70">
+                        <div class="col-12 col-md-3 pl-0 footer-component-wrapper">
+                            <div class="d-flex flex-column">
+                                <span class="footer-payment-methods-title">
+                                    Payment methods
+                                </span>
+                                <div class="content-asset">
+                                    <ul class="footer-payment-icons-list">
+                                        <li class="footer-icon mb-2">
+                                            <img class="master-card-icon lazyloaded" loading="lazy" alt="MasterCard"
+                                                 title="Pay with MasterCard" src="../loja/images/mastercard-logo.png"
+                                                 height="23">
+                                        </li>
+                                        <li class="footer-icon mb-2">
+                                            <img class="visa-card-icon" alt="Visa" loading="lazy"
+                                                 src="../loja/images/logo-visa.svg" title="Pay with Visa" height="23">
+                                        </li>
+                                        <li class="footer-icon mb-2">
+                                            <img class="mbway-card-icon lazyloaded" loading="lazy" alt="MBWay"
+                                                 title="Pay with MBWay" src="../loja/images/mb-way-logo.webp" height="23">
+                                        </li>
+                                        <li class="footer-icon">
+                                            <img class="paypal-card-icon lazyloaded" loading="lazy" alt="PayPal"
+                                                 title="Pay with PayPal" src="../loja/images/paypal-logo.webp" height="23">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <div class="content-asset">
+                                <div class="footer-links-title"><span class="title ct-h4">Online Shop</span></div>
+                                <ul class="ct-menu-list">
+                                    <li class="ct-footer-link"><a href="#" title="Go to Help">Help</a></li>
+                                    <li class="ct-footer-link"><a href="#" title="Go to Service Policy">Service Policy</a></li>
+                                    <li class="ct-footer-link">
+                                        <a href="#"
+                                           title="Go to Privacy Policy">Privacy Policy</a>
+                                    </li>
+                                    <li class="ct-footer-link">
+                                        <a href="#" title="Go to Cookies">Cookies Policy</a>
+                                    </li>
+                                    <li class="ct-footer-link">
+                                        <a href="#" title="Go to Site Map">Site Map</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <div class="content-asset">
+                                <div class="footer-links-title"><span class="title ct-h4">Institution</span></div>
+                                <ul class="ct-menu-list">
+                                    <li class="ct-footer-link"><a href="#" target="_top" title="Stores">Stores</a></li>
+                                    <li class="ct-footer-link">
+                                        <a href="#" target="_blank"
+                                           title="Go to Jobs">Find a Job</a>
+                                    </li>
+                                    <li class="ct-footer-link">
+                                        <a href="#" title="Security"
+                                           target="_blank">Security</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <div class="footer-links-title"><span class="title ct-h4">Contacts</span></div>
+                            <ul class="ct-menu-list">
+                                <li class="ct-footer-link">Cell: <a href="#">222 444 666</a> </br><small>(National Call only)</small></li>
+                                <li class="ct-footer-link">Email: <a href="#">example@gmail.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-md-2">
+                            <div class="footer-links-title">
+                                <span class="title ct-h4">Follow Us</span>
+                                <ul class="" style="margin-top: 20px;">
+                                    <li class="footer-social-icon">
+                                        <a href="https://www.facebook.com/jogosolimpicospt/" target="_blank" rel="noopener"
+                                           class="ct-tooltip-trigger footer-social-icon--link" aria-label="Facebook"
+                                           data-toggle="tooltip" data-placement="right" title="">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="footer-social-icon">
+                                        <a href="https://www.instagram.com/jogosolimpicos/" target="_blank" rel="noopener"
+                                           class="ct-tooltip-trigger footer-social-icon--link" aria-label="Instagram"
+                                           data-toggle="tooltip" data-placement="right" title="">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li class="footer-social-icon">
+                                        <a href="https://www.youtube.com/@Olympics" target="_blank" rel="noopener"
+                                           class="ct-tooltip-trigger footer-social-icon--link" aria-label="Youtube"
+                                           data-toggle="tooltip" data-placement="right" title="">
+                                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center">
+                © 2022 OlympicShop, All rights reserved
+            </div>
+        </footer>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script> <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="shop.js"></script>
+</body>
+
+</html>

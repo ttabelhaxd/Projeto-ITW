@@ -1,6 +1,6 @@
 ﻿body {
     font-family: 'Open Sans', sans-serif;
-    margin: 0px;
+    margin: 0 0 60px 0;
 }
 
 /* button default
@@ -39,7 +39,7 @@ li.page-item a {
 
 /*border cards
 -------------------------*/
-.box{
+.box {
     position: relative;
     width: 400px;
     height: 400px;
@@ -49,43 +49,46 @@ li.page-item a {
     overflow: hidden;
 }
 
-.box::before{
-    content: "";
-    position: absolute;
-    width: 550px;
-    height: 600px;
-    background-image: conic-gradient(transparent,transparent,transparent, #00ffad);
-    animation: rotate 4s linear infinite;
-}
 
-.box::after{
-    content: "";
-    position: absolute;
-    width: 550px;
-    height: 600px;
-    background-image: conic-gradient(transparent,transparent,transparent, #0063cc);
-    animation: rotate 4s linear infinite;
-    animation-delay: -2s;
-}
+    .box::before {
+        content: "";
+        position: absolute;
+        width: 550px;
+        height: 600px;
+        background-image: conic-gradient(transparent,transparent,transparent, #00ffad);
+        animation: rotate 4s linear infinite;
+    }
 
-.box span{
-    position: absolute;
-    inset: 10px;
-    border-radius: 16px;
-    background-image: url(/images/abel.jpg);
-    z-index: 2;
-}
+    .box::after {
+        content: "";
+        position: absolute;
+        width: 550px;
+        height: 600px;
+        background-image: conic-gradient(transparent,transparent,transparent, #0063cc);
+        animation: rotate 4s linear infinite;
+        animation-delay: -2s;
+    }
+
+    .box span {
+        position: absolute;
+        inset: 10px;
+        border-radius: 16px;
+        background-image: url(images/abel.jpg);
+        z-index: 2;
+    }
 
 @keyframes rotate {
-    0%{
+    0% {
         transform: rotate(0deg);
     }
-    100%{
+
+    100% {
         transform: rotate(360deg);
     }
 }
 
-.box1{
+
+.box1 {
     position: relative;
     width: 400px;
     height: 400px;
@@ -95,158 +98,29 @@ li.page-item a {
     overflow: hidden;
 }
 
-.box1::before{
-    content: "";
-    position: absolute;
-    width: 550px;
-    height: 600px;
-    background-image: conic-gradient(transparent,transparent,transparent, rgb(255, 242, 0));
-    animation: rotate 4s linear infinite;
-}
-
-.box1::after{
-    content: "";
-    position: absolute;
-    width: 550px;
-    height: 600px;
-    background-image: conic-gradient(transparent,transparent,transparent, #ff0000);
-    animation: rotate 4s linear infinite;
-    animation-delay: -2s;
-}
-
-.box1 span{
-    position: absolute;
-    inset: 10px;
-    border-radius: 16px;
-    background-image: url(/images/raquel.jpg);
-    z-index: 2;
-}
-
-/* css shop footer*/
-.svgbg-icon-facebook, .svgbg-icon-instagram, .svgbg-icon-youtube {
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    height: 20px;
-}
-.svgbg-icon-facebook {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMSAyMCI+PHBhdGggZmlsbD0iI0VCMDIwMyIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMy42OSAyMGMtLjUxNyAwLS45NC0uNDM1LS45NC0uOTd2LTcuMjI0SC45NGMtLjUxOCAwLS45NC0uNDM2LS45NC0uOTdWNy43NGMwLS41MzUuNDIyLS45Ny45NC0uOTdoMS44MVY1LjIyYzAtMS41MzcuNDY4LTIuODQ1IDEuMzUzLTMuNzgyQzQuOTkyLjQ5OCA2LjIzMyAwIDcuNjk1IDBsMi4zNjcuMDA0Yy41MTcgMCAuOTM4LjQzNi45MzguOTd2Mi44NzRjMCAuNTM1LS40MjIuOTctLjk0Ljk3bC0xLjU5My4wMDFjLS40ODYgMC0uNjEuMS0uNjM3LjEzMS0uMDQzLjA1Mi0uMDk1LjE5Ni0uMDk1LjU5NVY2Ljc3SDkuOTRjLjE2NiAwIC4zMjcuMDQyLjQ2Ni4xMjJhLjk4Ljk4IDAgMDEuNDgzLjg0OHYzLjA5NmMwIC41MzQtLjQyMy45Ny0uOTQxLjk3SDcuNzM1djcuMjI0YzAgLjUzNS0uNDIyLjk3LS45NC45N0gzLjY5em0uMTk3LTEuMTcyaDIuNzExVjExLjI4YS42NC42NCAwIDAxLjYyOC0uNjQ4aDIuNTI2di0yLjY5SDcuMjI3YS42MzkuNjM5IDAgMDEtLjYyOC0uNjQ4di0xLjc1YzAtLjQ1OC4wNDYtLjk3OS4zOC0xLjM3LjQwNS0uNDc0IDEuMDQzLS41MjggMS40ODgtLjUyOGwxLjM5OC0uMDAxdi0yLjQ3bC0yLjE3LS4wMDRjLTIuMzQ4IDAtMy44MDcgMS41NTEtMy44MDcgNC4wNDh2Mi4wNzVhLjYzOS42MzkgMCAwMS0uNjI4LjY0N0gxLjEzNnYyLjY5MUgzLjI2Yy4zNDYgMCAuNjI4LjI5LjYyOC42NDh2Ny41NDd6Ii8+PC9zdmc+);
-    width: 11px;
-}
-.svgbg-icon-instagram {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCI+PHBhdGggZmlsbD0iI0VCMDIwMyIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNMTQuNDggMEE1LjUyNiA1LjUyNiAwIDAxMjAgNS41MnY4Ljk2QTUuNTI2IDUuNTI2IDAgMDExNC40OCAyMEg1LjUyQTUuNTI1IDUuNTI1IDAgMDEwIDE0LjQ4VjUuNTJBNS41MjYgNS41MjYgMCAwMTUuNTIgMHptMCAxLjc3NEg1LjUyQTMuNzQ5IDMuNzQ5IDAgMDAxLjc3MyA1LjUydjguOTYyYTMuNzQ5IDMuNzQ5IDAgMDAzLjc0NSAzLjc0NWg4Ljk2MmEzLjc1IDMuNzUgMCAwMDMuNzQ1LTMuNzQ1VjUuNTE5YTMuNzUgMy43NSAwIDAwLTMuNzQ1LTMuNzQ1ek0xMCA0Ljg0N0E1LjE2IDUuMTYgMCAwMTE1LjE1MyAxMCA1LjE2IDUuMTYgMCAwMTEwIDE1LjE1MyA1LjE2IDUuMTYgMCAwMTQuODQ3IDEwIDUuMTYgNS4xNiAwIDAxMTAgNC44NDd6bTAgMS43NzRhMy4zODMgMy4zODMgMCAwMC0zLjM3OSAzLjM4QTMuMzgzIDMuMzgzIDAgMDAxMCAxMy4zNzggMy4zODMgMy4zODMgMCAwMDEzLjM3OSAxMCAzLjM4MyAzLjM4MyAwIDAwMTAgNi42MjF6bTUuMzctMy4yNzlhMS4zMDMgMS4zMDMgMCAwMTAgMi42MDNjLS4zNDIgMC0uNjc4LS4xNC0uOTItLjM4MWExLjMxMiAxLjMxMiAwIDAxLS4zODItLjkyIDEuMzA2IDEuMzA2IDAgMDExLjMwMS0xLjMwMXoiLz48L3N2Zz4=);
-    width: 20px;
-}
-.svgbg-icon-youtube {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNSAxOSI+PHBhdGggZmlsbD0iI0VCMDIwMyIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNNC4yNjcuNTE0YzQuODQ5LS42ODUgMTEuNjItLjY4NSAxNi40NjYgMCAxLjk0LjI3MyAzLjQ2OCAxLjcyMiAzLjgwMSAzLjYwMy42MjEgMy40OTIuNjIxIDYuNjA3IDAgMTAuMDk5LS4zMzUgMS44ODItMS44NjIgMy4zMy0zLjggMy42MDQtMi40Mi4zNDMtNS4zMi41MTMtOC4yMjMuNTEzLTIuOTA3IDAtNS44MTUtLjE3MS04LjI0NC0uNTE0LTEuOTQtLjI3NC0zLjQ2OC0xLjcyMi0zLjgwMS0zLjYwNC0uNjIxLTMuNDkxLS42MjEtNi42MDUgMC0xMC4wOTcuMzMzLTEuODgyIDEuODYxLTMuMzMgMy44LTMuNjA0em04LjIzMi45NzFjLTIuODIyIDAtNS42NDYuMTY3LTguMDAyLjQ5OWEyLjkzIDIuOTMgMCAwMC0yLjQ5MiAyLjM4Yy0uNTk4IDMuMzY3LS41OTggNi4yMzkgMCA5LjYwM2EyLjkyOCAyLjkyOCAwIDAwMi40OSAyLjM4YzQuNzIuNjY3IDExLjMwMy42NjcgMTYuMDEuMDAyYTIuOTI4IDIuOTI4IDAgMDAyLjQ4OS0yLjM4MWMuNTk4LTMuMzY1LjU5OC02LjIzNyAwLTkuNjAzYTIuOTI4IDIuOTI4IDAgMDAtMi40OS0yLjM4MWMtMi4zNTctLjMzMi01LjE4MS0uNDk5LTguMDA1LS40OTl6TTEwIDUuNzM1YzAtLjU3LjU3Ni0uOTIyIDEuMDI2LS42M2w1LjMxIDMuNDM1Yy40NC4yODcuNDQxLjk3OSAwIDEuMjY0bC01LjMxIDMuNDI2Yy0uNDQ5LjI4OC0xLjAyNi0uMDU5LTEuMDI2LS42MzJ6bTEuMzU3IDEuMjk2djQuMjc0bDMuMzA3LTIuMTM0LTMuMzA3LTIuMTR6Ii8+PC9zdmc+);
-    background-size: contain;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    width: 25px;
-    height: 19px;
-}
-.footer-social-icon {
-    margin-right: 1.875rem;
-}
-.footer-component-wrapper .footer-icon {
-    margin-right: 1.875rem;
-}
-a, a:hover {
-    color: #32312d;
-}
-a {
-    text-decoration: none;
-    background-color: transparent;
-    outline: none
-}
-input[type=text],
-input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-.button1 {
-    background-color: #0704aa;
-    color: white;
-    padding: 5px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
-}
-
-span.psw {
-    float: right;
-    padding-top: 16px;
-}
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 60px;
-}
-.modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto;
-    border: 1px solid #888;
-    width: 80%;
-}
-.close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-}
-.close:hover,
-.close:focus {
-    color: red;
-    cursor: pointer;
-}
-.animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-}
-@-webkit-keyframes animatezoom {
-    from {
-        -webkit-transform: scale(0)
+    .box1::before {
+        content: "";
+        position: absolute;
+        width: 550px;
+        height: 600px;
+        background-image: conic-gradient(transparent,transparent,transparent, rgb(255, 242, 0));
+        animation: rotate 4s linear infinite;
     }
-    to {
-        -webkit-transform: scale(1)
-    }
-}
-@keyframes animatezoom {
-    from {
-        transform: scale(0)
-    }
-    to {
-        transform: scale(1)
-    }
-}
 
-  /* Add a blue text color to links */
-  a {
-    color: dodgerblue;
-  }
-  
-  /* Set a grey background color and center the text of the "sign in" section */
-  .signin {
-    background-color: #f1f1f1;
-    text-align: center;
-  }
+    .box1::after {
+        content: "";
+        position: absolute;
+        width: 550px;
+        height: 600px;
+        background-image: conic-gradient(transparent,transparent,transparent, #ff0000);
+        animation: rotate 4s linear infinite;
+        animation-delay: -2s;
+    }
+
+    .box1 span {
+        position: absolute;
+        inset: 10px;
+        border-radius: 16px;
+        background-image: url(images/raquel.jpg);
+        z-index: 2;
+    }
