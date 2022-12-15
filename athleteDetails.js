@@ -1,10 +1,10 @@
-﻿// ViewModel KnockOut
+// ViewModel KnockOut
 var vm = function () {
     console.log('ViewModel initiated...');
     //---Variáveis locais
     var self = this;
-    self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/Athletes/');
-    self.displayName = 'Olympic Athletes Details';
+    self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/athletes/');
+    self.displayName = 'Athlete Full Details';
     self.error = ko.observable('');
     self.passingMessage = ko.observable('');
     //--- Data Record
@@ -12,29 +12,30 @@ var vm = function () {
     self.Name = ko.observable('');
     self.Sex = ko.observable('');
     self.Height = ko.observable('');
-    self.Weight = ko.observable('')
-    self.BornDate = ko.observable('')
-    self.BornPlace = ko.observable('')
-    self.DiedDate = ko.observable('')
-    self.DiedPlace = ko.observable('')
+    self.Weight = ko.observable('');
+    self.BornDate = ko.observable('');
+    self.BornPlace = ko.observable('');
+    self.DiedDate = ko.observable('');
+    self.DiedPlace = ko.observable('');
     self.Photo = ko.observable('');
     self.OlympediaLink = ko.observable('');
+    self.Url = ko.observable('');
 
     //--- Page Events
     self.activate = function (id) {
-        console.log('CALL: getGame...');
+        console.log('CALL: getAthlete...');
         var composedUri = self.baseUri() + id;
         ajaxHelper(composedUri, 'GET').done(function (data) {
             console.log(data);
             hideLoading();
             self.Id(data.Id);
             self.Name(data.Name);
-            self.Sex(data.Sex); 
+            self.Sex(data.Sex);
             self.Height(data.Height);
             self.Weight(data.Weight);
-            self.BornDate(data.Borndate);
+            self.BornDate(data.BornDate);
             self.BornPlace(data.BornPlace);
-            self.DiedDate(data.Borndate);
+            self.DiedDate(data.DiedDate);
             self.DiedPlace(data.DiedPlace);
             self.Photo(data.Photo);
             self.OlympediaLink(data.OlympediaLink);

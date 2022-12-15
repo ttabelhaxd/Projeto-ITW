@@ -11,7 +11,7 @@ var vm = function () {
    self.Id = ko.observable('');
    self.Name = ko.observable('');
    self.Photo = ko.observable('');
-   self.Modalities= ko.observableArray([]);
+   self.Modalities = ko.observableArray([]);
    self.Url = ko.observable('');
 
    //--- Page Events

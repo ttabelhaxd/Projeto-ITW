@@ -3,21 +3,21 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="description" content="Produtos Alimentares">
-    <title>OlympicShop</title>
-    <link rel="icon" type="image/png" href="images/favicon-96x96.png">
+    <meta name="description" content="Olympic Shop">
+    <title>ITW - Olympic Shop</title>
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="myCSS.css" rel="stylesheet" />
-    <link href="payment.css" rel="stylesheet" />
+    <link href="../payment.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="img/png" href="../images/favicon-96x96.png" />
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <div class="container" style="display: flex;">
             <div class="navbar-brand">
-                <a href="/shop.html"><img src="/images/olympicShop.svg" height="40" /></a>
+                <a href="../shop.html"><img src="../images/olympicShop.svg" height="40" /></a>
             </div>
         </div>
     </nav>
@@ -58,11 +58,12 @@
                         </div>
                         <div class="col-12">
                             <label>
-                                <input type="checkbox" checked="checked" name="sameadr" > Shipping address is the same of the card                            </label>
+                                <input type="checkbox" checked="checked" name="sameadr"> Shipping address is the same of the card
+                            </label>
                         </div>
                         <div class="col-12">
                             <label for="adr"> Address</label>
-                            <input type="text" id="adr" name="address" >
+                            <input type="text" id="adr" name="address">
                         </div>
                         <div class="row">
                             <div class="col-6">
@@ -105,25 +106,25 @@
                             <div class="col-3">
                                 <label>
                                     <input type="radio" name="test" value="small" checked>
-                                    <img src="images/mastercard-logo.png" alt="Option 1">
+                                    <img src="../images/mastercard-logo.png" alt="Option 1">
                                 </label>
                             </div>
                             <div class="col-3">
                                 <label>
                                     <input type="radio" name="test" value="small" checked>
-                                    <img src="/images/logo-visa.svg" alt="Option 1">
+                                    <img src="../images/logo-visa.svg" alt="Option 1">
                                 </label>
                             </div>
                             <div class="col-3">
                                 <label>
                                     <input type="radio" name="test" value="small" checked>
-                                    <img src="/images/mb-way-logo.webp" alt="Option 1">
+                                    <img src="../images/mb-way-logo.webp" alt="Option 1">
                                 </label>
                             </div>
                             <div class="col-3">
                                 <label>
                                     <input type="radio" name="test" value="small" checked>
-                                    <img src="/images/paypal-logo.webp" alt="Option 1">
+                                    <img src="../images/paypal-logo.webp" alt="Option 1">
                                 </label>
                             </div>
                         </div>
@@ -138,7 +139,7 @@
                         <div class="row">
                             <div class="col-8">
                                 <label for="ccnum">Card Number</label>
-                                <input type="text" id="ccnum" name="cardnumber" >
+                                <input type="text" id="ccnum" name="cardnumber">
                             </div>
                             <div class="col-4"></div>
                         </div>
@@ -147,11 +148,11 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <label for="exp">Expire date</label>
-                                        <input type="text" id="exp" name="exp" >
+                                        <input type="text" id="exp" name="exp">
                                     </div>
                                     <div class="col-6">
                                         <label for="cvv">CVV</label>
-                                    <input type="text" id="cvv" name="cvv">
+                                        <input type="text" id="cvv" name="cvv">
                                     </div>
                                 </div>
                             </div>
@@ -159,7 +160,8 @@
                         </div>
                         <div class="col-12">
                             <div class="container">
-                                <h4>Cart
+                                <h4>
+                                    Cart
                                     <span class="price" style="color:black">
                                         <i class="fa fa-shopping-cart"></i>
                                         <b>0</b>
@@ -172,13 +174,13 @@
                                 <hr>
                                 <p>Total <span class="price" style="color:black"><b>0.00€</b></span></p>
                             </div>
-                        </div>     
-                        <a href="/shop.html" class="btn btn-primary col-12">Finish</a>
+                        </div>
+                        <a href="../shop.html" class="btn btn-primary col-12">Finish</a>
                     </div>
                 </div>
             </form>
         </div>
-        <footer id="footercontent" style="margin-top:50px;" class="footer-wrapper">
+        <footer id="footercontent" style="margin-top:50px;" class="footer-wrapper ">
             <div class="container-fluid no-padding ct-modal-dialog-secondary-grey1 ct-font--opensans-book">
                 <div class="ct-container">
                     <div class="row no-gutters footer-container ct-container--px-70">
@@ -188,23 +190,23 @@
                                     Payment methods
                                 </span>
                                 <div class="content-asset">
-                                    <ul class="d-flex flex-row footer-payment-icons-list">
-                                        <li class="footer-icon">
+                                    <ul class="footer-payment-icons-list">
+                                        <li class="footer-icon mb-2">
                                             <img class="master-card-icon lazyloaded" loading="lazy" alt="MasterCard"
-                                                title="Pay with MasterCard" src="/images/mastercard-logo.png"
-                                                height="23">
+                                                 title="Pay with MasterCard" src="../images/mastercard-logo.png"
+                                                 height="23">
                                         </li>
-                                        <li class="footer-icon">
+                                        <li class="footer-icon mb-2">
                                             <img class="visa-card-icon" alt="Visa" loading="lazy"
-                                                src="/images/logo-visa.svg" title="Pay with Visa" height="23">
+                                                 src="../images/logo-visa.svg" title="Pay with Visa" height="23">
                                         </li>
-                                        <li class="footer-icon">
+                                        <li class="footer-icon mb-2">
                                             <img class="mbway-card-icon lazyloaded" loading="lazy" alt="MBWay"
-                                                title="Pay with MBWay" src="/images/mb-way-logo.webp" height="23">
+                                                 title="Pay with MBWay" src="../images/mb-way-logo.webp" height="23">
                                         </li>
                                         <li class="footer-icon">
                                             <img class="paypal-card-icon lazyloaded" loading="lazy" alt="PayPal"
-                                                title="Pay with PayPal" src="/images/paypal-logo.webp" height="23">
+                                                 title="Pay with PayPal" src="../images/paypal-logo.webp" height="23">
                                         </li>
                                     </ul>
                                 </div>
@@ -216,11 +218,15 @@
                                 <ul class="ct-menu-list">
                                     <li class="ct-footer-link"><a href="#" title="Go to Help">Help</a></li>
                                     <li class="ct-footer-link"><a href="#" title="Go to Service Policy">Service Policy</a></li>
-                                    <li class="ct-footer-link"><a href="#"
-                                            title="Go to Privacy Policy">Privacy Policy</a></li>
-                                    <li class="ct-footer-link"><a href="#" title="Go to Cookies">Cookies Policy</a>
+                                    <li class="ct-footer-link">
+                                        <a href="#"
+                                           title="Go to Privacy Policy">Privacy Policy</a>
                                     </li>
-                                    <li class="ct-footer-link"><a href="#" title="Go to Site Map">Site Map</a>
+                                    <li class="ct-footer-link">
+                                        <a href="#" title="Go to Cookies">Cookies Policy</a>
+                                    </li>
+                                    <li class="ct-footer-link">
+                                        <a href="#" title="Go to Site Map">Site Map</a>
                                     </li>
                                 </ul>
                             </div>
@@ -230,10 +236,14 @@
                                 <div class="footer-links-title"><span class="title ct-h4">Institution</span></div>
                                 <ul class="ct-menu-list">
                                     <li class="ct-footer-link"><a href="#" target="_top" title="Stores">Stores</a></li>
-                                    <li class="ct-footer-link"><a href="#" target="_blank"
-                                            title="Go to Jobs">Find a Job</a></li>
-                                    <li class="ct-footer-link"><a href="#" title="Security"
-                                            target="_blank">Security</a></li>
+                                    <li class="ct-footer-link">
+                                        <a href="#" target="_blank"
+                                           title="Go to Jobs">Find a Job</a>
+                                    </li>
+                                    <li class="ct-footer-link">
+                                        <a href="#" title="Security"
+                                           target="_blank">Security</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -245,25 +255,29 @@
                             </ul>
                         </div>
                         <div class="col-12 col-md-2">
-                            <div class="footer-links-title"><span class="title ct-h4">Follow Us</span>
-                                <ul class="d-flex flex-row mb-0" style="margin-top: 20px;">
+                            <div class="footer-links-title">
+                                <span class="title ct-h4">Follow Us</span>
+                                <ul class="" style="margin-top: 20px;">
                                     <li class="footer-social-icon">
                                         <a href="https://www.facebook.com/jogosolimpicospt/" target="_blank" rel="noopener"
-                                            class="ct-tooltip-trigger footer-social-icon--link" aria-label="Facebook"
-                                            data-toggle="tooltip" data-placement="right" title=""><span
-                                                class="d-inline-block svgbg-icon-facebook"></span></a>
+                                           class="ct-tooltip-trigger footer-social-icon--link" aria-label="Facebook"
+                                           data-toggle="tooltip" data-placement="right" title="">
+                                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        </a>
                                     </li>
                                     <li class="footer-social-icon">
                                         <a href="https://www.instagram.com/jogosolimpicos/" target="_blank" rel="noopener"
-                                            class="ct-tooltip-trigger footer-social-icon--link" aria-label="Instagram"
-                                            data-toggle="tooltip" data-placement="right" title=""><span
-                                                class="d-inline-block svgbg-icon-instagram"></span></a>
+                                           class="ct-tooltip-trigger footer-social-icon--link" aria-label="Instagram"
+                                           data-toggle="tooltip" data-placement="right" title="">
+                                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        </a>
                                     </li>
                                     <li class="footer-social-icon">
                                         <a href="https://www.youtube.com/@Olympics" target="_blank" rel="noopener"
-                                            class="ct-tooltip-trigger footer-social-icon--link" aria-label="Youtube"
-                                            data-toggle="tooltip" data-placement="right" title=""><span
-                                                class="d-inline-block svgbg-icon-youtube"></span></a>
+                                           class="ct-tooltip-trigger footer-social-icon--link" aria-label="Youtube"
+                                           data-toggle="tooltip" data-placement="right" title="">
+                                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -276,9 +290,9 @@
             </div>
         </footer>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="shop.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script> <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="shop.js"></script>
 </body>
 
 </html>

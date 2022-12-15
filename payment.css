@@ -1,29 +1,40 @@
 input[type=text] {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 span.price {
-  float: right;
-  color: grey;
+    float: right;
+    color: grey;
 }
 /* HIDE RADIO */
-[type=radio] { 
-position: absolute;
-opacity: 0;
-width: 0;
-height: 0;
+[type=radio] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-/* IMAGE STYLES */
-[type=radio] + img {
-cursor: pointer;
-}
+    /* IMAGE STYLES */
+    [type=radio] + img {
+        cursor: pointer;
+    }
 
-/* CHECKED STYLES */
-[type=radio]:checked + img {
-outline: 4px solid rgb(3, 250, 48);
-}
+    /* CHECKED STYLES */
+    [type=radio]:checked + img {
+        outline: 4px solid rgb(3, 250, 48);
+    }
+
+    a, a:hover {
+        color: #32312d;
+    }
+    
+    a {
+        text-decoration: none;
+        background-color: transparent;
+        outline: none;
+        color: dodgerblue;
+    }    

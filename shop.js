@@ -34,7 +34,7 @@ function calculate() {
 
 function valid() {
     if (precoTotal <= 0 && qtdTotal <= 0) {
-        alert("Erro o carrinho está vazio");
+        alert("Erro! O carrinho está vazio");
         return false;
     } else {
         return true
