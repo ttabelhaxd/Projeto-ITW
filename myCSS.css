@@ -268,7 +268,7 @@ span.psw {
     text-align: center;
 }
 
-.card:hover {
+.cardbig:hover {
     transform: scale(1.1);
     cursor: pointer
 }
@@ -300,7 +300,7 @@ blockquote:before {
 }
 
 blockquote:after {
-    content: "S" ;
+    content: "Q " ;
     position: absolute;
     top: 50%;
     left: -0.5em;
