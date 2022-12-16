@@ -1,6 +1,6 @@
 ﻿body {
     font-family: 'Open Sans', sans-serif;
-    margin: 0 0 60px 0;
+    margin: 0 0 0 0;
 }
 
 /* button default
@@ -266,4 +266,55 @@ span.psw {
 .signin {
     background-color: #f1f1f1;
     text-align: center;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    cursor: pointer
+}
+
+.blockquote {
+    border-left: 3px solid #d40000;
+    color: #1a1a1a;
+    font-family: Georgia, Times, "Times New Roman", serif;
+    font-size: 1.25em;
+    font-style: italic;
+    line-height: 1.8em;
+    margin: 1.1em -4em;
+    padding: 1em 2em;
+    position: relative;
+    transition: 0.2s border ease-in-out;
+    z-index: 0;
+    margin-left: 20px;
+}
+
+blockquote:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    height: 2em;
+    background-color: #fff;
+    width: 5px;
+    margin-top: -1em;
+}
+
+blockquote:after {
+    content: "S" ;
+    position: absolute;
+    top: 50%;
+    left: -0.5em;
+    color: #d40000;
+    font-family: "Ionicons";
+    font-style: normal;
+    line-height: 1em;
+    text-align: center;
+    text-indent: -2px;
+    width: 1em;
+    margin-top: -0.5em;
+    transition: 0.2s all ease-in-out, 0.4s transform ease-in-out;
+}
+
+.times {
+    font-family:'Times New Roman', Times, serif;
 }
