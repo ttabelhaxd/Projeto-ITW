@@ -12,6 +12,9 @@ var vm = function () {
     self.Name = ko.observable('');
     self.IOC = ko.observable('');
     self.Flag = ko.observable('');
+    self.Events = ko.observableArray([]);
+    self.Participant = ko.observableArray([]);
+    self.Organizer = ko.observableArray([]);
     self.Url = ko.observable('');
 
     //--- Page Events
@@ -25,6 +28,9 @@ var vm = function () {
             self.IOC(data.IOC);
             self.Name(data.Name);
             self.Flag(data.Flag);
+            self.Events = (data.Events);
+            self.Participant = (data.Participant);
+            self.Organizer = (data.Organizer);
         });
     };
 
