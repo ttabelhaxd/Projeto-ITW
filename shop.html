@@ -60,9 +60,15 @@
                             <i class="fa fa-bars"></i> More
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="history.html">History</a>
-                            <a class="dropdown-item" href="shop.html">Shop</a>
-                            <a class="dropdown-item" href="liveEvents.html">Live Events</a>
+                            <a class="dropdown-item" style="color:dimgray" href="history.html">
+                                <i class="fa fa-book " aria-hidden="true"></i> History
+                            </a>
+                            <a class="dropdown-item text-primary" style="color:dimgray" href="shop.html">
+                                <i class="fa fa-shopping-cart text-primary" aria-hidden="true"></i> Shop
+                            </a>
+                            <a class="dropdown-item text-danger" href="liveEvents.html">
+                                <i class="fa fa-circle text-danger" aria-hidden="true"></i> Live events
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -80,24 +86,18 @@
                                     <h1>Register</h1>
                                     <p>Fill the form to create an account.</p>
                                     <hr>
-
                                     <label for="email"><b>Email</b></label>
                                     <input type="text" name="email" id="email" required>
-
                                     <label for="psw"><b>Password</b></label>
                                     <input type="password" name="psw" id="psw" required>
-
                                     <label for="psw-repeat"><b>Repeat Password</b></label>
                                     <input type="password" name="psw-repeat" id="psw-repeat" required>
                                     <hr>
                                     <p>When creating an account, you accept our <a href="https://olympics.com/en/terms-of-service">Terms & Conditions</a>.</p>
 
-                                    <button type="submit" class="btn btn-primary col-12" style="margin-bottom: 15px;" onclick="document.getElementById('id02').style.display='none'"
-                                            title="Register">
-                                        Register
+                                    <button type="button" class="btn btn-primary col-12" style="margin-bottom: 15px;" onclick="document.getElementById('id02').style.display='none', document.getElementById('id04').style.display='block'"
+                                    title="Register">Register
                                     </button>
-
-
                                 </div>
                             </div>
                             <div class="container signin">
@@ -105,19 +105,18 @@
                                         style="margin-top: 15px" class="btn btn-danger">
                                     Cancel
                                 </button>
-                                <p>Already have an account? <a href="#">Login</a>.</p>
+                                <p>Already have an account? <a href="#" onclick="document.getElementById('id02').style.display='none', document.getElementById('id01').style.display='block'">Login</a>.</p>
                             </div>
                         </form>
                     </div>
                 </div>
+
                 <div>
                     <button class="btn btn-primary" onclick="document.getElementById('id01').style.display='block'"
                             style="width:fit-content;">
                         Login
                     </button>
-
                     <div id="id01" class="modal">
-
                         <form class="modal-content animate" method="post">
                             <div class="container" style="padding: 50px;">
                                 <div class="col-12 border-bottom">
@@ -152,22 +151,56 @@
                                             class="btn btn-danger">
                                         Cancel
                                     </button>
-                                    <p>Forgot your <a href="#">password</a>?</p>
+                                    <p>Forgot your <a href="#" onclick="document.getElementById('id01').style.display='none', document.getElementById('id03').style.display='block'">Password</a>?</p>
                                 </div>
 
                             </div>
                         </form>
                     </div>
                 </div>
-                <script>
-                    var modal = document.getElementById('id01');
-                    window.onclick = function (event) {
-                        if (event.target == modal) {
-                            modal.style.display = "none";
-                        }
-                    }
-                </script>
 
+                <div id="id03" class="modal">
+                    <form class="modal-content animate" method="post">
+                        <div class="container">
+                            <span onclick="document.getElementById('id03').style.display='none'" class="close"
+                                  title="Close Modal">&times;</span>
+                            <div class="container">
+                                <h1>Forgot your password?</h1>
+                                <p>Fill the form to recover your account.</p>
+                                <hr>
+
+                                <label for="email"><b>Email</b></label>
+                                <input type="text" name="email" id="email" required>
+
+                                <hr>
+                                <p>Check your email to recover your account.</p>
+
+                                <button type="button" class="btn btn-primary col-12" style="margin-bottom: 15px;" onclick="document.getElementById('id03').style.display='none'"
+                                        title="Send">
+                                    Send recovery email
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div id="id04" class="modal">
+                    <form class="modal-content animate" method="post">
+                        <div class="container">
+                            <span onclick="document.getElementById('id04').style.display='none'" class="close"
+                                  title="Close Modal">&times;</span>
+                            <div class="container signin">
+                                <h1>Register</h1>
+                                <img src="images/success.png" height="150px">
+                                <p>Registed with success!</p>
+                                <hr>
+                                <button type="button" class="btn btn-primary col-12" style="margin-bottom: 15px;" onclick="document.getElementById('id04').style.display='none'"
+                                        title="Close">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </nav>
