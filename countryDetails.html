@@ -32,12 +32,20 @@
                             <i class="fa fa-bars"></i> More
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="history.html">History</a>
-                            <a class="dropdown-item" href="shop.html">Shop</a>
-                            <a class="dropdown-item" href="liveEvents.html">Live events</a>
+                            <a class="dropdown-item" style="color:dimgray" href="history.html">
+                                <i class="fa fa-book " aria-hidden="true"></i> History
+                            </a>
+                            <a class="dropdown-item text" style="color:dimgray" href="shop.html">
+                                <i class="fa fa-shopping-cart " aria-hidden="true"></i> Shop
+                            </a>
+                            <a class="dropdown-item text-danger" href="liveEvents.html">
+                                <i class="fa fa-circle text-danger" aria-hidden="true"></i> Live events
+                            </a>
                         </div>
                     </li>
                 </ul>
+                <div class="nav-item "><a class="nav-link" aria-current="page" href="favourites.html"><i class="fa fa-heart text-danger me-3"></i>&nbsp</a></div>
+                <div class="nav-item "><a class="nav-link" aria-current="page" href="statistics.html"><i class="fa fa-bar-chart text-primary me-3"></i>&nbsp</a></div>
                 <div class="nav-item "><a class="nav-link" aria-current="page" href="aboutUs.html"><i class="fa fa-info-circle text-dark"></i> About us</a></div>
             </div>
         </div>
@@ -63,8 +71,23 @@
                 <i class="fa fa-link"></i> [<a class="link-dark text-decoration-none" data-bind="attr: { href: Flag }, text : Flag" target="_blank"></a>]
             </div>
         </div>
+        <div class="container">
+            <h2 class="mt-5 border-bottom">Events</h2>
+            <div class="d-flex flex-wrap " data-bind="foreach: Events">
+                <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i class="fa fa-map-marker" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
+            </div>
+            
+            <h2 class="mt-5 border-bottom">Participou</h2>
+            <div class="d-flex flex-wrap" data-bind="foreach: Participant">
+                <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
+            </div>
+
+            <h2 class="mt-5 border-bottom">Organizer</h2>
+            <div class="d-flex flex-wrap">
+            </div>
+        </div>
         <!-- /ko -->
-        <a href="./countries.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
+        <a href="countries.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -72,7 +95,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
-                        <img src="../images/Olympic_rings.svg" height="30" /> Loading data...
+                        <img src="images/Olympic_rings.svg" height="30" /> Loading data...
                     </h5>
                 </div>
                 <div class="modal-body text-center">
@@ -82,9 +105,9 @@
         </div>
     </div>
     <!-- End of Work Area -->
-    <nav class="navbar navbar-light bg-light ">
+    <nav class="navbar navbar-light bg-light">
         <div class="container small">
-            <div class="navbar-text">&copy;  Introdução as Tecnologias Web - 2022/23</div>
+            <div class="navbar-text">&copy; Introdução as Tecnologias Web - 2022/23</div>
             <div class="navbar-text">Made with <i class="fa fa-heart text-danger"></i> for <a href="mailto: jsp@ua.pt" class="text-decoration-none text-muted">JSP</a><a href="aboutUs.html" class="text-decoration-none text-muted"> by Abel Teixeira and Raquel Vinagre.</a></div>
             <div class="navbar-nav">
                 <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de Aveiro</a></div>

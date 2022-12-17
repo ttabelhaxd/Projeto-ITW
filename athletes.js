@@ -130,3 +130,13 @@ $(document).ready(function () {
 $(document).ajaxComplete(function (event, xhr, options) {
     $("#myModal").modal('hide');
 })
+
+ko.bindingHandlers.formatBestPosition = {
+    update: function(element, valueAccessor) {
+        const value = ko.unwrap(valueAccessor());
+
+        if (value > 3) return;
+
+        element.textContent = { 1: "🥇", 2: "🥈", 3: "🥉" }[value];
+    }
+};
