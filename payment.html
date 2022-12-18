@@ -14,171 +14,203 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-        <div class="container" style="display: flex;">
-            <div class="navbar-brand">
-                <a href="shop.html"><img src="images/olympicShop.svg" height="40" /></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html" tabindex="Olympics"><img src="images/olympicShop.svg" height="24" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="athletes.html"><i class="fa fa-user text-primary"></i> Athletes</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="competitions.html"><i class="fa fa-trophy text-warning"></i> Competitions</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="countries.html"><i class=" fa fa-flag"></i> Countries</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="games.html"><i class="fa fa-map-marker text-success"></i> Games</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="modalities.html"><i class="fa fa-soccer-ball-o text-danger"></i> Modalities</a></li>
+                    <li class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-bars"></i> More
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" style="color:dimgray" href="history.html">
+                                <i class="fa fa-book " aria-hidden="true"></i> History
+                            </a>
+                            <a class="dropdown-item text-primary" style="color:dimgray" href="shop.html">
+                                <i class="fa fa-shopping-cart " aria-hidden="true"></i> Shop
+                            </a>
+                            <a class="dropdown-item text-danger" href="liveEvents.html">
+                                <i class="fa fa-circle text-danger" aria-hidden="true"></i> Live events
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="nav-item "><a class="nav-link" aria-current="page" href="favourites.html"><i class="fa fa-heart text-danger me-3"></i>&nbsp</a></div>
+                <div class="nav-item "><a class="nav-link" aria-current="page" href="statistics.html"><i class="fa fa-bar-chart text-primary me-3"></i>&nbsp</a></div>
+                <div class="nav-item "><a class="nav-link" aria-current="page" href="aboutUs.html"><i class="fa fa-info-circle text-dark"></i> About us</a></div>
             </div>
         </div>
     </nav>
     <div class="container">
-        <div style="padding-top: 100px;">
-            <form>
-                <div class="row border-top">
-                    <h3>Shipping address</h3>
-                    <div class="col-12 col-sm-6">
-                        <label for="mor"> Address</label>
-                        <input type="text" id="mor" name="morada">
-                    </div>
-                    <div class="col-12 col-sm-2">
-                        <label for="dist">District</label>
-                        <input type="text" id="dist" name="distrito">
-                    </div>
-                    <div class="col-12 col-sm-2">
-                        <label for="cid"> City</label>
-                        <input type="text" id="cid" name="cidade">
-                    </div>
-                    <div class="col-12 col-sm-2">
-                        <label for="cod"> Zip code</label>
-                        <input type="text" id="cod" name="código postal">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-sm-6" style="padding-right: 100px;">
-                        <h3>Invoice data</h3>
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="fname"> First Name</label>
-                                <input type="text" id="fname" name="firstname">
-                            </div>
-                            <div class="col-6">
-                                <label for="fname"> Surname</label>
-                                <input type="text" id="sname" name="surname">
-                            </div>
+        <h2 class="mb-2 mt-3">Payment</h2>
+        <div class="mt-4 mb-4 border-top">
+            <div class="container bg-light mt-4">
+                <form>
+                    <div class="row">
+                        <h3>Shipping address</h3>
+                        <div class="col-12 col-sm-6">
+                            <label for="mor"> Address</label>
+                            <input type="text" id="mor" name="morada">
                         </div>
-                        <div class="col-12">
-                            <label>
-                                <input type="checkbox" checked="checked" name="sameadr"> Shipping address is the same of the card
-                            </label>
+                        <div class="col-12 col-sm-2">
+                            <label for="dist">District</label>
+                            <input type="text" id="dist" name="distrito">
                         </div>
-                        <div class="col-12">
-                            <label for="adr"> Address</label>
-                            <input type="text" id="adr" name="address">
+                        <div class="col-12 col-sm-2">
+                            <label for="cid"> City</label>
+                            <input type="text" id="cid" name="cidade">
                         </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="dist">District</label>
-                                <input type="text" id="dist" name="distrito">
-                            </div>
-                            <div class="col-6">
-                                <label for="cid"> City</label>
-                                <input type="text" id="cid" name="cidade">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="cod"> Zip code</label>
-                                <input type="text" id="cod" name="código postal">
-                            </div>
-                            <div class="col-6"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6">
-                                <label for="tlm"> Phone Number</label>
-                                <input type="text" id="tlm" name="telemovel">
-                            </div>
-                            <div class="col-6"></div>
-                        </div>
-                        <div class="col-12">
-                            <label for="email">Email</label>
-                            <input type="text" id="email" name="email">
-                        </div>
-                        <div class="col-12">
-                            <label for="coment">More Info</label>
-                            <input type="text" id="coment" name="comment" style="height: 150px;">
+                        <div class="col-12 col-sm-2">
+                            <label for="cod"> Zip code</label>
+                            <input type="text" id="cod" name="código postal">
                         </div>
                     </div>
-
-                    <div class="col-12 col-sm-6">
-                        <h3>Payment</h3>
-                        <label for="fname">Select Payment Method</label>
-                        <div class="row" style="margin-bottom: 20px;">
-                            <div class="col-3">
-                                <label>
-                                    <input type="radio" name="test" value="small" checked>
-                                    <img src="images/mastercard-logo.png" alt="Option 1">
-                                </label>
-                            </div>
-                            <div class="col-3">
-                                <label>
-                                    <input type="radio" name="test" value="small" checked>
-                                    <img src="images/logo-visa.svg" alt="Option 1">
-                                </label>
-                            </div>
-                            <div class="col-3">
-                                <label>
-                                    <input type="radio" name="test" value="small" checked>
-                                    <img src="images/mb-way-logo.webp" alt="Option 1">
-                                </label>
-                            </div>
-                            <div class="col-3">
-                                <label>
-                                    <input type="radio" name="test" value="small" checked>
-                                    <img src="images/paypal-logo.webp" alt="Option 1">
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-8">
-                                <label for="cname">Card Name</label>
-                                <input type="text" id="cname" name="cardname">
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <label for="ccnum">Card Number</label>
-                                <input type="text" id="ccnum" name="cardnumber">
-                            </div>
-                            <div class="col-4"></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <label for="exp">Expire date</label>
-                                        <input type="text" id="exp" name="exp">
-                                    </div>
-                                    <div class="col-6">
-                                        <label for="cvv">CVV</label>
-                                        <input type="text" id="cvv" name="cvv">
-                                    </div>
+                    <div class="row">
+                        <div class="col-12 col-sm-6" style="padding-right: 100px;">
+                            <h3>Invoice data</h3>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="fname"> First Name</label>
+                                    <input type="text" id="fname" name="firstname">
+                                </div>
+                                <div class="col-6">
+                                    <label for="fname"> Surname</label>
+                                    <input type="text" id="sname" name="surname">
                                 </div>
                             </div>
-                            <div class="col-4"></div>
-                        </div>
-                        <div class="col-12">
-                            <div class="container">
-                                <h4>
-                                    Cart
-                                    <span class="price" style="color:black">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <b>0</b>
-                                    </span>
-                                </h4>
-                                <p>Product 1 <span class="price">0.00€</span></p>
-                                <p>Product 2 <span class="price">0.00€</span></p>
-                                <p>Product 3 <span class="price">0.00€</span></p>
-                                <p>Product 4 <span class="price">0.00€</span></p>
-                                <hr>
-                                <p>Total <span class="form-control" id="total"title="Preço total da compra">0.00</span></p>
+                            <div class="col-12">
+                                <label>
+                                    <input type="checkbox" checked="checked" name="sameadr"> Shipping address is the same of the card
+                                </label>
+                            </div>
+                            <div class="col-12">
+                                <label for="adr"> Address</label>
+                                <input type="text" id="adr" name="address">
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="dist">District</label>
+                                    <input type="text" id="dist" name="distrito">
+                                </div>
+                                <div class="col-6">
+                                    <label for="cid"> City</label>
+                                    <input type="text" id="cid" name="cidade">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="cod"> Zip code</label>
+                                    <input type="text" id="cod" name="código postal">
+                                </div>
+                                <div class="col-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="tlm"> Phone Number</label>
+                                    <input type="text" id="tlm" name="telemovel">
+                                </div>
+                                <div class="col-6"></div>
+                            </div>
+                            <div class="col-12">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" name="email">
+                            </div>
+                            <div class="col-12">
+                                <label for="coment">More Info</label>
+                                <input type="text" id="coment" name="comment" style="height: 150px;">
                             </div>
                         </div>
-                        <a href="shop.html" class="btn btn-primary col-12">Finish</a>
+
+                        <div class="col-12 col-sm-6">
+                            <h3>Payment</h3>
+                            <label for="fname">Select Payment Method</label>
+                            <div class="row" style="margin-bottom: 20px;">
+                                <div class="col-3">
+                                    <label>
+                                        <input type="radio" name="test" value="small" checked>
+                                        <img src="images/mastercard-logo.png" alt="Option 1">
+                                    </label>
+                                </div>
+                                <div class="col-3">
+                                    <label>
+                                        <input type="radio" name="test" value="small" checked>
+                                        <img src="images/logo-visa.svg" alt="Option 1">
+                                    </label>
+                                </div>
+                                <div class="col-3">
+                                    <label>
+                                        <input type="radio" name="test" value="small" checked>
+                                        <img src="images/mb-way-logo.webp" alt="Option 1">
+                                    </label>
+                                </div>
+                                <div class="col-3">
+                                    <label>
+                                        <input type="radio" name="test" value="small" checked>
+                                        <img src="images/paypal-logo.webp" alt="Option 1">
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-8">
+                                    <label for="cname">Card Name</label>
+                                    <input type="text" id="cname" name="cardname">
+                                </div>
+                                <div class="col-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <label for="ccnum">Card Number</label>
+                                    <input type="text" id="ccnum" name="cardnumber">
+                                </div>
+                                <div class="col-4"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <label for="exp">Expire date</label>
+                                            <input type="text" id="exp" name="exp">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="cvv">CVV</label>
+                                            <input type="text" id="cvv" name="cvv">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4"></div>
+                            </div>
+                            <div class="col-12">
+                                <div class="container">
+                                    <h4>
+                                        Cart
+                                        <span class="price" style="color:black">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            <b>0</b>
+                                        </span>
+                                    </h4>
+                                    <p>Product 1 <span class="price">0.00€</span></p>
+                                    <p>Product 2 <span class="price">0.00€</span></p>
+                                    <p>Product 3 <span class="price">0.00€</span></p>
+                                    <p>Product 4 <span class="price">0.00€</span></p>
+                                    <hr>
+                                    <p>Total <span class="form-control" id="total" title="Preço total da compra">0.00</span></p>
+                                </div>
+                            </div>
+                            <a href="shop.html" class="btn btn-primary col-12">Finish</a>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
         <footer id="footercontent" style="margin-top:50px;" class="footer-wrapper ">
             <div class="container-fluid no-padding ct-modal-dialog-secondary-grey1 ct-font--opensans-book">
@@ -290,9 +322,19 @@
             </div>
         </footer>
     </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script> <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-<script src="shop.js"></script>
+    <nav class="navbar navbar-light bg-light ">
+        <div class="container small">
+            <div class="navbar-text">&copy;  Introdução as Tecnologias Web - 2022/23</div>
+            <div class="navbar-text">Made with <i class="fa fa-heart text-danger"></i> for <a href="mailto: jsp@ua.pt" class="text-decoration-none text-muted">JSP</a><a href="aboutUs.html" class="text-decoration-none text-muted"> by Abel Teixeira and Raquel Vinagre.</a></div>
+            <div class="navbar-nav">
+                <div class="nav-item text-end"><a href="https://www.ua.pt" class="nav-link">Universidade de Aveiro</a></div>
+            </div>
+        </div>
+    </nav>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="shop.js"></script>
 </body>
 
 </html>
