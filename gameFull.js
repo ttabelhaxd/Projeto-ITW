@@ -3,42 +3,44 @@ var vm = function () {
     console.log('ViewModel initiated...');
     //---Variáveis locais
     var self = this;
-    self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/athletes/');
+    self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/Games/FullDetails?id=');
     self.displayName = 'Athlete Full Details';
     self.error = ko.observable('');
     self.passingMessage = ko.observable('');
     //--- Data Record
     self.Id = ko.observable('');
+    self.CountryName = ko.observable('');
+    self.Logo = ko.observable('');
     self.Name = ko.observable('');
-    self.Sex = ko.observable('');
-    self.Height = ko.observable('');
-    self.Weight = ko.observable('');
-    self.BornDate = ko.observable('');
-    self.BornPlace = ko.observable('');
-    self.DiedDate = ko.observable('');
-    self.DiedPlace = ko.observable('');
     self.Photo = ko.observable('');
-    self.OlympediaLink = ko.observable('');
+    self.Season = ko.observable('');
+    self.Year = ko.observable('');
+    self.City = ko.observable('');
+    self.Athletes = ko.observableArray([]);
+    self.Competitions = ko.observableArray([]);
+    self.Modalities = ko.observableArray([]);
+    self.Medals = ko.observableArray([]);
     self.Url = ko.observable('');
 
     //--- Page Events
     self.activate = function (id) {
-        console.log('CALL: getAthlete...');
+        console.log('CALL: getfGame...');
         var composedUri = self.baseUri() + id;
         ajaxHelper(composedUri, 'GET').done(function (data) {
             console.log(data);
             hideLoading();
             self.Id(data.Id);
+            self.CountryName(data.CountryName);
+            self.Logo(data.Logo);
             self.Name(data.Name);
-            self.Sex(data.Sex);
-            self.Height(data.Height);
-            self.Weight(data.Weight);
-            self.BornDate(data.BornDate);
-            self.BornPlace(data.BornPlace);
-            self.DiedDate(data.DiedDate);
-            self.DiedPlace(data.DiedPlace);
             self.Photo(data.Photo);
-            self.OlympediaLink(data.OlympediaLink);
+            self.Season(data.Season);
+            self.Year(data.Year);
+            self.City(data.City);
+            self.Athletes(data.Athletes);
+            self.Competitions(data.Competitions);
+            self.Modalities(data.Modalities);
+            self.Medals(data.Medals);
         });
     };
 

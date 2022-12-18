@@ -83,7 +83,8 @@
             </div>
 
             <h2 class="mt-5 border-bottom">Organizer</h2>
-            <div class="d-flex flex-wrap">
+            <div class="d-flex flex-wrap" data-bind="foreach: Organizer">
+                <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
         </div>
         <!-- /ko -->
