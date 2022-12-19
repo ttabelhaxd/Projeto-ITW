@@ -30,13 +30,13 @@ function sleep(milliseconds) {
 }
 
 
-function removeFav(DriverId) {
+function removeFav(Id) {
     console.log("remove fav")
-    $("#fav-" + DriverId).remove();
+    $("#fav-" + Id).remove();
 
     let fav = JSON.parse(localStorage.fav || '[]');
 
-    const index = fav.indexOf(DriverId);
+    const index = fav.indexOf(Id);
 
     if (index != -1)
         fav.splice(index, 1);
@@ -56,7 +56,7 @@ $(document).ready(function () {
     for (const i of fav) {
         console.log(i);
 
-        ajaxHelper('http://192.168.160.58/Formula1/api/Drivers/Driver?id=' + i, 'GET').done(function (data) {
+        ajaxHelper('http://192.168.160.58/Olympics/api/Athletes/' + i, 'GET').done(function (data) {
             console.log(data)
             if (localStorage.fav.length != 0) {
                 console.log('bacalhau');
@@ -67,7 +67,8 @@ $(document).ready(function () {
                     `<tr id="fav-${i}">
                         <td class="align-middle">${i}</td>
                         <td class="align-middle">${data.Name}</td>
-                        <td class="align-middle">${data.Nationality}</td>
+                        <td class="align-middle">${data.Sex}</td>
+                        <td class="align-middle">${data.Photo}</td>
                         <td class="text-end">
                             <a class="btn btn-default btn-outline-danger btn-sm btn-favourite" onclick="removeFav(${i})"><i class="fa fa-heart" title="Selecione para remover dos favoritos"></i></a>
                         </td>
