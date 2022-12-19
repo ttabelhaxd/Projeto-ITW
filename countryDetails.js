@@ -28,9 +28,9 @@ var vm = function () {
             self.IOC(data.IOC);
             self.Name(data.Name);
             self.Flag(data.Flag);
-            self.Events = (data.Events);
-            self.Participant = (data.Participant);
-            self.Organizer = (data.Organizer);
+            self.Events(data.Events);
+            self.Participant(data.Participant);
+            self.Organizer(data.Organizer);
         });
     };
 

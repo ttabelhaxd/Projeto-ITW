@@ -140,3 +140,10 @@ ko.bindingHandlers.formatBestPosition = {
         element.textContent = { 1: "🥇", 2: "🥈", 3: "🥉" }[value];
     }
 };
+
+ko.bindingHandlers.formatSex = {
+    update: function(element, valueAccessor) {
+        const value = ko.unwrap(valueAccessor());
+        element.textContent = { M: "♂", F: "♀"}[value];
+    }
+};

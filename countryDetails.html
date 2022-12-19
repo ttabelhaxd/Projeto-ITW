@@ -72,12 +72,12 @@
             </div>
         </div>
         <div class="container">
-            <h2 class="mt-5 border-bottom">Events</h2>
+            <h2 class="mt-5 border-bottom">Events [<span data-bind="text: Events().length"></span>]</h2>
             <div class="d-flex flex-wrap " data-bind="foreach: Events">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i class="fa fa-map-marker" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
             
-            <h2 class="mt-5 border-bottom">Participou</h2>
+            <h2 class="mt-5 border-bottom">Participou [<span data-bind="text: Participant().length"></span>]</h2>
             <div class="d-flex flex-wrap" data-bind="foreach: Participant">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
