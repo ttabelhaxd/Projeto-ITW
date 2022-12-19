@@ -16,15 +16,15 @@ var vm = function () {
     self.Season = ko.observable('');
     self.Year = ko.observable('');
     self.City = ko.observable('');
-    
+
     self.Athletes = ko.observableArray([]);
     self.AthletesOpen = ko.observable(false);
-    self.AthletesToggle = function() {
+    self.AthletesToggle = function () {
         self.AthletesOpen(!self.AthletesOpen())
     }
     self.AthletesBig = ko.computed(() => self.Athletes().length > 50);
-    self.AthletesEntries = ko.computed(function() {
-        if(self.AthletesOpen())
+    self.AthletesEntries = ko.computed(function () {
+        if (self.AthletesOpen())
             return self.Athletes()
         else
             return self.Athletes().slice(0, 50);
@@ -32,12 +32,12 @@ var vm = function () {
 
     self.Competitions = ko.observableArray([]);
     self.CompetitionsOpen = ko.observable(false);
-    self.CompetitionsToggle = function() {
+    self.CompetitionsToggle = function () {
         self.CompetitionsOpen(!self.CompetitionsOpen())
     }
     self.CompetitionsBig = ko.computed(() => self.Competitions().length > 50);
-    self.CompetitionsEntries = ko.computed(function() {
-        if(self.CompetitionsOpen())
+    self.CompetitionsEntries = ko.computed(function () {
+        if (self.CompetitionsOpen())
             return self.Competitions()
         else
             return self.Competitions().slice(0, 50);
@@ -45,17 +45,17 @@ var vm = function () {
 
     self.Modalities = ko.observableArray([]);
     self.ModalitiesOpen = ko.observable(false);
-    self.ModalitiesToggle = function() {
+    self.ModalitiesToggle = function () {
         self.ModalitiesOpen(!self.ModalitiesOpen())
     }
     self.ModalitiesBig = ko.computed(() => self.Modalities().length > 50);
-    self.ModalitiesEntries = ko.computed(function() {
-        if(self.ModalitiesOpen())
+    self.ModalitiesEntries = ko.computed(function () {
+        if (self.ModalitiesOpen())
             return self.Modalities()
         else
             return self.Modalities().slice(0, 50);
     });
-    
+
     self.Medals = ko.observableArray([]);
     self.Url = ko.observable('');
 
@@ -145,4 +145,3 @@ $(document).ready(function () {
 $(document).ajaxComplete(function (event, xhr, options) {
     $("#myModal").modal('hide');
 })
-
