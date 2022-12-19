@@ -85,25 +85,28 @@
         </div>
         
         <div class="container">
-            <h2 class="mt-5 border-bottom">Modalidades<span data-bind="text: ' [' + Modalities().length +']'"></span></h2>
-            <div class="d-flex flex-wrap" data-bind="foreach: Modalities">
-                <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'modalityDetails.html?id=' + Id}"><i class="fa fa-futbol-o" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
-            </div>
-
-            <h2 class="mt-5 border-bottom">Competições<span data-bind="text: ' [' + Competitions().length +']'"></span></h2>
-            <div class="d-flex flex-wrap" data-bind="foreach: Competitions">
-                <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
-            </div>
-
             <h2 class="mt-5 border-bottom">Medalhas</h2>
             <div data-bind="foreach: Medals">
                 <a data-bind="text:Counter + ' ' + MedalName"></a></br>
             </div>
 
+            <h2 class="mt-5 border-bottom">Modalidades<span data-bind="text: ' [' + Modalities().length +']'"></span></h2>
+            <div class="d-flex flex-wrap" data-bind="foreach: ModalitiesEntries">
+                <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'modalityDetails.html?id=' + Id}"><i class="fa fa-futbol-o" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
+            </div>
+            <button class="col-12 text-center mx-auto btn text-primary" data-bind="click: ModalitiesToggle, visible: ModalitiesBig">Show <span data-bind="text: ModalitiesOpen() ? 'Less ^' : 'More v'"></span></button>
+
+            <h2 class="mt-5 border-bottom">Competições<span data-bind="text: ' [' + Competitions().length +']'"></span></h2>
+            <div class="d-flex flex-wrap" data-bind="foreach: CompetitionsEntries">
+                <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
+            </div>
+            <button class="col-12 text-center mx-auto btn text-primary" data-bind="click: CompetitionsToggle, visible: CompetitionsBig">Show <span data-bind="text: CompetitionsOpen() ? 'Less ^' : 'More v'"></span></button>
+
             <h2 class="mt-5 border-bottom">Atletas que participaram no jogo<span data-bind="text: ' [' + Athletes().length +']'"></span></h2>
-            <div class="d-flex flex-wrap " data-bind="foreach: Athletes">
+            <div class="d-flex flex-wrap " data-bind="foreach: AthletesEntries">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'athleteDetails.html?id=' + Id}"><i class="fa fa-user" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
+            <button class="col-12 text-center mx-auto btn text-primary" data-bind="click: AthletesToggle, visible: AthletesBig">Show <span data-bind="text: AthletesOpen() ? 'Less ^' : 'More v'"></span></button>
         </div>
 
 
