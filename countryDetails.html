@@ -72,19 +72,26 @@
             </div>
         </div>
         <div class="container">
-            <h2 class="mt-5 border-bottom">Events</h2>
-            <div class="d-flex flex-wrap " data-bind="foreach: Events">
+            <h2 class="mt-5 border-bottom">Events [<span data-bind="text: Events().length"></span>]</h2>
+            <div class="d-flex flex-wrap " data-bind="foreach: EventsEntries">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i class="fa fa-map-marker" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
+            <button class="col-12 text-center mx-auto btn text-primary" data-bind="click: EventsToggle, visible: EventsBig">Show <span data-bind="text: EventsOpen() ? 'Less ^' : 'More v'"></span></button>
+
             
-            <h2 class="mt-5 border-bottom">Participou</h2>
+            <h2 class="mt-5 border-bottom">Participou [<span data-bind="text: Participant().length"></span>]</h2>
             <div class="d-flex flex-wrap" data-bind="foreach: Participant">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
 
             <h2 class="mt-5 border-bottom">Organizer</h2>
-            <div class="d-flex flex-wrap" data-bind="foreach: Organizer">
-                <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
+            <div class="d-flex flex-wrap" data-bind="ifnot: Organizer().length == 0 ">
+                <div data-bind="foreach: Organizer">
+                    <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
+                </div>
+            </div>
+            <div class="d-flex flex-wrap" data-bind="if: Organizer().length == 0">
+                Este País não organizou nenhum evento.
             </div>
         </div>
         <!-- /ko -->

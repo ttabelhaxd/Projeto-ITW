@@ -12,7 +12,20 @@ var vm = function () {
     self.Name = ko.observable('');
     self.IOC = ko.observable('');
     self.Flag = ko.observable('');
+
     self.Events = ko.observableArray([]);
+    self.EventsOpen = ko.observable(false);
+    self.EventsToggle = function() {
+        self.EventsOpen(!self.EventsOpen())
+    }
+    self.EventsBig = ko.computed(() => self.Events().length > 50);
+    self.EventsEntries = ko.computed(function() {
+        if(self.EventsOpen())
+            return self.Events()
+        else
+            return self.Events().slice(0, 50);
+    });
+
     self.Participant = ko.observableArray([]);
     self.Organizer = ko.observableArray([]);
     self.Url = ko.observable('');
@@ -28,9 +41,9 @@ var vm = function () {
             self.IOC(data.IOC);
             self.Name(data.Name);
             self.Flag(data.Flag);
-            self.Events = (data.Events);
-            self.Participant = (data.Participant);
-            self.Organizer = (data.Organizer);
+            self.Events(data.Events);
+            self.Participant(data.Participant);
+            self.Organizer(data.Organizer);
         });
     };
 
