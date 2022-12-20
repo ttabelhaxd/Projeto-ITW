@@ -11,8 +11,69 @@ function ajaxHelper(uri, method, data) {
             hideLoading();
         }
     });
+
+function sleep(milliseconds) {
+    const start = Date.now();
+    while (Date.now() - start < milliseconds);
 }
 
+function showLoading() {
+    $("#myModal").modal('show', {
+        backdrop: 'static',
+        keyboard: false
+    });
+}
+function hideLoading() {
+    $('#myModal').on('shown.bs.modal', function (e) {
+        $("#myModal").modal('hide');
+    })
+}
+
+function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+    console.log("sPageURL=", sPageURL);
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
+
+    //--- start ....
+    showLoading();
+    var pg = getUrlParameter('page');
+    console.log(pg);
+    if (pg == undefined)
+        self.activate(1);
+    else {
+        self.activate(pg);
+    }
+    console.log("VM initialized!")
+};
+
+//--- Page Events
+self.activate = function (id) {
+    console.log('CALL: getAthletes...');
+    var composedUri = self.baseUri() + "?page=" + id + "&pageSize=" + self.pagesize();
+    ajaxHelper(composedUri, 'GET').done(function (data) {
+        console.log(data);
+        hideLoading();
+        self.records(data.Records);
+        self.currentPage(data.CurrentPage);
+        self.hasNext(data.HasNext);
+        self.hasPrevious(data.HasPrevious);
+        self.pagesize(data.PageSize)
+        self.totalPages(data.TotalPages);
+        self.totalRecords(data.TotalRecords);
+        self.SetFavourites();
+        //self.SetFavourites();
+    });
+};
 function showLoading() {
     $("#myModal").modal('show', {
         keyboard: false
@@ -30,6 +91,32 @@ function sleep(milliseconds) {
 }
 
 
+
+$(document).ready(function () {
+    console.log("ready!");
+    ko.applyBindings(new vm());
+});
+
+$(document).ajaxComplete(function (event, xhr, options) {
+    $("#myModal").modal('hide');
+})
+
+ko.bindingHandlers.formatBestPosition = {
+    update: function (element, valueAccessor) {
+        const value = ko.unwrap(valueAccessor());
+
+        if (value > 3) return;
+
+        element.textContent = { 1: "🥇", 2: "🥈", 3: "🥉" }[value];
+    }
+};
+
+ko.bindingHandlers.formatSex = {
+    update: function (element, valueAccessor) {
+        const value = ko.unwrap(valueAccessor());
+        element.textContent = { M: "♂", F: "♀" }[value];
+    }
+};
 function removeFav(Id) {
     console.log("remove fav")
     $("#fav-" + Id).remove();
@@ -53,10 +140,10 @@ $(document).ready(function () {
     console.log(fav);
 
 
-    for (const i of fav) {
-        console.log(i);
+    for (const Id of fav) {
+        console.log(Id);
 
-        ajaxHelper('http://192.168.160.58/Olympics/api/Athletes/' + i, 'GET').done(function (data) {
+        ajaxHelper('http://192.168.160.58/Olympics/api/Athletes/' + Id, 'GET').done(function (data) {
             console.log(data)
             if (localStorage.fav.length != 0) {
                 console.log('bacalhau');
@@ -64,13 +151,13 @@ $(document).ready(function () {
                 $('#noadd').hide();
                 $('#nofav').hide();
                 $("#table-favourites").append(
-                    `<tr id="fav-${i}">
-                        <td class="align-middle">${i}</td>
+                    `<tr id="fav-${Id}">
+                        <td class="align-middle">${Id}</td>
                         <td class="align-middle">${data.Name}</td>
                         <td class="align-middle">${data.Sex}</td>
                         <td class="align-middle">${data.Photo}</td>
                         <td class="text-end">
-                            <a class="btn btn-default btn-outline-danger btn-sm btn-favourite" onclick="removeFav(${i})"><i class="fa fa-heart" title="Selecione para remover dos favoritos"></i></a>
+                            <a class="btn btn-default btn-outline-danger btn-sm btn-favourite" onclick="removeFav(${Id})"><i class="fa fa-heart" title="Selecione para remover dos favoritos"></i></a>
                         </td>
                     </tr>`
                 )
