@@ -298,6 +298,7 @@ span.psw {
     margin-left: 20px;
 }
 
+/*Extras*/
 blockquote:before {
     content: "";
     position: absolute;
@@ -327,4 +328,9 @@ blockquote:after {
 
 .times {
     font-family:'Times New Roman', Times, serif;
+}
+
+.athcolor:hover {
+    color: dodgerblue;
+    cursor: pointer
 }

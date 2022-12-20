@@ -56,7 +56,7 @@ $(document).ready(function () {
     for (const i of fav) {
         console.log(i);
 
-        ajaxHelper('http://192.168.160.58/Formula1/api/Drivers/Driver?id=' + i, 'GET').done(function (data) {
+        ajaxHelper('http://192.168.160.58/Olympics/api/Athletes/' + i, 'GET').done(function (data) {
             console.log(data)
             if (localStorage.fav.length != 0) {
                 console.log('bacalhau');
