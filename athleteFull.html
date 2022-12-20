@@ -121,29 +121,29 @@
             </div>
         </div>
         <div class="container">
-            <h2 class="mt-5 border-bottom">Jogos em que o atleta participou</h2>
+            <h2 class="mt-5 border-bottom">Olympic games in wich the athlete participated</h2>
             <div class="d-flex flex-wrap " data-bind="foreach: Games">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-map-marker" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
             
-            <h2 class="mt-5 border-bottom">Competições em que o atleta participou</h2>
+            <h2 class="mt-5 border-bottom">Competitions in wich the athlete participated</h2>
             <div class="d-flex flex-wrap" data-bind="foreach: Competitions">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
 
-            <h2 class="mt-5 border-bottom">Modalidades</h2>
+            <h2 class="mt-5 border-bottom">Modalities</h2>
             <div class="d-flex flex-wrap" data-bind="foreach: Modalities">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'modalityDetails.html?id=' + Id}"><i class="fa fa-futbol-o" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
 
-            <h2 class="mt-5 border-bottom">Medalhas</h2>
+            <h2 class="mt-5 border-bottom">Medals</h2>
             <div data-bind="ifnot: Medals().length == 0 ">
                 <div data-bind="foreach: Medals">
                     <a data-bind="text:Counter + ' ' + MedalName"></a></br>
                 </div>
             </div>
             <div class="d-flex flex-wrap" data-bind="if: Medals().length == 0">
-                Este atleta não possui medalhas
+                This athlete has no medals
             </div>
         </div>
         <!-- /ko -->
@@ -165,7 +165,7 @@
         </div>
     </div>
     <!-- End of Work Area -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light" id="footer">
         <div class="container small">
             <div class="navbar-text">&copy; Introdução as Tecnologias Web - 2022/23</div>
             <div class="navbar-text">Made with <i class="fa fa-heart text-danger"></i> for <a href="mailto: jsp@ua.pt"

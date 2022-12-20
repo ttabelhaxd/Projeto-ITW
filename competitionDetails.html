@@ -73,7 +73,7 @@
             </div>
         </div>
         
-        <h2>Jogos em que a Competição ocorreu <span data-bind="text: ' [' + Participant().length +']'"></span></h2>
+        <h2>Games in which the Competition took place <span data-bind="text: ' [' + Participant().length +']'"></span></h2>
         <div class="d-flex flex-wrap" data-bind="foreach: Participant">
             <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
         </div>    
@@ -97,7 +97,7 @@
         </div>
     </div>
     <!-- End of Work Area -->
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light" id="footer">
         <div class="container small">
             <div class="navbar-text">&copy;  Introdução as Tecnologias Web - 2022/23</div>
             <div class="navbar-text">Made with <i class="fa fa-heart text-danger"></i> for <a href="mailto: jsp@ua.pt" class="text-decoration-none text-muted">JSP</a><a href="aboutUs.html" class="text-decoration-none text-muted"> by Abel Teixeira and Raquel Vinagre.</a></div>
