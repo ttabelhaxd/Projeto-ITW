@@ -66,20 +66,12 @@
     <!-- Work Area-->
     <div class="container">
         <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name() +' [' + Id() + ']'"></h2>
+            <h2 data-bind="text:Name"></h2>
         </div>
         <!-- ko if:Name().length > 0 -->
-        <div class="row border-bottom mx-0 my-1">
-            <div class="col-2">Athlete Id</div>
-            <div class="col-10" data-bind="text: Id"></div>
-        </div>
-        <div class="row border-bottom mx-0 my-1">
-            <div class="col-2">Name</div>
-            <div class="col-10" data-bind="text: Name"></div>
-        </div>
         <div class="row border-bottom mx-0  my-1">
             <div class="col-2">Sex</div>
-            <div class="col-10" data-bind="text: Sex"></div>
+            <div class="col-10" data-bind="formatSex: Sex"></div>
         </div>
         <div class="row border-bottom mx-0  my-1">
             <div class="col-2">Height</div>
@@ -108,17 +100,17 @@
         <div class="row border-bottom mx-0  my-1" data-bind="visible: OlympediaLink() != '' && OlympediaLink() != null">
             <div class="col-2">OlympediaLink</div>
             <div class="small col-10">
-                <i class="fa fa-link"></i> [<a class="link-dark text-decoration-none"
-                    data-bind="attr: { href: OlympediaLink }, text : OlympediaLink" target="_blank"></a>]
+                <a class="link-dark text-decoration-none"
+                    data-bind="attr: { href: OlympediaLink }, text : OlympediaLink" target="_blank"></a>
             </div>
         </div>
-        <div class="row border-bottom mx-0  my-1" data-bind="visible: Photo() != '' && Photo() != null">
-            <div class="col-2">Photo</div>
-            <div class="small col-10">
-                <img class="img-thumbnail" data-bind="attr:{src: Photo}"><br /><i class="fa fa-link"></i><br />
-                <a class="link-dark text-decoration-none" data-bind="attr: { href: Photo }, text: Photo"
-                    target="_blank"></a>
-            </div>
+        <div class="row border-bottom mx-0  my-1" style="width: 350px; height:350px;">
+            <!--ko if: Photo-->
+            <img class="img-thumbnail" data-bind="attr:{src: Photo}"><br /><i class="fa fa-link"></i><br />
+            <!--/ko-->
+            <!--ko ifnot: Photo-->
+            <img src="https://t3.ftcdn.net/jpg/01/71/25/36/360_F_171253635_8svqUJc0BnLUtrUOP5yOMEwFwA8SZayX.jpg">
+            <!--/ko-->
         </div>
         <div class="container">
             <h2 class="mt-5 border-bottom">Olympic games in wich the athlete participated</h2>

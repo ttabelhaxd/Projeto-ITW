@@ -114,3 +114,9 @@ $(document).ready(function () {
 $(document).ajaxComplete(function (event, xhr, options) {
     $("#myModal").modal('hide');
 })
+ko.bindingHandlers.formatSex = {
+    update: function(element, valueAccessor) {
+        const value = ko.unwrap(valueAccessor());
+        element.textContent = { M: "Male ♂", F: "Female ♀"}[value];
+    }
+};
