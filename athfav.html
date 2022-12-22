@@ -100,7 +100,7 @@
                     <th scope="col" class="text-right"></th>
                 </tr>
             </thead>
-            <tbody data-bind="foreach: records">
+            <tbody id="table-favourites">
                 <tr>
                     <td class="text-center me-4" data-bind="text:Id" style="vertical-align: middle;"></td>
                     <td class="text-center me-4" data-bind="text:Name" style="vertical-align: middle;"></td>
@@ -111,7 +111,7 @@
                             <i class="fa fa-eye" title="Selecione para ver detalhes"></i>
                         </a>
                         <button class="btn btn-default btn-xs">
-                            <i class="fa fa-heart-o" data-bind="attr : { 'id': 'favourite_' + Id }" title="Selecione para adicionar aos favoritos"></i>
+                            <i class="fa fa-heart-o text-danger" data-bind="attr : { 'id': 'favourite_' + Id }" title="Selecione para adicionar aos favoritos"></i>
                         </button>
                     </td>
                 </tr>

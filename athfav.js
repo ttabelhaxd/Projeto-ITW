@@ -146,7 +146,7 @@ $(document).ready(function () {
         ajaxHelper('http://192.168.160.58/Olympics/api/Athletes/' + Id, 'GET').done(function (data) {
             console.log(data)
             if (localStorage.fav.length != 0) {
-                console.log('bacalhau');
+                console.log('bacalhau com natas');
                 $("#table-favourites").show();
                 $('#noadd').hide();
                 $('#nofav').hide();
@@ -157,7 +157,7 @@ $(document).ready(function () {
                         <td class="align-middle">${data.Sex}</td>
                         <td class="align-middle">${data.Photo}</td>
                         <td class="text-end">
-                            <a class="btn btn-default btn-outline-danger btn-sm btn-favourite" onclick="removeFav(${Id})"><i class="fa fa-heart" title="Selecione para remover dos favoritos"></i></a>
+                            <a class="btn btn-default btn-sm btn-favourite" onclick="removeFav(${Id})"><i class="fa fa-heart text-danger" title="Selecione para remover dos favoritos"></i></a>
                         </td>
                     </tr>`
                 )
