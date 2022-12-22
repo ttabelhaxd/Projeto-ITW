@@ -50,3 +50,51 @@ function clean() {
     inputPrecoTotal.innerText = "0.00";
     inputQtdTotal.innerText = 0;
 }
+
+function validate() {
+    var retVal = true;
+    if ($('#Nome').val().trim().length < 3) {
+        retVal = false;
+        $('#NomeError').show();
+    } else {
+        $('#NomeError').hide();
+    }
+    var re = /\S+@\S+\.\S+/;
+    var email = $('#Email').val().trim()
+    if (!re.test(email)) {
+        $('#EmailError').show();
+        retVal = false;
+    }
+    else $('#EmailError').hide();
+
+    if ($("#datepicker").val() + 1 == 1) {
+        $('#DateError').show();
+        retVal = false;
+    } else {
+        $('#DateError').hide();
+    }
+
+
+    console.log($('input[type="checkbox"]:checked').length);
+    if ($('input[type="checkbox"]:checked').length == 0) {
+        $('#VehicleError').show();
+        retVal = false;
+    } else {
+        $('#VehicleError').hide();
+    }
+
+    if ($('input[type="radio"]:checked').length == 0) {
+        $('#CorError').show();
+        retVal = false;
+    } else {
+        $('#CorError').hide();
+    }
+
+    if ($('#Morada').val().trim().length < 3) {
+        retVal = false;
+        $('#MoradaError').show();
+    } else {
+        $('#MoradaError').hide();
+    }
+    return retVal;
+}
