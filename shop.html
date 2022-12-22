@@ -78,34 +78,58 @@
                         Register
                     </button>
                     <div id="id02" class="modal">
-                        <form class="modal-content animate" method="post">
-                            <div class="container">
-                                <span onclick="document.getElementById('id02').style.display='none'" class="close"
-                                      title="Close Modal">&times;</span>
-                                <div class="container">
-                                    <h1>Register</h1>
-                                    <p>Fill the form to create an account.</p>
-                                    <hr>
-                                    <label for="email"><b>Email</b></label>
-                                    <input type="text" name="email" id="email" required>
-                                    <label for="psw"><b>Password</b></label>
-                                    <input type="password" name="psw" id="psw" required>
-                                    <label for="psw-repeat"><b>Repeat Password</b></label>
-                                    <input type="password" name="psw-repeat" id="psw-repeat" required>
-                                    <hr>
-                                    <p>When creating an account, you accept our <a href="https://olympics.com/en/terms-of-service">Terms & Conditions</a>.</p>
-
-                                    <button type="button" class="btn btn-primary col-12" style="margin-bottom: 15px;" onclick="document.getElementById('id02').style.display='none', document.getElementById('id04').style.display='block'"
-                                    title="Register">Register
-                                    </button>
+                        <form class="modal-content animate" name="Register" novalidate onsubmit="return validate()">
+                            <div class="row mb-1">
+                                <label for="Nome" class="col-md-2 col-form-label">Name:</label>
+                                <div class="col-md-10">
+                                    <input type="text" name="Nome" id="Nome" class="form-control" />
+                                    <div class="text-danger col-form-label" id="NomeError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 3 letras).</div>
                                 </div>
                             </div>
-                            <div class="container signin">
-                                <button type="button" onclick="document.getElementById('id02').style.display='none'"
-                                        style="margin-top: 15px" class="btn btn-danger">
-                                    Cancel
-                                </button>
-                                <p>Already have an account? <a href="#" onclick="document.getElementById('id02').style.display='none', document.getElementById('id01').style.display='block'">Login</a>.</p>
+                            <div class="row mb-1">
+                                <label for="Nome" class="col-md-2 col-form-label">Email:</label>
+                                <div class="col-md-10">
+                                    <input type="text" name="Mail" id="Email" class="form-control" />
+                                    <div class="text-danger col-form-label" id="EmailError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Este campo deve respeitar o seguinte formato (texto@texto.texto).</div>
+                                </div>
+                            </div>
+                            <div class="row mb-1">
+                                <div class="col-md-2">Date: </div>
+                                <div class="col-md-4"><input type="date" id="datepicker"><div class="text-danger col-form-label" id="DateError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Choose a data.</div> </div>
+
+                            </div>
+                            <div class="row mb-1">
+                                <div class="col-md-2">Reason:</div>
+                                <div class="col-md-4 ">
+                                    <div class="form-check">
+                                        <input type="checkbox" name="vehicle" class="form-check-input" value="Bicicleta" id="bicicleta"><label class="form-check-label" for="bicicleta">Complaint</label><br />
+                                        <input type="checkbox" name="vehicle" class="form-check-input" value="Carro" id="carro"><label class="form-check-label" for="carro">Complement</label><br />
+                                        <input type="checkbox" name="vehicle" class="form-check-input" value="Comboio" id="comboio"><label class="form-check-label" for="comboio">Help</label>
+                                    </div>
+                                    <div class="text-danger col-form-label" id="VehicleError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> This field is mandatory (Choose at least one of the reasons).</div>
+                                </div>
+                                <div class="col-md-2">Do you like our website?</div>
+                                <div class="col-md-4 ">
+                                    <div class="form-check">
+                                        <input type="radio" name="cor" class="form-check-input" value="Vermelho" id="Recomendations"><label class="form-check-label" for="vermelho">Yes</label><br />
+                                        <input type="radio" name="cor" class="form-check-input" value="Verde" id="verde"><label class="form-check-label" for="verde">clearly yes</label><br />
+                                        <input type="radio" name="cor" class="form-check-input" value="Azul" id="azul"><label class="form-check-label" for="azul">Obviously yes</label>
+                                    </div>
+                                    <div class="text-danger col-form-label" id="CorError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Escolha uma cor).</div>
+                                </div>
+                            </div>
+                            <div class="row mb-1">
+                                <label for="Morada" class="col-md-2 col-form-label">Comments:</label>
+                                <div class="col-md-10">
+                                    <textarea name="Morada" id="Morada" class="form-control" rows="4"></textarea>
+                                    <div class="text-danger col-form-label" id="MoradaError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 3 palavras).</div>
+                                </div>
+                            </div>
+                            <div class="row mb-1">
+                                <div class="col-md-10 offset-md-2">
+                                    <input type="submit" name="submitBtn" value="Enviar" class="btn btn-danger" />
+                                    <input type="reset" name="resetBtn" value="Limpar" class="btn btn-dark" />
+                                </div>
                             </div>
                         </form>
                     </div>
