@@ -65,70 +65,78 @@
     </nav>
     <!-- Work Area-->
     <div class="container">
-        <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name"></h2>
-        </div>
-        <!-- ko if:Name().length > 0 -->
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Sex</div>
-            <div class="col-10" data-bind="formatSex: Sex"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Height</div>
-            <div class="col-10" data-bind="text: Height"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Weight</div>
-            <div class="col-10" data-bind="text: Weight"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Born Date</div>
-            <div class="col-10" data-bind="text: BornDate"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Born Place</div>
-            <div class="col-10" data-bind="text: BornPlace"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Died Date</div>
-            <div class="col-10" data-bind="text: DiedDate"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Died Place</div>
-            <div class="col-10" data-bind="text: DiedPlace"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1" data-bind="visible: OlympediaLink() != '' && OlympediaLink() != null">
-            <div class="col-2">OlympediaLink</div>
-            <div class="small col-10">
-                <a class="link-dark text-decoration-none"
-                    data-bind="attr: { href: OlympediaLink }, text : OlympediaLink" target="_blank"></a>
+        <div class="row justify-content-center">
+            <!-- ko if:Name().length > 0 -->
+            <div class="col-12 col-lg-7">
+                <div class="py-2 border-bottom mb-3">
+                    <h2 data-bind="text:Name"></h2>
+                </div>
+                <div class="row border-bottom mx-0  my-1">
+                    <div class="col-5">Sex</div>
+                    <div class="col-7" data-bind="formatSex: Sex"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1">
+                    <div class="col-5">Height</div>
+                    <div class="col-7" data-bind="text: Height() + ' cm'"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1">
+                    <div class="col-5">Weight</div>
+                    <div class="col-7" data-bind="text: Weight() + ' kg'"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1">
+                    <div class="col-5">Born Date</div>
+                    <div class="col-7" data-bind="text: BornDate"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1">
+                    <div class="col-5">Born Place</div>
+                    <div class="col-7" data-bind="text: BornPlace"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1">
+                    <div class="col-5">Died Date</div>
+                    <div class="col-7" data-bind="text: DiedDate"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1">
+                    <div class="col-5">Died Place</div>
+                    <div class="col-7" data-bind="text: DiedPlace"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1"
+                    data-bind="visible: OlympediaLink() != '' && OlympediaLink() != null">
+                    <div class="col-5">OlympediaLink</div>
+                    <div class="small col-7">
+                        <a class="link-dark text-decoration-none"
+                            data-bind="attr: { href: OlympediaLink }, text : OlympediaLink" target="_blank"></a>
+                    </div>
+                </div>
+                <div class="col-12 text-center mt-3">
+                    <a href="athletes.html" class="btn btn-primary btn-sm small"><i class="fa fa-list"></i> Back to List</a>
+                </div>    
             </div>
-        </div>
-        <div class="row border-bottom mx-0  my-1" style="width: 350px; height:350px;">
-            <!--ko if: Photo-->
-            <img class="img-thumbnail" data-bind="attr:{src: Photo}"><br /><i class="fa fa-link"></i><br />
-            <!--/ko-->
-            <!--ko ifnot: Photo-->
-            <img src="https://t3.ftcdn.net/jpg/01/71/25/36/360_F_171253635_8svqUJc0BnLUtrUOP5yOMEwFwA8SZayX.jpg">
-            <!--/ko-->
-        </div>
-        <div class="container">
-            <h2 class="mt-5 border-bottom">Olympic games in wich the athlete participated</h2>
-            <div class="d-flex flex-wrap " data-bind="foreach: Games">
+            <div class="col-12 col-lg-5 mt-5 ms-lg-5" style="width: 350px; height:350px;">
+                <!--ko if: Photo-->
+                <img class="img-thumbnail" data-bind="attr:{src: Photo}">
+                <!--/ko-->
+                <!--ko ifnot: Photo-->
+                <img src="https://t3.ftcdn.net/jpg/01/71/25/36/360_F_171253635_8svqUJc0BnLUtrUOP5yOMEwFwA8SZayX.jpg">
+                <!--/ko-->
+            </div>
+            <!-- /ko -->
+        
+            <h2 class="py-2 border-top mt-5">Olympic games in wich the athlete participated</h2>
+            <div class="d-flex flex-wrap mb-3" data-bind="foreach: Games">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-map-marker" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
             
-            <h2 class="mt-5 border-bottom">Competitions in wich the athlete participated</h2>
-            <div class="d-flex flex-wrap" data-bind="foreach: Competitions">
+            <h2 class="py-2 border-top">Competitions in wich the athlete participated</h2>
+            <div class="d-flex flex-wrap mb-3" data-bind="foreach: Competitions">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
 
-            <h2 class="mt-5 border-bottom">Modalities</h2>
-            <div class="d-flex flex-wrap" data-bind="foreach: Modalities">
+            <h2 class="py-2 border-top">Modalities</h2>
+            <div class="d-flex flex-wrap mb-3" data-bind="foreach: Modalities">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'modalityDetails.html?id=' + Id}"><i class="fa fa-futbol-o" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
 
-            <h2 class="mt-5 border-bottom">Medals</h2>
+            <h2 class="py-2 border-top">Medals</h2>
             <div data-bind="ifnot: Medals().length == 0 ">
                 <div data-bind="foreach: Medals">
                     <a data-bind="text:Counter + ' ' + MedalName"></a></br>
@@ -138,8 +146,6 @@
                 This athlete has no medals
             </div>
         </div>
-        <!-- /ko -->
-        <a href="athletes.html" class="btn btn-default btn-sm small mt-5"><i class="fa fa-list"></i> Back to List</a>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -174,5 +180,4 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="athleteFull.js"></script>
 </body>
-
 </html>
