@@ -93,7 +93,7 @@ function sleep(milliseconds) {
 
 
 $(document).ready(function () {
-    console.log("o bacalhau está no forno!");
+    console.log("o bacalhau estï¿½ no forno!");
     ko.applyBindings(new vm());
 });
 

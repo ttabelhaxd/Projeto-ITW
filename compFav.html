@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ITW - Olympics - Athletes</title>
+    <title>ITW - Olympics - Fav Competitions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
@@ -59,14 +59,8 @@
             </div>
         </div>
         <!-- ko if:records().length > 0 -->
-        <div class="row small">
-            <p class=" col-4 mr-auto pt-2">
-                <span data-bind="html: 'Page: ' + currentPage() + ' of ' + totalPages()"></span><br />
-                <span data-bind="html: 'Athletes: '+ fromRecord() + '-' + toRecord() + ' of ' + totalRecords()"></span>
-            </p>
-        </div>
         <!-- /ko -->
-
+        <div class="container bg-light mt-4" style="padding:30px">
         <table class="table table-striped table-sm small">
             <thead class="bg-dark text-light">
                 <tr>
@@ -80,6 +74,7 @@
             <tbody id="table-favourites" class="text-center">
             </tbody>
         </table>
+        </div>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -113,13 +108,6 @@
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
             integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA="
             crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function () {
-
-            const api_url = "http://192.168.160.58/Olympics/api/Athletes/SearchByName";
-
-            
-    </script>
     <script src="compFav.js"></script>
 </body>
 </html>
