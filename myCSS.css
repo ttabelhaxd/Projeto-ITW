@@ -327,9 +327,6 @@ blockquote:after {
     transition: 0.2s all ease-in-out, 0.4s transform ease-in-out;
 }
 
-.times {
-    font-family:'Times New Roman', Times, serif;
-}
 
 .athcolor:hover {
     color: dodgerblue;

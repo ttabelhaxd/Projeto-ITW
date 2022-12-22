@@ -98,8 +98,8 @@
                     <p data-bind="text: IOC"></p>
                     <div class="col-12">
                         <a class="btn btn-primary" data-bind="attr: { href:'./countryDetails.html?id=' + Id }">More details</a>
-                        <button class="btn btn-default btn-xs">
-                            <i class="fa fa-heart-o" data-bind="attr : { 'id': 'favourite_' + Id }" title="Selecione para adicionar aos favoritos"></i>
+                        <button class="btn btn-default btn-outline-danger btn-sm btn-favourite" data-bind="click: () => $parent.toggleFavourite(Id), attr : { 'id': 'favourite_' + Id }">
+                            <i data-bind="attr: {'class': $parent.favourites().includes(Id)? 'fa fa-heart' : 'fa fa-heart-o'}" class="fa fa-heart-o" title="Selecione para adicionar aos favoritos"></i>
                         </button>
                     </div>
                 </div>
