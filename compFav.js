@@ -93,7 +93,7 @@ function sleep(milliseconds) {
 
 
 $(document).ready(function () {
-    console.log("ready!");
+    console.log("o bacalhau está no forno!");
     ko.applyBindings(new vm());
 });
 
@@ -141,7 +141,6 @@ $(document).ready(function () {
                         <td class="align-middle">${data.Name}</td>
                         <td class="align-middle">${data.Photo}</td>
                         <td class="align-middle">${data.Modality}</td>
-                        <td class="align-middle">${data.Results}</td>
                         <td class="text-end">
                             <a class="btn btn-default btn-sm btn-favourite" onclick="removeFav(${Id})"><i class="fa fa-heart text-danger" title="Selecione para remover dos favoritos"></i></a>
                         </td>
