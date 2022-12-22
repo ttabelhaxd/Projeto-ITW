@@ -148,7 +148,7 @@ var vm = function () {
 };
 
 $(document).ready(function () {
-    console.log("ready!");
+    console.log("o bacalhau está no forno!");
     ko.applyBindings(new vm());
 });
 

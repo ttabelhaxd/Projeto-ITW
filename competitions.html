@@ -112,8 +112,8 @@
                         <a class="btn btn-default btn-light btn-xs" data-bind="attr: { href:'./competitionDetails.html?id=' + Id }">
                             <i class="fa fa-eye" title="Selecione para ver detalhes"></i>
                         </a>
-                        <button class="btn btn-default btn-xs">
-                            <i class="fa fa-heart-o" data-bind="attr : { 'id': 'favourite_' + Id }" title="Selecione para adicionar aos favoritos"></i>
+                        <button class="btn btn-default btn-outline-danger btn-sm btn-favourite" data-bind="click: () => $parent.toggleFavourite(Id), attr : { 'id': 'favourite_' + Id }">
+                            <i data-bind="attr: {'class': $parent.favourites().includes(Id)? 'fa fa-heart' : 'fa fa-heart-o'}" class="fa fa-heart-o" title="Selecione para adicionar aos favoritos"></i>
                         </button>
                     </td>
                 </tr>

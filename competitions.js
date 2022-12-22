@@ -42,6 +42,28 @@ var vm = function () {
             list.push(i + step);
         return list;
     };
+    self.toggleFavourite = function (id) {
+        if (self.favourites.indexOf(id) == -1) {
+            self.favourites.push(id);
+        }
+        else {
+            self.favourites.remove(id);
+        }
+        localStorage.setItem("fav", JSON.stringify(self.favourites()));
+    };
+    self.SetFavourites = function () {
+        let storage;
+        try {
+            storage = JSON.parse(localStorage.getItem("fav"));
+        }
+        catch (e) {
+            ;
+        }
+        if (Array.isArray(storage)) {
+            self.favourites(storage);
+        }
+    }
+    self.favourites = ko.observableArray([]);
 
     //--- Page Events
     self.activate = function (id) {
@@ -57,6 +79,7 @@ var vm = function () {
             self.pagesize(data.PageSize)
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
+            self.SetFavourites();
             //self.SetFavourites();
         });
     };
@@ -123,7 +146,7 @@ var vm = function () {
 };
 
 $(document).ready(function () {
-    console.log("ready!");
+    console.log("o bacalhau está no forno!");
     ko.applyBindings(new vm());
 });
 
