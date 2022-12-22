@@ -52,50 +52,52 @@
     </nav>
     <!-- Work Area-->
     <div class="container">
-        <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name() +' [' + Id() + ']'"></h2>
-        </div>
         <!-- ko if:Name().length > 0 -->
-        <div class="row border-bottom mx-0 my-1">
-            <div class="col-2">Country Id</div><div class="col-10" data-bind="text: Id"></div>
+        <div class="py-2 border-bottom mb-3">
+            <h2 data-bind="text:Name"></h2>
         </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Name</div><div class="col-10" data-bind="text: Name"></div>
+        <div class="col-12 text-center mt-5">
+            <!--ko if: Flag-->
+            <a data-bind="attr: { href: Flag }">
+                <img class="img-thumbnail" data-bind="attr: { src: Flag }" style="height: 200px; width: 400px">
+            </a>
+            <!--/ko-->
+            <!--ko ifnot: Flag-->
+            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/No_flag.svg/1024px-No_flag.svg.png">
+                <img class="img-thumbnail"  style="height: 200px;width: 400px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/No_flag.svg/1024px-No_flag.svg.png">
+            </a>
+            <!--/ko-->
         </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">IOC</div><div class="col-10" data-bind="text: IOC"></div>
+        <div class="row mx-0 my-2 text-center">
+            <div class="col-12" data-bind="text: Name"></div>
+        </div> 
+        <div class="row mx-0 my-2 text-center">
+            <div class="col-12" data-bind="text: IOC"></div>
         </div>
-        <div class="row border-bottom mx-0  my-1" data-bind="visible: Flag() != '' && Flag() != null">
-            <div class="col-2">Flag</div><div class="small col-10">
-                <img class="img-thumbnail" data-bind="attr:{src: Flag}"><br />
-                <i class="fa fa-link"></i> [<a class="link-dark text-decoration-none" data-bind="attr: { href: Flag }, text : Flag" target="_blank"></a>]
-            </div>
+        <h2 class="py-2 border-top mt-5">Events [<span data-bind="text: Events().length"></span>]</h2>
+        <div class="d-flex flex-wrap mb-3" data-bind="foreach: EventsEntries">
+            <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i class="fa fa-map-marker" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
         </div>
-        <div class="container">
-            <h2 class="mt-5 border-bottom">Events [<span data-bind="text: Events().length"></span>]</h2>
-            <div class="d-flex flex-wrap " data-bind="foreach: EventsEntries">
-                <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i class="fa fa-map-marker" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
-            </div>
-            <button class="col-12 text-center mx-auto btn text-primary" data-bind="click: EventsToggle, visible: EventsBig">Show <span data-bind="text: EventsOpen() ? 'Less' : 'More'"></span></button>
-
-            
-            <h2 class="mt-5 border-bottom">Participou [<span data-bind="text: Participant().length"></span>]</h2>
-            <div class="d-flex flex-wrap" data-bind="foreach: Participant">
+        <button class="col-12 text-center mx-auto btn text-primary" data-bind="click: EventsToggle, visible: EventsBig">Show <span data-bind="text: EventsOpen() ? 'Less ^' : 'More v'"></span></button>
+        
+        <h2 class="py-2 border-top mt-5">Participated [<span data-bind="text: Participant().length"></span>]</h2>
+        <div class="d-flex flex-wrap mb-3" data-bind="foreach: Participant">
+            <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
+        </div>
+        <h2 class="py-2 border-top mt-5">Organizer</h2>
+        <div class="d-flex flex-wrap mb-3" data-bind="ifnot: Organizer().length == 0 ">
+            <div data-bind="foreach: Organizer">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
-
-            <h2 class="mt-5 border-bottom">Organizer</h2>
-            <div class="d-flex flex-wrap" data-bind="ifnot: Organizer().length == 0 ">
-                <div data-bind="foreach: Organizer">
-                    <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
-                </div>
-            </div>
-            <div class="d-flex flex-wrap" data-bind="if: Organizer().length == 0">
-                Este País não organizou nenhum evento.
-            </div>
         </div>
-        <!-- /ko -->
-        <a href="countries.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
+        <div class="d-flex flex-wrap mb-3" data-bind="if: Organizer().length == 0">
+            This country did not organize any events.
+        </div>
+        <div class="text-center mt-5">
+            <a href="countries.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
+            <a href="#" class="btn btn-primary"><i class="fa fa-arrow-up" aria-hidden="true"> Top</i></a>
+        </div>
+        <!--/ko-->
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
