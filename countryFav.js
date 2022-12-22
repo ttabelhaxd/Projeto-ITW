@@ -140,7 +140,7 @@ $(document).ready(function () {
                         <td class="align-middle">${Id}</td>
                         <td class="align-middle">${data.Name}</td>
                         <td class="align-middle">${data.IOC}</td>
-                        <td class="align-middle">${data.Photo}</td>
+                        <td class="align-middle">${data.Flag}</td>
                         <td class="text-end">
                             <a class="btn btn-default btn-sm btn-favourite" onclick="removeFav(${Id})"><i class="fa fa-heart text-danger" title="Selecione para remover dos favoritos"></i></a>
                         </td>

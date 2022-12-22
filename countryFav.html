@@ -56,9 +56,6 @@
         <div class="row border-bottom py-2 mb-2">
             <h2 class="col-6">Favourite Countries</h2>
             <div class="col-6" id="cover">
-                <div class="row" style="justify-content:end">
-                    <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="width:35%" id="procura" name="procura" autocomplete="off">
-                </div>
             </div>
         </div>
         
@@ -70,7 +67,7 @@
                     <th scope="col" class="text-center">Id</th>
                     <th scope="col" class="text-center">Name</th>
                     <th scope="col" class="text-center">IOC</th>
-                    <th scope="col" class="text-center">Photo</th>
+                    <th scope="col" class="text-center">Flag</th>
                     <th scope="col" class="text-right"></th>
                 </tr>
             </thead>
@@ -110,57 +107,6 @@
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
             integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA="
             crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function () {
-
-            const api_url = "http://192.168.160.58/Olympics/api/Athletes/SearchByName";
-
-            $("#procura").autocomplete({
-                minLength: 2,
-                source: function (request, response) {
-                    $.ajax({
-                        type: "GET",
-                        url: api_url,
-                        data: {
-                            q: $('#procura').val().toLowerCase()
-                        },
-                        success: function (data) {
-                            if (!data.length) {
-                                var result = [{
-                                    label: 'Sem resultados',
-                                    value: response.term,
-                                }];
-                                response(result);
-                            } else {
-                                var nData = $.map(data.slice(0, 10), function (value, key) {
-                                    return {
-                                        label: value.Name,
-                                        value: value.Id,
-                                    }
-                                });
-                                results = $.ui.autocomplete.filter(nData, request.term);
-                                response(results);
-                            }
-                        },
-                        error: function () {
-                            alert("error!");
-                        }
-                    })
-                },
-                select: function (event, ui) {
-                    event.preventDefault();
-                    $("#procura").val(ui.item.label);
-                    window.location.href = "./countryfav.html?id=" + ui.item.value;
-
-
-                    // h.loadTitleModal(ui.item.value)
-                },
-                focus: function (event, ui) {
-                    $("#procura").val(ui.item.label);
-                }
-            });
-        });
-    </script>
     <script src="countryFav.js"></script>
 </body>
 </html>
