@@ -53,11 +53,11 @@ function clean() {
 
 function validate() {
     var retVal = true;
-    if ($('#Nome').val().trim().length < 3) {
+    if ($('#Name').val().trim().length < 3) {
         retVal = false;
-        $('#NomeError').show();
+        $('#NameError').show();
     } else {
-        $('#NomeError').hide();
+        $('#NameError').hide();
     }
     var re = /\S+@\S+\.\S+/;
     var email = $('#Email').val().trim()
@@ -67,34 +67,11 @@ function validate() {
     }
     else $('#EmailError').hide();
 
-    if ($("#datepicker").val() + 1 == 1) {
-        $('#DateError').show();
+    if ($('#Password').val().trim().length < 3) {
         retVal = false;
+        $('#PasswordError').show();
     } else {
-        $('#DateError').hide();
-    }
-
-
-    console.log($('input[type="checkbox"]:checked').length);
-    if ($('input[type="checkbox"]:checked').length == 0) {
-        $('#VehicleError').show();
-        retVal = false;
-    } else {
-        $('#VehicleError').hide();
-    }
-
-    if ($('input[type="radio"]:checked').length == 0) {
-        $('#CorError').show();
-        retVal = false;
-    } else {
-        $('#CorError').hide();
-    }
-
-    if ($('#Morada').val().trim().length < 3) {
-        retVal = false;
-        $('#MoradaError').show();
-    } else {
-        $('#MoradaError').hide();
+        $('#PasswordError').hide();
     }
     return retVal;
 }

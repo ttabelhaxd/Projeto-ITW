@@ -78,7 +78,7 @@
         <div class="d-flex flex-wrap mb-3" data-bind="foreach: EventsEntries">
             <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i class="fa fa-map-marker" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
         </div>
-        <button class="col-12 text-center mx-auto btn text-primary" data-bind="click: EventsToggle, visible: EventsBig">Show <span data-bind="text: EventsOpen() ? 'Less ^' : 'More v'"></span></button>
+        <button class="col-12 text-center mx-auto btn text-primary" data-bind="click: EventsToggle, visible: EventsBig">Show <span data-bind="text: EventsOpen() ? 'Less' : 'More'"></span></button>
         
         <h2 class="py-2 border-top mt-5">Participated [<span data-bind="text: Participant().length"></span>]</h2>
         <div class="d-flex flex-wrap mb-3" data-bind="foreach: Participant">

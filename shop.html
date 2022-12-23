@@ -35,16 +35,9 @@
     </style>
 </head>
 <body>
-    <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
-        <div class="carousel-inner">
-            <div class="carousel-item active"></div>
-            <div class="carousel-item"></div>
-        </div>
-    </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html" tabindex="Olympics"><img src="images/olympicShop.svg" height="50" /></a>
+            <a class="navbar-brand" href="index.html" tabindex="Olympics"><img src="images/olympicShop.svg" height="30" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -72,102 +65,116 @@
                         </div>
                     </li>
                 </ul>
-                <div style="padding-right: 20px;">
+                <div class="text-end">
                     <button class="btn btn-primary" onclick="document.getElementById('id02').style.display='block'"
-                            style="width:fit-content;">
-                        Register
-                    </button>
+                    style="width:fit-content;">
+                Register
+            </button>&nbsp&nbsp&nbsp&nbsp&nbsp
+            <button class="btn btn-primary" onclick="document.getElementById('id01').style.display='block'"
+                    style="width:fit-content;">
+                Login
+            </button>
+    </div>
+                <div style="padding-right: 20px;">
                     <div id="id02" class="modal">
-                        <form class="modal-content animate" name="Register" novalidate onsubmit="return validate()">
+                        <form class="modal-content animate"  style="padding:30px" name="Register" novalidate onsubmit="return validate()">
+                            <h3 class="row mb-1 ms-1 mb-3">
+                                Register
+                            </h3>
+                            <div class="container d-flex">
+                            <div class="col-6">
                             <div class="row mb-1">
-                                <label for="Nome" class="col-md-2 col-form-label">Name:</label>
+                                <label for="Nome" class="col-md-2 col-form-label">Username:</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="Nome" id="Nome" class="form-control" />
-                                    <div class="text-danger col-form-label" id="NomeError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 3 letras).</div>
+                                    <input type="text" name="Name" id="Name" class="form-control" />
+                                    <div class="text-danger col-form-label" id="NameError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Please choose a username (Min: 3 characters).</div>
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 <label for="Nome" class="col-md-2 col-form-label">Email:</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="Mail" id="Email" class="form-control" />
-                                    <div class="text-danger col-form-label" id="EmailError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Este campo deve respeitar o seguinte formato (texto@texto.texto).</div>
+                                    <input type="text" name="Email" id="Email" class="form-control" />
+                                    <div class="text-danger col-form-label" id="EmailError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Please provide a valid email (text@text.text).</div>
                                 </div>
                             </div>
                             <div class="row mb-1">
-                                <div class="col-md-2">Date: </div>
-                                <div class="col-md-4"><input type="date" id="datepicker"><div class="text-danger col-form-label" id="DateError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Choose a data.</div> </div>
-
-                            </div>
-                            <div class="row mb-1">
-                                <div class="col-md-2">Reason:</div>
-                                <div class="col-md-4 ">
-                                    <div class="form-check">
-                                        <input type="checkbox" name="vehicle" class="form-check-input" value="Bicicleta" id="bicicleta"><label class="form-check-label" for="bicicleta">Complaint</label><br />
-                                        <input type="checkbox" name="vehicle" class="form-check-input" value="Carro" id="carro"><label class="form-check-label" for="carro">Complement</label><br />
-                                        <input type="checkbox" name="vehicle" class="form-check-input" value="Comboio" id="comboio"><label class="form-check-label" for="comboio">Help</label>
-                                    </div>
-                                    <div class="text-danger col-form-label" id="VehicleError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> This field is mandatory (Choose at least one of the reasons).</div>
-                                </div>
-                                <div class="col-md-2">Do you like our website?</div>
-                                <div class="col-md-4 ">
-                                    <div class="form-check">
-                                        <input type="radio" name="cor" class="form-check-input" value="Vermelho" id="Recomendations"><label class="form-check-label" for="vermelho">Yes</label><br />
-                                        <input type="radio" name="cor" class="form-check-input" value="Verde" id="verde"><label class="form-check-label" for="verde">clearly yes</label><br />
-                                        <input type="radio" name="cor" class="form-check-input" value="Azul" id="azul"><label class="form-check-label" for="azul">Obviously yes</label>
-                                    </div>
-                                    <div class="text-danger col-form-label" id="CorError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Escolha uma cor).</div>
-                                </div>
-                            </div>
-                            <div class="row mb-1">
-                                <label for="Morada" class="col-md-2 col-form-label">Comments:</label>
+                                <label for="Password" class="col-md-2 col-form-label">Password:</label>
                                 <div class="col-md-10">
-                                    <textarea name="Morada" id="Morada" class="form-control" rows="4"></textarea>
-                                    <div class="text-danger col-form-label" id="MoradaError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Este campo é de preenchimento obrigatório (Min: 3 palavras).</div>
+                                    <input type="text" name="Password" id="Password" class="form-control" />
+                                    <div class="text-danger col-form-label" id="PasswordError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Please choose a valid password (Min: 8 characters).</div>
                                 </div>
                             </div>
-                            <div class="row mb-1">
-                                <div class="col-md-10 offset-md-2">
-                                    <input type="submit" name="submitBtn" value="Enviar" class="btn btn-danger" />
-                                    <input type="reset" name="resetBtn" value="Limpar" class="btn btn-dark" />
+                            <div class="col-10 mb-4">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" required>
+                                  <label class="form-check-label" for="invalidCheck">
+                                    Agree to <a href="https://olympics.com/en/terms-of-service">Terms and Conditions</a>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-6 ms-4 text-center">
+                                <img src="images/Olympic_rings.svg"
+                                     style="height: 200px;width: 420px">
+                            </div>
+                            </div>
+                            <div class="container mb-1 d-flex">
+                                <div class="col-6 text-center">
+                                    <input type="submit" name="submitBtn" value="Register" class="btn btn-primary" id="id04" />
+                                    <input type="reset" name="resetBtn" value="Reset" class="btn btn-dark" />
+                                </div>
+                                <div class="col-6 ms-4 text-center">
+                                    <button type="button" onclick="document.getElementById('id02').style.display='none'"class="btn btn-danger">
+                                        Cancel
+                                    </button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-
-                <div>
-                    <button class="btn btn-primary" onclick="document.getElementById('id01').style.display='block'"
-                            style="width:fit-content;">
-                        Login
-                    </button>
                     <div id="id01" class="modal">
-                        <form class="modal-content animate" method="post">
-                            <div class="container" style="padding: 50px;">
-                                <div class="col-12 border-bottom">
-                                    <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                                          title="Close Modal">&times;</span>
-                                    <h2>Login</h2></br>
-                                    <p>Fill the form</p>
+                        <form class="modal-content animate"  style="padding:30px" name="Register" novalidate onsubmit="return validate()">
+                            <h3 class="row mb-1 ms-1 mb-3">
+                                Login
+                            </h3>
+                            <div class="container d-flex">
+                            <div class="col-6">
+                            <div class="row mb-1">
+                                <label for="Nome" class="col-md-2 col-form-label">Username:</label>
+                                <div class="col-md-10">
+                                    <input type="text" name="Name" id="Name" class="form-control" />
+                                    <div class="text-danger col-form-label" id="NameError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Please choose a username (Min: 3 characters).</div>
                                 </div>
-
-                                <div class="row border-bottom">
-                                    <div class="col-6">
-                                        <label for="uname"><b>Username</b></label>
-                                        <input type="text" name="uname" required>
-
-                                        <label for="psw"><b>Password</b></label>
-                                        <input type="password" name="psw" required>
-                                    </div>
-                                    <div class="col-6">
-                                        <img src="images/user2.png"
-                                             style="height: 200px;width: 320px; float: right; margin-right: 100px;">
-                                    </div>
+                            </div>
+                            <div class="row mb-1">
+                                <label for="Password" class="col-md-2 col-form-label">Password:</label>
+                                <div class="col-md-10">
+                                    <input type="text" name="Password" id="Password" class="form-control" />
+                                    <div class="text-danger col-form-label" id="PasswordError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Please choose a valid password (Min: 8 characters).</div>
                                 </div>
-                                <a style="margin-top: 20px;" class="btn btn-primary col-12" onclick="document.getElementById('id01').style.display='none'"
-                                   title="Login">Login</a>
-                                <label>
-                                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                                </label>
+                            </div>
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember"> Remember me
+                            </label>
+                            <div class="col-10 mb-4">
+                              </div>
+                            </div>
+                            <div class="col-6 ms-4 text-center">
+                                <img src="images/user2.png"
+                                     style="height: 200px;width: 320px">
+                            </div>
+                            </div>
+                            <div class="container mb-1 d-flex">
+                                <div class="col-6 text-center">
+                                    <input type="submit" name="submitBtn" value="Login" class="btn btn-primary" />
+                                    <input type="reset" name="resetBtn" value="Reset" class="btn btn-dark" />
+                                </div>
+                                <div class="col-6 ms-4 text-center">
+                                    <button type="button" onclick="document.getElementById('id02').style.display='none'"class="btn btn-danger">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
 
 
                                 <div class="container signin">
@@ -229,10 +236,19 @@
         </div>
     </nav>
     <!-- Working Area -->
+    <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+            <div class="carousel-item active"></div>
+            <div class="carousel-item"></div>
+        </div>
+    </div>
 
     <div class="container mt-4">
-        <form>
-            <div class="row">
+ 
+        <form class="mb-4">
+            <h1 class="border-bottom my-3 py-3">Olympic Shop</h1>
+            <div class="row mb-4 mt-4">
                 <div class="col-md-1 offset-6 text-right">
                     <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
                 </div>
@@ -251,8 +267,6 @@
                     </button>
                 </div>
             </div>
-            <hr />
-            <h1 class="border-bottom my-3 py-3 text-center">Our Products</h1>
             <div class="row text-center">
                 <div class="col-12 col-sm-4">
                     <div class="d-flex justify-content-center"><img src="images/parisplush.webp" style="object-fit: contain; width: 100%; max-height: 300px;" /></div>
