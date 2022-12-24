@@ -53,33 +53,37 @@
     </nav>
     <!-- Work Area-->
     <div class="container">
-        <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name() +' [' + Id() + ']'"></h2>
-        </div>
         <!-- ko if:Name().length > 0 -->
-        <div class="row border-bottom mx-0 my-1">
-            <div class="col-2">Competition Id</div><div class="col-10" data-bind="text: Id"></div>
+        <div class="py-2 border-bottom mb-3">
+            <h2 data-bind="text:Name"></h2>
         </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Name</div><div class="col-10" data-bind="text: Name"></div>
+        <div class="col-12 text-center mt-5">
+            <!--ko if: Photo-->
+            <a data-bind="attr: { href: Photo }">
+                <img class="img-thumbnail" data-bind="attr: { src: Photo }" style="height: 400px; width: 700px">
+            </a>
+            <!--/ko-->
+            <!--ko ifnot: Photo-->
+            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/No_flag.svg/1024px-No_flag.svg.png">
+                <img class="img-thumbnail"  style="height: 400px;width: 700px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/No_flag.svg/1024px-No_flag.svg.png">
+            </a>
+            <!--/ko-->
         </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Modality</div><div class="col-10" data-bind="text: Modality"></div>
+        <div class="row mx-0 my-2 text-center">
+            <div class="col-12" data-bind="text: Name"></div>
+        </div> 
+        <div class="row mx-0 my-2 text-center">
+            <div class="col-12" data-bind="text: Modality"></div>
         </div>
-        <div class="row border-bottom mx-0  my-1" data-bind="visible: Photo() != '' && Photo() != null">
-            <div class="col-2">Photo</div><div class="small col-10">
-                <img class="img-thumbnail" data-bind="attr:{src: Photo}"><br />
-                <i class="fa fa-link"></i> [<a class="link-dark text-decoration-none" data-bind="attr: { href: Photo }, text : Photo" target="_blank"></a>]
-            </div>
-        </div>
-
-        <h2>Games in which the Competition took place <span data-bind="text: ' [' + Participant().length +']'"></span></h2>
-        <div class="d-flex flex-wrap" data-bind="foreach: Participant">
+        <h2 class="py-2 border-top mt-5">Games in which the Competition took place <span data-bind="text: ' [' + Participant().length +']'"></span></h2>
+        <div class="d-flex flex-wrap mb-3" data-bind="foreach: Participant">
             <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
         </div>
-
-        <!-- /ko -->
-        <a href="competitions.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
+        <div class="text-center mt-5">
+            <a href="competitions.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
+            <a href="#" class="btn btn-primary"><i class="fa fa-arrow-up"></i> Top</a>
+        </div>
+        <!--/ko-->
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

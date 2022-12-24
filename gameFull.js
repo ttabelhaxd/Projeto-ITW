@@ -146,6 +146,13 @@ $(document).ajaxComplete(function (event, xhr, options) {
     $("#myModal").modal('hide');
 });
 
+ko.bindingHandlers.formatSeason = {
+    update: function(element, valueAccessor) {
+        const value = ko.unwrap(valueAccessor());
+        element.textContent = { Summer: "☀️ Summer", Winter: "❄️️ Winter"}[value];
+    }
+};
+
 google.load("visualization", "1.1", { packages: ["bar"] });
 google.setOnLoadCallback(drawStuff);
 function drawStuff() {

@@ -52,54 +52,38 @@
     </nav>
     <!-- Work Area-->
     <div class="container">
-        <div class="py-2 border-bottom mb-3">
-            <h2 data-bind="text:Name() +' [' + Id() + ']'"></h2>
-        </div>
-        <!-- ko if:Name().length > 0 -->
-        <div class="row border-bottom mx-0 my-1">
-            <div class="col-2">Game Id</div><div class="col-10" data-bind="text: Id"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Name</div><div class="col-10" data-bind="text: Name"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Country Name</div><div class="col-10" data-bind="text: CountryName"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Season</div><div class="col-10" data-bind="text: Season"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1">
-            <div class="col-2">Year</div><div class="col-10" data-bind="text: Year"></div>
-        </div>
-        <div class="row border-bottom mx-0  my-1" data-bind="visible: Logo() != '' && Logo() != null">
-            <div class="col-2">Logo</div><div class="small col-10">
-                <img class="img-thumbnail" data-bind="attr:{src: Logo}"><br /><i class="fa fa-link"></i><br />
-                [<a class="link-dark text-decoration-none" data-bind="attr: { href: Logo }, text: Logo" target="_blank"></a>]
-            </div>
-        </div>
-        <div class="row border-bottom mx-0  my-1" data-bind="visible: Photo() != '' && Photo() != null">
-            <div class="col-2">Photo</div><div class="small col-10">
-                <img class="img-thumbnail" data-bind="attr:{src: Photo}"><br />
-                <i class="fa fa-link"></i> [<a class="link-dark text-decoration-none" data-bind="attr: { href: Photo }, text : Photo" target="_blank"></a>]
-            </div>
-        </div>
-        <!-- /ko -->
-        <a href="./games.html" class="btn btn-default btn-sm small"><i class="fa fa-list"></i> Back to List</a>
-        <a data-bind="attr: { href:'./gameFull.html?id=' + Id() }" class="btn btn-default btn-sm small"><i class="fa fa-th"></i> Full Details</a>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">
-                        <img src="../images/Olympic_rings.svg" height="30" /> Loading data...
-                    </h5>
+        <div class="row justify-content-center">
+            <!-- ko if:Name().length > 0 -->
+            <div class="col-12 col-lg-7">
+                <div class="py-2 border-bottom mb-3">
+                    <h2 data-bind="text:Name"></h2>
                 </div>
-                <div class="modal-body text-center">
-                    <i class="fa fa-spin fa-3x fa-refresh"></i>
+                <div class="row border-bottom mx-0  my-1">
+                    <div class="col-5">Country Name</div>
+                    <div class="col-7" data-bind="text: CountryName"></div>
                 </div>
+                <div class="row border-bottom mx-0  my-1">
+                    <div class="col-5">Season</div>
+                    <div class="col-7" data-bind="formatSeason: Season"></div>
+                </div>
+                <div class="row border-bottom mx-0  my-1">
+                    <div class="col-5">Year</div>
+                    <div class="col-7" data-bind="text:Year"></div>
+                </div>
+                <div class="col-12 text-center mt-3">
+                    <a href="games.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
+                    <a data-bind="attr: { href:'./gameFull.html?id=' + Id() }" class="btn btn-primary"><i class="fa fa-th"></i> Full Details</a>
+                </div>    
             </div>
+            <div class="col-12 col-lg-5 mt-5 ms-lg-5" style="width: 175px; height: 175px;">
+                <!--ko if: Logo-->
+                <img class="img-thumbnail" data-bind="attr:{src: Logo}">
+                <!--/ko-->
+                <!--ko ifnot: Logo-->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
+                <!--/ko-->
+            </div>
+            <!-- /ko -->
         </div>
     </div>
     <!-- End of Work Area -->
