@@ -98,3 +98,10 @@ $(document).ready(function () {
 $(document).ajaxComplete(function (event, xhr, options) {
     $("#myModal").modal('hide');
 })
+
+ko.bindingHandlers.formatSeason = {
+    update: function(element, valueAccessor) {
+        const value = ko.unwrap(valueAccessor());
+        element.textContent = { Summer: "☀️ Summer", Winter: "❄️️ Winter"}[value];
+    }
+};
