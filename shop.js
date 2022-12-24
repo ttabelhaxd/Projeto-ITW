@@ -75,3 +75,32 @@ function validate() {
     }
     return retVal;
 }
+
+function validate1() {
+    var retVal = true;
+    if ($('#NameLogin').val().trim().length < 3) {
+        retVal = false;
+        $('#UserError').show();
+    } else {
+        $('#UserError').hide();
+    }
+    if ($('#PasswordLogin').val().trim().length < 3) {
+        retVal = false;
+        $('#PassError').show();
+    } else {
+        $('#PassError').hide();
+    }
+    return retVal;
+}
+
+function validate2() {
+    var retVal = true;
+    var re = /\S+@\S+\.\S+/;
+    var email = $('#email2').val().trim()
+    if (!re.test(email)) {
+        $('#emailError2').show();
+        retVal = false;
+    }
+    else $('#emailError2').hide();
+    return retVal;
+}

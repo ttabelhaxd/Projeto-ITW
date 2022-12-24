@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ITW 2022/23 - Olympic Games Competition Details</title>
+    <title>ITW 2022/23 - Olympic Games Athlete Full Details</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
@@ -116,17 +116,17 @@
                 <img class="img-thumbnail" data-bind="attr:{src: Photo}">
                 <!--/ko-->
                 <!--ko ifnot: Photo-->
-                <img src="https://t3.ftcdn.net/jpg/01/71/25/36/360_F_171253635_8svqUJc0BnLUtrUOP5yOMEwFwA8SZayX.jpg">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimg.discogs.com%2FhmspPNbmcZskkT9VBlmwzGAGk2A%3D%2Ffit-in%2F300x300%2Ffilters%3Astrip_icc()%3Aformat(jpeg)%3Amode_rgb()%3Aquality(40)%2Fdiscogs-images%2FR-6393822-1418142257-2887.jpeg.jpg&f=1&nofb=1&ipt=a1c70eb3f21d169b54f496837362f997f596f8e171393fc99eb63a1c59549460&ipo=images">
                 <!--/ko-->
             </div>
             <!-- /ko -->
         
-            <h2 class="py-2 border-top mt-5">Olympic games in wich the athlete participated</h2>
+            <h2 class="py-2 border-top mt-5">Olympic games in which the athlete participated</h2>
             <div class="d-flex flex-wrap mb-3" data-bind="foreach: Games">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'gameDetails.html?id=' + Id}"><i class="fa fa-map-marker" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
             
-            <h2 class="py-2 border-top">Competitions in wich the athlete participated</h2>
+            <h2 class="py-2 border-top">Competitions in which the athlete participated</h2>
             <div class="d-flex flex-wrap mb-3" data-bind="foreach: Competitions">
                 <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
             </div>
