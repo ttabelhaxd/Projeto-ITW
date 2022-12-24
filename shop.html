@@ -70,7 +70,7 @@
                     style="width:fit-content;">
                 Register
             </button>&nbsp&nbsp&nbsp&nbsp&nbsp
-            <button class="btn btn-primary" onclick="document.getElementById('id01').style.display='block'"
+            <button class="btn btn-dark" onclick="document.getElementById('id01').style.display='block'"
                     style="width:fit-content;">
                 Login
             </button>
@@ -100,7 +100,7 @@
                             <div class="row mb-1">
                                 <label for="Password" class="col-md-2 col-form-label">Password:</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="Password" id="Password" class="form-control" />
+                                    <input type="password" name="Password" id="Password" class="form-control" />
                                     <div class="text-danger col-form-label" id="PasswordError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Please choose a valid password (Min: 8 characters).</div>
                                 </div>
                             </div>
@@ -110,6 +110,7 @@
                                   <label class="form-check-label" for="invalidCheck">
                                     Agree to <a href="https://olympics.com/en/terms-of-service">Terms and Conditions</a>
                                   </label>
+                                  
                                 </div>
                               </div>
                             </div>
@@ -120,7 +121,7 @@
                             </div>
                             <div class="container mb-1 d-flex">
                                 <div class="col-6 text-center">
-                                    <input type="submit" name="submitBtn" value="Register" class="btn btn-primary" id="id04" />
+                                    <input type="submit" name="submitBtn" value="Register" class="btn btn-primary" onclick="document.getElementById('id01').style.display='none'"/>
                                     <input type="reset" name="resetBtn" value="Reset" class="btn btn-dark" />
                                 </div>
                                 <div class="col-6 ms-4 text-center">
@@ -133,7 +134,7 @@
                     </div>
                 </div>
                     <div id="id01" class="modal">
-                        <form class="modal-content animate"  style="padding:30px" name="Register" novalidate onsubmit="return validate()">
+                        <form class="modal-content animate"  style="padding:30px" name="Register" novalidate onsubmit="return validate1()">
                             <h3 class="row mb-1 ms-1 mb-3">
                                 Login
                             </h3>
@@ -142,70 +143,66 @@
                             <div class="row mb-1">
                                 <label for="Nome" class="col-md-2 col-form-label">Username:</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="Name" id="Name" class="form-control" />
-                                    <div class="text-danger col-form-label" id="NameError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Please choose a username (Min: 3 characters).</div>
+                                    <input type="text" name="Namelogin" id="NameLogin" class="form-control" />
+                                    <div class="text-danger col-form-label" id="UserError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Please insert a valid username (Min: 3 characters).</div>
                                 </div>
                             </div>
                             <div class="row mb-1">
                                 <label for="Password" class="col-md-2 col-form-label">Password:</label>
                                 <div class="col-md-10">
-                                    <input type="text" name="Password" id="Password" class="form-control" />
-                                    <div class="text-danger col-form-label" id="PasswordError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Please choose a valid password (Min: 8 characters).</div>
+                                    <input type="password" name="PasswordLogin" id="PasswordLogin" class="form-control" />
+                                    <div class="text-danger col-form-label" id="PassError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Please insert a valid password (Min: 8 characters).</div>
                                 </div>
                             </div>
-                            <label>
+                            <div class="mt-3 d-flex">
+                            <div class="col-6">
                                 <input type="checkbox" checked="checked" name="remember"> Remember me
-                            </label>
-                            <div class="col-10 mb-4">
-                              </div>
                             </div>
-                            <div class="col-6 ms-4 text-center">
+                            <div class="col-6 text-end">
+                                <p>Forgot your <a href="#" onclick="document.getElementById('id01').style.display='none', document.getElementById('id03').style.display='block'">Password</a>?</p>
+                            </div>
+                        </div>
+                            </div>
+                            <div class="col-6 ms-4 text-center mb-4">
                                 <img src="images/user2.png"
-                                     style="height: 200px;width: 320px">
+                                     style="height: 170px;width: 270px">
                             </div>
                             </div>
                             <div class="container mb-1 d-flex">
-                                <div class="col-6 text-center">
-                                    <input type="submit" name="submitBtn" value="Login" class="btn btn-primary" />
+                                <div class="col-6 text-center ms-1">
+                                    <input type="submit" name="submitBtn" value="Login" class="btn btn-primary" onclick="document.getElementById('id02')" />
                                     <input type="reset" name="resetBtn" value="Reset" class="btn btn-dark" />
                                 </div>
-                            </div>
-
-
-                                <div class="container signin">
-                                    <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                                            class="btn btn-danger">
+                                <div class="col-6 ms-4 text-center">
+                                    <button type="button" onclick="document.getElementById('id01').style.display='none'"class="btn btn-danger">
                                         Cancel
                                     </button>
-                                    <p>Forgot your <a href="#" onclick="document.getElementById('id01').style.display='none', document.getElementById('id03').style.display='block'">Password</a>?</p>
                                 </div>
-
+                            </div>
                             </div>
                         </form>
                     </div>
                 </div>
 
                 <div id="id03" class="modal">
-                    <form class="modal-content animate" method="post">
-                        <div class="container">
-                            <span onclick="document.getElementById('id03').style.display='none'" class="close"
-                                  title="Close Modal">&times;</span>
+                    <form class="modal-content animate" method="post" novalidate onsubmit="return validate2()">
+                        <div class="container" style="padding:30px">
                             <div class="container">
-                                <h1>Forgot your password?</h1>
-                                <p>Fill the form to recover your account.</p>
-                                <hr>
-
+                                <h3 class="mb-3">Forgot your password?</h3>
                                 <label for="email"><b>Email</b></label>
-                                <input type="text" name="email" id="email" required>
-
-                                <hr>
-                                <p>Check your email to recover your account.</p>
-
-                                <button type="button" class="btn btn-primary col-12" style="margin-bottom: 15px;" onclick="document.getElementById('id03').style.display='none'"
-                                        title="Send">
-                                    Send recovery email
+                                <input type="text" name="email2" id="email2" required>
+                                <div class="text-danger col-form-label" id="emailError2" style="display:none;"><i class="fa fa-exclamation-triangle"></i> Please insert a valid email (text@text.text).</div>
+                                <div class="container d-flex">
+                                <div class="col-6">
+                                <input type="submit" name="submitBtn" value="Send recovery email" href="#" class="btn btn-primary text-center" onclick="document.getElementById('id03').style.display='none'"/>
+                                </div>
+                                <div class="col-6 text-end">
+                                <button type="button" onclick="document.getElementById('id03').style.display='none'"class="btn btn-danger">
+                                    Cancel
                                 </button>
                             </div>
+                        </div>
+                        </div>
                         </div>
                     </form>
                 </div>
