@@ -111,7 +111,7 @@
             </div>
         </div>
         <!-- /ko -->
-    </div>
+
 
     <div class="container">
 
@@ -155,11 +155,12 @@
         <div class="border-bottom pt-4 pb-2 mb-3">
             <h2>Medals</h2>
         </div>
-        <div id="chart"></div>
+        <canvas style="height:400px; width:500px" id="myChart"></canvas>
     </div>
     <div class="text-center mt-5">
         <a href="games.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
         <a href="#" class="btn btn-primary"><i class="fa fa-arrow-up"></i> Top</a>
+    </div>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -194,6 +195,48 @@
     <script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="gameFull.js"></script>
+    <script>
+        var Counter = [];
+        var Name = [];
+        
+        $.ajax({
+        type: 'GET',
+        url: 'http://192.168.160.58/Olympics/api/statistics/Games_Athletes',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        success: function (data, status, xhr) {
+        
+        var athData = data;
+        
+        athData.forEach(element => {
+        Counter.push(element.Counter);
+        Name.push(element.Name);
+        });
+        
+        createBarGraph(Counter, Name);
+        
+        }
+        });
+        
+        function createBarGraph(Counter, Name) {
+        let barChart = new Chart("myChart", {
+        type: "bar",
+        data: {
+        labels: Name,
+        datasets: [{
+        data: Counter,
+        label: 'Number of Athletes per Olympic Games edition',
+        backgroundColor: ["#60a3bc", "#FFA64D"]
+        }]
+        },
+        options:{
+        
+        }
+        });
+        }
+        
+        </script>
 </body>
 
 </html>
