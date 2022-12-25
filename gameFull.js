@@ -152,32 +152,3 @@ ko.bindingHandlers.formatSeason = {
         element.textContent = { Summer: "☀️ Summer", Winter: "❄️️ Winter"}[value];
     }
 };
-
-google.load("visualization", "1.1", { packages: ["bar"] });
-google.setOnLoadCallback(drawStuff);
-function drawStuff() {
-    var data = new google.visualization.arrayToDataTable([
-        ['Opening Move', 'Percentage'],
-        ["Gold", 44],
-        ["Silver", 31],
-        ["Bronze", 12],
-    ]);
-    var options = {
-        title: 'Medal distribution',
-        width: 800,
-        height: 400,
-        legend: { position: 'none' },
-        chart: {
-            title: 'Medal distribution',
-        },
-        bars: 'vertical',
-        axes: {
-            y: {
-                0: { side: 'bottom', label: 'Percentage' }
-            }
-        },
-        bar: { groupWidth: "90%" }
-    };
-    var chart = new google.charts.Bar(document.getElementById('chart'));
-    chart.draw(data, options);
-};

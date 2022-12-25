@@ -142,7 +142,8 @@ $(document).ready(function () {
                         <td class="align-middle">${data.Year}</td>
                         <td class="align-middle">${data.City}</td>
                         <td class="align-middle">${data.CountryName}</td>
-                        <td class="text-end">
+                        <td class="align-middle"><img style="height: 100px; width: 75px;" src="${data.Logo}"></td>
+                        <td class="text-end align-middle">
                             <a class="btn btn-default btn-sm btn-favourite" onclick="removeFav(${Id})"><i class="fa fa-heart text-danger" title="Selecione para remover dos favoritos"></i></a>
                         </td>
                     </tr>`
