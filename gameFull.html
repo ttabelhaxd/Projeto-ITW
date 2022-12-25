@@ -115,13 +115,14 @@
 
     <div class="container">
 
-        <h2 class="py-2 border-top mt-5">Medals</h2>
+        <h2 class="mt-5 border-bottom">Medals</h2>
         <div data-bind="foreach: Medals">
             <a data-bind="text:Counter + ' ' + MedalName"></a></br>
         </div>
 
-        <h2 class="py-2 border-top mt-5">Modalities<span data-bind="text: ' [' + Modalities().length +']'"></span></h2>
-        <div class="d-flex flex-wrap mb-3" data-bind="foreach: ModalitiesEntries">
+        <h2 class="mt-5 border-bottom">Modalities<span data-bind="text: ' [' + Modalities().length +']'"></span>
+        </h2>
+        <div class="d-flex flex-wrap" data-bind="foreach: ModalitiesEntries">
             <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'modalityDetails.html?id=' + Id}"><i
                     class="fa fa-futbol-o" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
         </div>
@@ -129,8 +130,9 @@
             data-bind="click: ModalitiesToggle, visible: ModalitiesBig">Show <span
                 data-bind="text: ModalitiesOpen() ? 'Less' : 'More'"></span></button>
 
-        <h2 class="py-2 border-top mt-5">Competitions<span data-bind="text: ' [' + Competitions().length +']'"></span></h2>
-        <div class="d-flex flex-wrap mb-3" data-bind="foreach: CompetitionsEntries">
+        <h2 class="mt-5 border-bottom">Competitions<span data-bind="text: ' [' + Competitions().length +']'"></span>
+        </h2>
+        <div class="d-flex flex-wrap" data-bind="foreach: CompetitionsEntries">
             <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'competitionDetails.html?id=' + Id}"><i
                     class="fa fa-trophy" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
         </div>
@@ -138,9 +140,9 @@
             data-bind="click: CompetitionsToggle, visible: CompetitionsBig">Show <span
                 data-bind="text: CompetitionsOpen() ? 'Less' : 'More'"></span></button>
 
-        <h2 class="py-2 border-top mt-5">Athletes who participated in the game<span
+        <h2 class="mt-5 border-bottom">Athletes who participated in the game<span
                 data-bind="text: ' [' + Athletes().length +']'"></span></h2>
-        <div class="d-flex flex-wrap mb-3" data-bind="foreach: AthletesEntries">
+        <div class="d-flex flex-wrap " data-bind="foreach: AthletesEntries">
             <a class="btn border rounded-md m-1" data-bind=" attr:{href: 'athleteDetails.html?id=' + Id}"><i
                     class="fa fa-user" aria-hidden="true"></i> <span data-bind="text:Name"></span></a>
         </div>
@@ -149,18 +151,17 @@
                 data-bind="text: AthletesOpen() ? 'Less' : 'More'"></span></button>
     </div>
     <!-- /ko -->
-<<<<<<< HEAD
     <div class="container">
         <div class="border-bottom pt-4 pb-2 mb-3">
-            <h2>Medals</h2>
+            <h2>Medals by Country</h2>
         </div>
-        <canvas style="height:400px; width:500px" id="myChart"></canvas>
-    </div>
-=======
->>>>>>> 62d7f669bc2134d22420feb232131ef533b9624f
+        <div class="chart-container justify-content-center" style="position: relative; padding:60px; height:80vh; width:80vw">
+            <canvas style="height:1000px; width:1000px" id="myChart"></canvas>
+        </div>
     <div class="text-center mt-5">
         <a href="games.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
         <a href="#" class="btn btn-primary"><i class="fa fa-arrow-up"></i> Top</a>
+    </div>
     </div>
     </div>
     <!-- Modal -->
@@ -193,41 +194,41 @@
     </nav>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script>
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="gameFull.js"></script>
-<<<<<<< HEAD
     <script>
         var Counter = [];
-        var Name = [];
+        var CountryName = [];
         
         $.ajax({
         type: 'GET',
-        url: 'http://192.168.160.58/Olympics/api/statistics/Games_Athletes',
+        url: 'http://192.168.160.58/Olympics/api/statistics/Medals_Country?id=',
         headers: {
         'Content-Type': 'application/json'
         },
         success: function (data, status, xhr) {
         
-        var athData = data;
+        var medData = data;
         
-        athData.forEach(element => {
+        medData.forEach(element => {
         Counter.push(element.Counter);
-        Name.push(element.Name);
+        CountryName.push(element.CountryName);
         });
         
-        createBarGraph(Counter, Name);
+        createBarGraph(Counter, CountryName);
         
         }
         });
         
-        function createBarGraph(Counter, Name) {
+        function createBarGraph(Counter, CountryName) {
         let barChart = new Chart("myChart", {
         type: "bar",
         data: {
-        labels: Name,
+        labels: CountryName,
         datasets: [{
         data: Counter,
-        label: 'Number of Athletes per Olympic Games edition',
+        label: 'Number of Medals by Country to a specific Olympic Games Edition',
         backgroundColor: ["#60a3bc", "#FFA64D"]
         }]
         },
@@ -238,9 +239,6 @@
         }
         
         </script>
-=======
-
->>>>>>> 62d7f669bc2134d22420feb232131ef533b9624f
 </body>
 
 </html>

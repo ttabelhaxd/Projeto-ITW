@@ -3,7 +3,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ITW - Olympics - Athletes Statistics</title>
+    <title>ITW - Olympics - Country Statistics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
@@ -58,7 +58,7 @@
         </div>
     </div>
     <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:150px; position: relative; padding:60px; height:80vh; width:80vw">
-        <canvas style="height:1000px; width:2300px" id="myChart"></canvas>
+        <canvas style="height:1000px; width:2800px" id="myChart"></canvas>
     </div>
 <!-- End of Working Area -->
 <nav class="navbar navbar-light bg-light" id="footer">
@@ -80,15 +80,15 @@ var Name = [];
 
 $.ajax({
 type: 'GET',
-url: 'http://192.168.160.58/Olympics/api/statistics/Games_Athletes',
+url: 'http://192.168.160.58/Olympics/api/statistics/Games_Countries',
 headers: {
 'Content-Type': 'application/json'
 },
 success: function (data, status, xhr) {
 
-var athData = data;
+var countryData = data;
 
-athData.forEach(element => {
+countryData.forEach(element => {
 Counter.push(element.Counter);
 Name.push(element.Name);
 });
@@ -105,8 +105,8 @@ data: {
 labels: Name,
 datasets: [{
 data: Counter,
-label: 'Number of Athletes per Olympic Games edition',
-backgroundColor: ["rgba(54, 162, 235, 0.5)", "rgba(255, 159, 64, 0.5)"]
+label: 'Number of Countries per Olympic Games edition',
+backgroundColor: ["rgba(255, 99, 132, 0.5)", "rgba(255, 205, 86, 0.5)"]
 }]
 },
 options:{
@@ -115,7 +115,7 @@ options:{
         duration: 1000,
         easing: 'linear',
         from: 1,
-        to: 0,
+        to:0,
         loop: true
       }
     },

@@ -3,7 +3,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ITW - Olympics - Athletes Statistics</title>
+    <title>ITW - Olympics - Modalities Statistics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
@@ -80,15 +80,15 @@ var Name = [];
 
 $.ajax({
 type: 'GET',
-url: 'http://192.168.160.58/Olympics/api/statistics/Games_Athletes',
+url: 'http://192.168.160.58/Olympics/api/statistics/Games_Modalities',
 headers: {
 'Content-Type': 'application/json'
 },
 success: function (data, status, xhr) {
 
-var athData = data;
+var modData = data;
 
-athData.forEach(element => {
+modData.forEach(element => {
 Counter.push(element.Counter);
 Name.push(element.Name);
 });
@@ -105,8 +105,8 @@ data: {
 labels: Name,
 datasets: [{
 data: Counter,
-label: 'Number of Athletes per Olympic Games edition',
-backgroundColor: ["rgba(54, 162, 235, 0.5)", "rgba(255, 159, 64, 0.5)"]
+label: 'Number of Modalities per Olympic Games edition', 
+backgroundColor: ["rgba(255, 159, 64, 0.5)", "rgba(75, 192, 192, 0.5)"]
 }]
 },
 options:{
@@ -115,12 +115,13 @@ options:{
         duration: 1000,
         easing: 'linear',
         from: 1,
-        to: 0,
+        to:0,
         loop: true
       }
     },
 }
 });
+Chart.defaults.font.size = 10;
 }
 
 </script>
