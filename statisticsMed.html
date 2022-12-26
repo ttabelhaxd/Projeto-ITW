@@ -54,11 +54,11 @@
     <!-- Working Area -->
     <div class="container my-xs-4m mt-4">
         <div class="border-bottom py-2 mb-2">
-            <h2>Statistics</h2>
+            <h2>Statistics - Medals</h2>
         </div>
     </div>
     <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:150px; position: relative; padding:60px; height:80vh; width:80vw">
-        <canvas style="height:1000px; width:2800px" id="myChart"></canvas>
+        <canvas style="height:1000px; width:2300px" id="myChart"></canvas>
     </div>
 <!-- End of Working Area -->
 <nav class="navbar navbar-light bg-light" id="footer">
@@ -76,7 +76,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 var Counter = [];
-var Name = [];
+var CountryName = [];
 
 $.ajax({
 type: 'GET',
@@ -90,23 +90,24 @@ var countryData = data;
 
 countryData.forEach(element => {
 Counter.push(element.Counter);
-Name.push(element.Name);
+Name.push(element.CountryName);
 });
 
-createBarGraph(Counter, Name);
+createBarGraph(Counter, CountryName);
 
 }
 });
 
-function createBarGraph(Counter, Name) {
+function createBarGraph(Counter, CountryName) {
 let barChart = new Chart("myChart", {
 type: "bar",
 data: {
-labels: Name,
+labels: CountryName,
 datasets: [{
 data: Counter,
-label: 'Number of Countries per Olympic Games edition',
-backgroundColor: ["rgba(255, 99, 132, 0.5)", "rgba(255, 205, 86, 0.5)"]
+label: 'Number of Medals by Country over all Olympic Games editions',
+backgroundColor: ["rgba(255, 99, 132, 0.5)", "rgba(255, 205, 86, 0.5)"],
+grouped:True
 }]
 },
 options:{
