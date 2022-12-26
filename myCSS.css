@@ -328,7 +328,9 @@ blockquote:after {
 }
 
 
-.athcolor:hover {
+#athcolor:hover, #athcolor:focus {
     color: dodgerblue;
+    border-bottom: solid dodgerblue;
     cursor: pointer
 }
+
