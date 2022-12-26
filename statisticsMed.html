@@ -57,8 +57,8 @@
             <h2>Statistics - Medals</h2>
         </div>
     </div>
-    <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:150px; position: relative; padding:60px; height:80vh; width:80vw">
-        <canvas style="height:1000px; width:2300px" id="myChart"></canvas>
+    <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:110px; position: relative; padding:15px; height:380vh; width:85vw">
+        <canvas class="mt-4" style="height:6000px; width:2900px" id="myChart"></canvas>
     </div>
 <!-- End of Working Area -->
 <nav class="navbar navbar-light bg-light" id="footer">
@@ -86,11 +86,11 @@ headers: {
 },
 success: function (data, status, xhr) {
 
-var countryData = data;
+var medData = data;
 
-countryData.forEach(element => {
-Counter.push(element.Counter);
-Name.push(element.CountryName);
+medData.forEach(Medals => {
+Counter.push(Medals.Counter);
+CountryName.push(Medals.CountryName);
 });
 
 createBarGraph(Counter, CountryName);
@@ -106,8 +106,7 @@ labels: CountryName,
 datasets: [{
 data: Counter,
 label: 'Number of Medals by Country over all Olympic Games editions',
-backgroundColor: ["rgba(255, 99, 132, 0.5)", "rgba(255, 205, 86, 0.5)"],
-grouped:True
+backgroundColor: ["rgba(255, 99, 132, 0.5)", "rgba(255, 205, 86, 0.5)"],    
 }]
 },
 options:{
@@ -120,6 +119,7 @@ options:{
         loop: true
       }
     },
+indexAxis: 'y',
 }
 });
 }

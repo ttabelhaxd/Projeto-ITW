@@ -151,13 +151,13 @@
             <h2>Medals by Country</h2>
         </div>
         <div class="chart-container justify-content-center" style="position: relative; padding:60px; height:80vh; width:80vw">
-            <canvas style="height:1000px; width:1000px" id="myChart"></canvas>
+            <canvas style="height:600px; width:1500px" id="myChart"></canvas>
         </div>
         <div class="border-bottom pt-4 pb-2 mb-3">
             <h2>Athletes per Country</h2>
         </div>
         <div class="chart-container justify-content-center" style="position: relative; padding:60px; height:80vh; width:80vw">
-            <canvas style="height:1000px; width:1000px" id="myChart"></canvas>
+            <canvas style="height:1000px; width:1000px" id="myChart1"></canvas>
         </div>
     <div class="text-center mt-5">
         <a href="games.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
@@ -198,13 +198,14 @@
     <script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="gameFull.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         var Counter = [];
         var CountryName = [];
         
         $.ajax({
         type: 'GET',
-        url: 'http://192.168.160.58/Olympics/api/statistics/Medals_Country?id=',
+        url: 'http://192.168.160.58/Olympics/api/statistics/Medals_Country?id=4',
         headers: {
         'Content-Type': 'application/json'
         },
@@ -212,9 +213,9 @@
         
         var medData = data;
         
-        medData.forEach(element => {
-        Counter.push(element.Counter);
-        CountryName.push(element.CountryName);
+        medData.forEach(Medals => {
+        Counter.push(Medals.Counter);
+        CountryName.push(Medals.CountryName);
         });
         
         createBarGraph(Counter, CountryName);
@@ -252,11 +253,11 @@
             },
             success: function (data, status, xhr) {
             
-            var medData = data;
+            var athData = data;
             
-            medData.forEach(element => {
+            athData.forEach(element => {
             Counter.push(element.Counter);
-            CountryName.push(element.CountryName);
+            CountryName1.push(element.CountryName);
             });
             
             createBarGraph(Counter, CountryName);
@@ -271,7 +272,7 @@
             labels: CountryName,
             datasets: [{
             data: Counter,
-            label: 'Number of Medals by Country to a specific Olympic Games Edition',
+            label: 'Number of Athletes by Country to a specific Olympic Games Edition',
             backgroundColor: ["#60a3bc", "#FFA64D"]
             }]
             },
