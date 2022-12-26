@@ -245,6 +245,48 @@
         }
         
         </script>
+        <script>
+            var Counter = [];
+            var CountryName = [];
+            
+            $.ajax({
+            type: 'GET',
+            url: 'http://192.168.160.58/Olympics/api/statistics/Athlete_Country?id=&IOC=',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            success: function (data, status, xhr) {
+            
+            var medData = data;
+            
+            medData.forEach(element => {
+            Counter.push(element.Counter);
+            CountryName.push(element.CountryName);
+            });
+            
+            createBarGraph(Counter, CountryName);
+            
+            }
+            });
+            
+            function createBarGraph(Counter, CountryName) {
+            let barChart = new Chart("myChart", {
+            type: "bar",
+            data: {
+            labels: CountryName,
+            datasets: [{
+            data: Counter,
+            label: 'Number of Medals by Country to a specific Olympic Games Edition',
+            backgroundColor: ["#60a3bc", "#FFA64D"]
+            }]
+            },
+            options:{
+            
+            }
+            });
+            }
+            
+            </script>
 </body>
 
 </html>
