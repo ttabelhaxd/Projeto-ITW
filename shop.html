@@ -106,11 +106,11 @@
                             </div>
                             <div class="col-10 mb-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="terms" onsubmit="return checkForm(this)" required>
+                                    <input class="form-check-input" type="checkbox" name="Terms" value="" id="terms" onsubmit="return checkForm(this)" required>
                                     <label class="form-check-label" for="invalidCheck3">
                                       Agree to <a href="https://olympics.com/en/terms-of-service">Terms and Conditions</a>
                                     </label>
-                                    <div class="text-danger col-form-label" id="PasswordError" style="display:none;"><i class="fa fa-exclamation-triangle"></i> You must agree before submitting.</div>
+                                    <div class="d-none text-danger col-form-label" id="termsError"><i class="fa fa-exclamation-triangle"></i> You must agree before submitting.</div>
                                   </div>
                               </div>
                             </div>
@@ -170,7 +170,7 @@
                             </div>
                             <div class="container mb-1 d-flex">
                                 <div class="col-6 text-center ms-1">
-                                    <input type="submit" name="submitBtn" value="Login" class="btn btn-primary" onclick="document.getElementById('id02')" />
+                                    <input type="submit" name="submitBtn" value="Login" class="btn btn-primary" onclick="shopLogin.html" />
                                     <input type="reset" name="resetBtn" value="Reset" class="btn btn-dark" />
                                 </div>
                                 <div class="col-6 ms-4 text-center">

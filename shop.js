@@ -73,7 +73,19 @@ function validate() {
     } else {
         $('#PasswordError').hide();
     }
-    return retVal;
+
+    var terms = document.querySelectorAll('input[name="Terms"]:checked').length;
+            var termsError = document.getElementById("termsError")
+            if (terms < 1) {
+                retVal = false;
+                termsError.classList.add("d-block")
+                termsError.classList.remove("d-none");
+            }
+            else {
+                termsError.classList.remove("d-block")
+                termsError.classList.add("d-none");
+            }
+            return retVal;
 }
 
 function validate1() {
