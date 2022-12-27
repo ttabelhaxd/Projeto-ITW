@@ -57,7 +57,7 @@
             <h2>Statistics -  Countries</h2>
         </div>
     </div>
-    <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:110px; position: relative; padding:10px; height:90vh; width:85vw">
+    <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:130px; position: relative; padding:10px; height:90vh; width:85vw">
         <canvas class="mt-4" style="height:1200px; width:2900px" id="myChart"></canvas>
     </div>
 <!-- End of Working Area -->
@@ -106,7 +106,9 @@ labels: Name,
 datasets: [{
 data: Counter,
 label: 'Number of Countries per Olympic Games edition',
-backgroundColor: ["rgba(0, 21, 26, 0.5)", "rgba(0, 21, 26, 0.9)"]
+backgroundColor: ["rgba(0, 21, 26, 0.5)", "rgba(0, 21, 26, 0.9)"],
+borderColor: ['rgb(0, 21, 26)','rgb(0, 21, 26)',],
+borderWidth: 1 
 }]
 },
 options:{

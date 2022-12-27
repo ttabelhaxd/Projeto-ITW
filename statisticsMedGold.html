@@ -69,6 +69,9 @@
                     <a class="dropdown-item" style="color:chocolate" href="statisticsMedBronze.html">
                         <i class="fa fa-trophy" aria-hidden="true"></i> Bronze
                     </a>
+                    <a class="dropdown-item text-primary" href="statisticsMedTotal.html">
+                        <i class="fa fa-trophy" aria-hidden="true"></i> Total
+                    </a>
                 </div>
             </div>
             </div>
@@ -104,10 +107,9 @@ success: function (data, status, xhr) {
 
 var medData = data;
 
-medData.forEach(Medals => {
-Counter.push(medData.find(Counter => Medals.counterId == 1))
-//Counter.push(Medals.CountryId); //Nesta linha!!!!!!!!!!
-CountryName.push(Medals.CountryName);
+medData.forEach(element => {
+Counter.push(element.Medals.find((ele) => ele.Counter, 0))
+CountryName.push(element.CountryName);
 });
 
 createBarGraph(Counter, CountryName);
@@ -123,7 +125,9 @@ labels: CountryName,
 datasets: [{
 data: Counter,
 label: 'Number of Gold Medals by Country over all Olympic Games editions',
-backgroundColor: ["rgba(230, 191, 0, 0.5)", "rgba(230, 191, 0, 0.9)"],    
+backgroundColor: ["rgba(255, 205, 86, 0.5)", "rgba(255, 205, 86, 1)"],
+borderColor: ['rgb(230, 191, 0)','rgb(230, 191, 0)',],
+borderWidth: 1 
 }]
 },
 options:{

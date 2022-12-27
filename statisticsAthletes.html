@@ -57,7 +57,7 @@
             <h2>Statistics - Athletes</h2>
         </div>
     </div>
-    <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:110px; position: relative; padding:10px; height:90vh; width:85vw">
+    <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:130px; position: relative; padding:10px; height:90vh; width:85vw">
         <canvas class="mt-4" style="height:1200px; width:2900px" id="myChart"></canvas>
     </div>
 <!-- End of Working Area -->
@@ -106,7 +106,9 @@ labels: Name,
 datasets: [{
 data: Counter,
 label: 'Number of Athletes per Olympic Games edition',
-backgroundColor: ["rgba(54, 162, 235, 0.5)", "rgba(54, 162, 235, 1)"]
+backgroundColor: ["rgba(54, 162, 235, 0.5)", "rgba(54, 162, 235, 1)"],
+borderColor: ['rgb(54, 162, 235)','rgb(54, 162, 235)',],
+borderWidth: 1  
 }]
 },
 options:{
