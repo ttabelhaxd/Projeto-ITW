@@ -46,7 +46,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html" tabindex="Olympics"><img src="images/Olympic_rings.svg" height="24" /></a>
+            <a class="navbar-brand" href="index.html" tabindex="Olympics"><img src="images/Olympic_rings.svg" height="25" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -74,6 +74,7 @@
                         </div>
                     </li>
                 </ul>
+                <div class="nav-item "><a class="nav-link" aria-current="page" ><input class="form-control"type="text" placeholder="Search" aria-label="Search" style="width:90%" id="procura" name="procura" autocomplete="off">&nbsp</a></div>
                 <div class="nav-item "><a class="nav-link" aria-current="page" href="favourites.html"><i class="fa fa-heart text-danger me-3"></i>&nbsp</a></div>
                 <div class="nav-item "><a class="nav-link" aria-current="page" href="statistics.html"><i class="fa fa-bar-chart text-primary me-3"></i>&nbsp</a></div>
                 <div class="nav-item "><a class="nav-link" aria-current="page" href="aboutUs.html"><i class="fa fa-info-circle text-dark"></i> About us</a></div>
@@ -206,5 +207,73 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="myScript.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            const api_url = "http://192.168.160.58/Olympics/api/Utils/Search";
+
+            $("#procura").autocomplete({
+                minLength: 2,
+                source: function (request, response) {
+                    $.ajax({
+                        type: "GET",
+                        url: api_url,
+                        data: {
+                            q: $('#procura').val().toLowerCase()
+                        },
+                        success: function (data) {
+                            if (!data.length) {
+                                var result = [{
+                                    label: 'Sem resultados',
+                                    value: response.term,
+                                }];
+                                response(result);
+                            } else {
+                                var nData = $.map(data.slice(0, 10), function (value, key) {
+                                    return {
+                                        label: value.Name,
+                                        value: value.Id,
+                                    }
+                                });
+                                results = $.ui.autocomplete.filter(nData, request.term);
+                                response(results);
+                            }
+                        },
+                        error: function () {
+                            alert("error!");
+                        }
+                    })
+                },
+                select: function (event, ui) {
+                    event.preventDefault();
+                    $("#procura").val(ui.item.label);
+                    switch (ui.item.source) {
+                        case "Athlete":
+                    window.location.href = "./athleteDetails.html?id=" + ui.item.value;
+                    break;
+                    case "Competition":
+                    window.location.href = "./competitionDetails.html?id=" + ui.item.value;
+                    break;
+                    case "Country":
+                    window.location.href = "./countryDetails.html?id=" + ui.item.value;
+                    break;
+                    case "Game":
+                    window.location.href = "./gameDetails.html?id=" + ui.item.value;
+                    break;
+                    case "Modality":
+                    window.location.href = "./modalityDetails.html?id=" + ui.item.value;
+                    break;
+                    default:
+                    break;
+                }
+
+                    // h.loadTitleModal(ui.item.value)
+                },
+                focus: function (event, ui) {
+                    $("#procura").val(ui.item.label);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

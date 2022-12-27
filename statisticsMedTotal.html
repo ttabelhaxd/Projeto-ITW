@@ -54,7 +54,7 @@
     <!-- Working Area -->
     <div class="container my-xs-4m mt-4">
         <div class="border-bottom py-2 mb-2 d-flex">
-            <h2>Statistics - Medals: Bronze  </h2>
+            <h2>Statistics - Medals: Total </h2>
             <div class="dropdown btn">
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i></i> Category
@@ -68,6 +68,9 @@
                     </a>
                     <a class="dropdown-item" style="color:chocolate" href="statisticsMedBronze.html">
                         <i class="fa fa-trophy" aria-hidden="true"></i> Bronze
+                    </a>
+                    <a class="dropdown-item" style="color:chocolate" href="statisticsMedBronze.html">
+                        <i class="fa fa-trophy" aria-hidden="true"></i> Total
                     </a>
                 </div>
             </div>
@@ -100,47 +103,34 @@ url: 'http://192.168.160.58/Olympics/api/statistics/Medals_Country',
 headers: {
 'Content-Type': 'application/json'
 },
-success: function (data, status, xhr) {
 
-var medData = data;
 
-medData.forEach(Medals => {
-//Counter.push(medData.find(Medals => Medals.counterId == 1))
-Counter.push(Medals.CountryId); //Nesta linha!!!!!!!!!!
-CountryName.push(Medals.CountryName);
+// var medData = data;
+
+// medData.forEach(Medals => {
+// //Counter.push(medData.find(Medals => Medals.counterId == 1))
+// Counter.push(Medals.CountryId); //Nesta linha!!!!!!!!!!
+// CountryName.push(Medals.CountryName);
+// });
+
+// createBarGraph(Counter, CountryName);
+
+// }
 });
 
-createBarGraph(Counter, CountryName);
-
+function createChartData(countries) {
+  var data = [];
+  countries.forEach(function(country) {
+    var totalMedals = country.Medals.reduce(function(acc, medal) {
+      return acc + medal.Counter;
+    }, 0);
+    data.push({
+      label: country.CountryName,
+      data: totalMedals
+    });
+  });
+  return data;
 }
-});
-
-function createBarGraph(Counter, CountryName) {
-let barChart = new Chart("myChart", {
-type: "bar",
-data: {
-labels: CountryName,
-datasets: [{
-data: Counter,
-label: 'Number of Bronze Medals by Country over all Olympic Games editions',
-backgroundColor: ["rgba(179, 59, 0, 0.5)", "rgba(179, 59, 0, 0.8)"],    
-}]
-},
-options:{
-    animations: {
-      tension: {
-        duration: 1000,
-        easing: 'linear',
-        from: 1,
-        to:0,
-        loop: true
-      }
-    },
-indexAxis: 'y',
-}
-});
-}
-
 </script>
 </body>
 </html>
