@@ -103,29 +103,29 @@ $(document).ajaxComplete(function (event, xhr, options) {
 
 
 function removeFav(Id) {
-    console.log("remove fav")
+    console.log("remove fav3")
     $("#fav-" + Id).remove();
 
-    let fav = JSON.parse(localStorage.fav || '[]');
+    let fav3 = JSON.parse(localStorage.fav3 || '[]');
 
-    const index = fav.indexOf(Id);
+    const index = fav3.indexOf(Id);
 
     if (index != -1)
-        fav.splice(index, 1);
+        fav3.splice(index, 1);
 
-    localStorage.setItem("fav", JSON.stringify(fav));
+    localStorage.setItem("fav3", JSON.stringify(fav));
 }
 
 
 $(document).ready(function () {
     showLoading();
 
-    let fav = JSON.parse(localStorage.fav || '[]');
+    let fav3 = JSON.parse(localStorage.fav3 || '[]');
 
-    console.log(fav);
+    console.log(fav3);
 
 
-    for (const Id of fav) {
+    for (const Id of fav3) {
         console.log(Id);
 
         ajaxHelper('http://192.168.160.58/Olympics/api/Games/' + Id, 'GET').done(function (data) {

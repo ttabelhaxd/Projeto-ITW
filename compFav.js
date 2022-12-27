@@ -106,26 +106,26 @@ function removeFav(Id) {
     console.log("remove fav")
     $("#fav-" + Id).remove();
 
-    let fav = JSON.parse(localStorage.fav || '[]');
+    let fav1 = JSON.parse(localStorage.fav1 || '[]');
 
-    const index = fav.indexOf(Id);
+    const index = fav1.indexOf(Id);
 
     if (index != -1)
-        fav.splice(index, 1);
+        fav1.splice(index, 1);
 
-    localStorage.setItem("fav", JSON.stringify(fav));
+    localStorage.setItem("fav1", JSON.stringify(fav1));
 }
 
 
 $(document).ready(function () {
     showLoading();
 
-    let fav = JSON.parse(localStorage.fav || '[]');
+    let fav1 = JSON.parse(localStorage.fav1 || '[]');
 
-    console.log(fav);
+    console.log(fav1);
 
 
-    for (const Id of fav) {
+    for (const Id of fav1) {
         console.log(Id);
 
         ajaxHelper('http://192.168.160.58/Olympics/api/Competitions/' + Id, 'GET').done(function (data) {

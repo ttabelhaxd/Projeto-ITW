@@ -57,7 +57,7 @@
             <h2>Statistics - Medals</h2>
         </div>
     </div>
-    <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:110px; position: relative; padding:15px; height:380vh; width:85vw">
+    <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:110px; position: relative; padding:10px; height:380vh; width:85vw">
         <canvas class="mt-4" style="height:6000px; width:2900px" id="myChart"></canvas>
     </div>
 <!-- End of Working Area -->
@@ -89,7 +89,8 @@ success: function (data, status, xhr) {
 var medData = data;
 
 medData.forEach(Medals => {
-Counter.push(Medals.Counter);
+Counter.push(medData.find(Medals => Medals.counterId == 1))
+//Counter.push(Medals.CountryId); //Nesta linha!!!!!!!!!!
 CountryName.push(Medals.CountryName);
 });
 
