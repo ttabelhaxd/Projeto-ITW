@@ -53,8 +53,24 @@
     </nav>
     <!-- Working Area -->
     <div class="container my-xs-4m mt-4">
-        <div class="border-bottom py-2 mb-2">
-            <h2>Statistics - Medals</h2>
+        <div class="border-bottom py-2 mb-2 d-flex">
+            <h2>Statistics - Medals  </h2>
+            <div class="dropdown btn">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i></i> Category
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item text-warning" href="statisticsMedGold.html">
+                        <i class="fa fa-trophy " aria-hidden="true"></i> Gold
+                    </a>
+                    <a class="dropdown-item" style="color:dimgray" href="statisticsMedSilver.html">
+                        <i class="fa fa-trophy aria-hidden="true"></i> Silver
+                    </a>
+                    <a class="dropdown-item" style="color:chocolate" href="statisticsMedBronze.html">
+                        <i class="fa fa-trophy" aria-hidden="true"></i> Bronze
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:110px; position: relative; padding:10px; height:380vh; width:85vw">
@@ -106,8 +122,8 @@ data: {
 labels: CountryName,
 datasets: [{
 data: Counter,
-label: 'Number of Medals by Country over all Olympic Games editions',
-backgroundColor: ["rgba(255, 99, 132, 0.5)", "rgba(255, 205, 86, 0.5)"],    
+label: 'Number of Gold Medals by Country over all Olympic Games editions',
+backgroundColor: ["rgba(230, 191, 0, 0.5)", "rgba(230, 191, 0, 0.8)"],    
 }]
 },
 options:{

@@ -3,7 +3,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>ITW - Olympics - Modalities Statistics</title>
+    <title>ITW - Olympics - Medals Statistics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
@@ -53,12 +53,28 @@
     </nav>
     <!-- Working Area -->
     <div class="container my-xs-4m mt-4">
-        <div class="border-bottom py-2 mb-2">
-            <h2>Statistics - Modalities</h2>
+        <div class="border-bottom py-2 mb-2 d-flex">
+            <h2>Statistics - Medals  </h2>
+            <div class="dropdown btn">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i></i> Category
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item text-warning" href="statisticsMedGold.html">
+                        <i class="fa fa-trophy " aria-hidden="true"></i> Gold
+                    </a>
+                    <a class="dropdown-item" style="color:dimgray" href="statisticsMedSilver.html">
+                        <i class="fa fa-trophy aria-hidden="true"></i> Silver
+                    </a>
+                    <a class="dropdown-item" style="color:chocolate" href="statisticsMedBronze.html">
+                        <i class="fa fa-trophy" aria-hidden="true"></i> Bronze
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:110px; position: relative; padding:10px; height:90vh; width:85vw">
-        <canvas class="mt-4" style="height:1200px; width:2900px" id="myChart"></canvas>
+    <div class="chart-container justify-content-center bg-light mt-4" style="margin-left:110px; position: relative; padding:10px; height:380vh; width:85vw">
+        <canvas class="mt-4" style="height:6000px; width:2900px" id="myChart"></canvas>
     </div>
 <!-- End of Working Area -->
 <nav class="navbar navbar-light bg-light" id="footer">
@@ -76,37 +92,38 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 var Counter = [];
-var Name = [];
+var CountryName = [];
 
 $.ajax({
 type: 'GET',
-url: 'http://192.168.160.58/Olympics/api/statistics/Games_Modalities',
+url: 'http://192.168.160.58/Olympics/api/statistics/Medals_Country',
 headers: {
 'Content-Type': 'application/json'
 },
 success: function (data, status, xhr) {
 
-var modData = data;
+var medData = data;
 
-modData.forEach(element => {
-Counter.push(element.Counter);
-Name.push(element.Name);
+medData.forEach(Medals => {
+Counter.push(medData.find(Medals => Medals.counterId == 1))
+//Counter.push(Medals.CountryId); //Nesta linha!!!!!!!!!!
+CountryName.push(Medals.CountryName);
 });
 
-createBarGraph(Counter, Name);
+createBarGraph(Counter, CountryName);
 
 }
 });
 
-function createBarGraph(Counter, Name) {
+function createBarGraph(Counter, CountryName) {
 let barChart = new Chart("myChart", {
 type: "bar",
 data: {
-labels: Name,
+labels: CountryName, 
 datasets: [{
 data: Counter,
-label: 'Number of Modalities per Olympic Games edition', 
-backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(255, 0, 0, 0.7)"]
+label: 'Number of Silver Medals by Country over all Olympic Games editions',
+backgroundColor: ["rgba(0, 26, 26, 0.5)", "rgba(255, 205, 86, 0.8)"],    
 }]
 },
 options:{
@@ -119,6 +136,7 @@ options:{
         loop: true
       }
     },
+indexAxis: 'y',
 }
 });
 }

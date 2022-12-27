@@ -150,14 +150,8 @@
         <div class="border-bottom pt-4 pb-2 mb-3">
             <h2>Medals by Country</h2>
         </div>
-        <div class="chart-container justify-content-center" style="position: relative; padding:60px; height:80vh; width:80vw">
-            <canvas style="height:600px; width:1500px" id="myChart"></canvas>
-        </div>
-        <div class="border-bottom pt-4 pb-2 mb-3">
-            <h2>Athletes per Country</h2>
-        </div>
-        <div class="chart-container justify-content-center" style="position: relative; padding:60px; height:80vh; width:80vw">
-            <canvas style="height:1000px; width:1000px" id="myChart1"></canvas>
+        <div class="chart-container justify-content-center" style="position: relative; padding:10px; height:80vh; width:80vw">
+            <canvas style="height:600px; width:1800px" id="myChart"></canvas>
         </div>
     <div class="text-center mt-5">
         <a href="games.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
@@ -241,48 +235,6 @@
         }
         
         </script>
-        <script>
-            var Counter = [];
-            var CountryName = [];
-            
-            $.ajax({
-            type: 'GET',
-            url: 'http://192.168.160.58/Olympics/api/statistics/Athlete_Country?id=&IOC=',
-            headers: {
-            'Content-Type': 'application/json'
-            },
-            success: function (data, status, xhr) {
-            
-            var athData = data;
-            
-            athData.forEach(element => {
-            Counter.push(element.Counter);
-            CountryName1.push(element.CountryName);
-            });
-            
-            createBarGraph(Counter, CountryName);
-            
-            }
-            });
-            
-            function createBarGraph(Counter, CountryName) {
-            let barChart = new Chart("myChart", {
-            type: "bar",
-            data: {
-            labels: CountryName,
-            datasets: [{
-            data: Counter,
-            label: 'Number of Athletes by Country to a specific Olympic Games Edition',
-            backgroundColor: ["#60a3bc", "#FFA64D"]
-            }]
-            },
-            options:{
-            
-            }
-            });
-            }
-            
-            </script>
 </body>
 
 </html>
