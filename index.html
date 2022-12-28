@@ -127,7 +127,7 @@
     <div class="container my-xs-4">
         <h1 class="text-start mb-3 fw-bolder">Latest news </h1>
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card" style="width: 25rem;">
                     <img src="images/news 1.png.webp" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -137,7 +137,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card" style="width: 25rem;">
                     <img src="images/news 2.webp" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -147,7 +147,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card" style="width: 25rem;">
                     <img src="images/news 3.webp" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -159,7 +159,7 @@
             </div>
         </div>
         <div class="row mt-4">
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card" style="width: 25rem;">
                     <img src="images/news 4.webp" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -169,7 +169,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card" style="width: 25rem;">
                     <img src="images/news 5.webp" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -179,7 +179,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card" style="width: 25rem;">
                     <img src="images/news 6.webp" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -210,8 +210,9 @@
     <script>
         $(document).ready(function () {
 
-            const api_url = "http://192.168.160.58/Olympics/api/Utils/Search";
-
+            //const api_url = "http://192.168.160.58/Olympics/api/Utils/Search";
+            const api_url = "http://192.168.160.58/Olympics/api/Countries/SearchByName";
+;
             $("#procura").autocomplete({
                 minLength: 2,
                 source: function (request, response) {
@@ -226,6 +227,7 @@
                                 var result = [{
                                     label: 'Sem resultados',
                                     value: response.term,
+                                    source:""
                                 }];
                                 response(result);
                             } else {
@@ -233,6 +235,7 @@
                                     return {
                                         label: value.Name,
                                         value: value.Id,
+                                        source: value.Source
                                     }
                                 });
                                 results = $.ui.autocomplete.filter(nData, request.term);
@@ -247,8 +250,10 @@
                 select: function (event, ui) {
                     event.preventDefault();
                     $("#procura").val(ui.item.label);
+                    window.location.href = "./countryDetails.html?id=" + ui.item.value;
+                   /*
                     switch (ui.item.source) {
-                        case "Athlete":
+                    case "Athlete":
                     window.location.href = "./athleteDetails.html?id=" + ui.item.value;
                     break;
                     case "Competition":
@@ -265,7 +270,7 @@
                     break;
                     default:
                     break;
-                }
+                }*/
 
                     // h.loadTitleModal(ui.item.value)
                 },
@@ -275,5 +280,6 @@
             });
         });
     </script>
+    <script src="countries.js"></script>
 </body>
 </html>
