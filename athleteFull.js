@@ -24,6 +24,7 @@ var vm = function () {
     self.Competitions = ko.observableArray([]);
     self.Medals = ko.observableArray([]);
     self.Url = ko.observable('');
+    self.favourites =ko.observable('');
     self.toggleFavourite = function (id) {
         if (self.favourites.indexOf(id) == -1) {
             self.favourites.push(id);
