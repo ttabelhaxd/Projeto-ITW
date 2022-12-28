@@ -34,11 +34,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item" ><a class="nav-link" aria-current="page" href="athletes.html" id="athcolor"><i class="fa fa-user text-primary"></i> Athletes</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="competitions.html" id="compcolor"><i class="fa fa-trophy text-warning"></i> Competitions</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="countries.html" id="countrycolor"><i class=" fa fa-flag"></i> Countries</a></li>
-                    <li class="nav-item"><a class="nav-link text-success gamechosen" aria-current="page" href="games.html" id="gamecolor"><i class="fa fa-map-marker text-success"></i> Games</a></li>
-                    <li class="nav-item"><a class="nav-link" aria-current="page" href="modalities.html" id="modcolor"><i class="fa fa-soccer-ball-o text-danger"></i> Modalities</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="athletes.html" id="athcolor"><i
+                                class="fa fa-user text-primary"></i> Athletes</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="competitions.html"
+                            id="compcolor"><i class="fa fa-trophy text-warning"></i> Competitions</a></li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="countries.html"
+                            id="countrycolor"><i class=" fa fa-flag"></i> Countries</a></li>
+                    <li class="nav-item"><a class="nav-link text-success gamechosen" aria-current="page"
+                            href="games.html" id="gamecolor"><i class="fa fa-map-marker text-success"></i> Games</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" aria-current="page" href="modalities.html" id="modcolor"><i
+                                class="fa fa-soccer-ball-o text-danger"></i> Modalities</a></li>
                     <li class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,43 +75,44 @@
     <!-- Work Area-->
     <div class="container mt-4 bg-light" style="padding:70px"">
         <!-- ko if:Name().length > 0 -->
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-7">
-                <div class="py-2 border-bottom mb-3">
-                    <h2 data-bind="text:Name"></h2>
-                </div>
-                <div class="row border-bottom mx-0  my-1">
-                    <div class="col-5">Country Name</div>
-                    <div class="col-7" data-bind="text: CountryName"></div>
-                </div>
-                <div class="row border-bottom mx-0  my-1">
-                    <div class="col-5">Season</div>
-                    <div class="col-7" data-bind="formatSeason: Season"></div>
-                </div>
-                <div class="row border-bottom mx-0  my-1">
-                    <div class="col-5">Year</div>
-                    <div class="col-7" data-bind="text:Year"></div>
-                </div>
-                <div class="col-12 text-center">
-                    <!--ko if: Photo-->
-                    <img class="img-thumbnail mt-2" data-bind="attr:{src: Photo}" style="width: 800px;height: 400px;">
-                    <!--/ko-->
-                    <!--ko ifnot: Photo-->
-                    <img class="mt-2" style="width: 800px;height: 600px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
-                    <!--/ko-->
-                </div>
+        <div class=" row justify-content-center">
+        <div class="col-12 col-lg-7">
+            <div class="py-2 border-bottom mb-3">
+                <h2 data-bind="text:Name"></h2>
             </div>
-            <div class="col-12 col-lg-5 mt-5 ms-lg-5" style="width: 175px; height: 175px;">
-                <!--ko if: Logo-->
-                <img class="img-thumbnail" data-bind="attr:{src: Logo}">
+            <div class="row border-bottom mx-0  my-1">
+                <div class="col-5">Country Name</div>
+                <div class="col-7" data-bind="text: CountryName"></div>
+            </div>
+            <div class="row border-bottom mx-0  my-1">
+                <div class="col-5">Season</div>
+                <div class="col-7" data-bind="formatSeason: Season"></div>
+            </div>
+            <div class="row border-bottom mx-0  my-1">
+                <div class="col-5">Year</div>
+                <div class="col-7" data-bind="text:Year"></div>
+            </div>
+            <div class="col-12 text-center">
+                <!--ko if: Photo-->
+                <img class="img-thumbnail mt-2" data-bind="attr:{src: Photo}" style="width: 800px;height: 400px;">
                 <!--/ko-->
-                <!--ko ifnot: Logo-->
-                <img
+                <!--ko ifnot: Photo-->
+                <img class="mt-2" style="width: 800px;height: 600px"
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
                 <!--/ko-->
             </div>
         </div>
-        <!-- /ko -->
+        <div class="col-12 col-lg-5 mt-5 ms-lg-5" style="width: 175px; height: 175px;">
+            <!--ko if: Logo-->
+            <img class="img-thumbnail" data-bind="attr:{src: Logo}">
+            <!--/ko-->
+            <!--ko ifnot: Logo-->
+            <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
+            <!--/ko-->
+        </div>
+    </div>
+    <!-- /ko -->
 
 
     <div class="container">
@@ -148,15 +155,15 @@
     <!-- /ko -->
     <div class="container">
         <div class="border-bottom pt-4 pb-2 mb-3">
-            <h2>Medals by Country</h2>
+            <h2>Medals</h2>
         </div>
-        <div class="chart-container justify-content-center" style="position: relative; padding:10px; height:80vh; width:70vw">
-            <canvas style="height:1000px; width:1600px" id="myChart"></canvas>
+        <div class="chart-container justify-content-center" style="position: relative; padding:10px; width:70vw">
+            <canvas id="myChart"></canvas>
         </div>
-    <div class="text-center mt-5">
-        <a href="games.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
-        <a href="#" class="btn btn-primary"><i class="fa fa-arrow-up"></i> Top</a>
-    </div>
+        <div class="text-center mt-5">
+            <a href="games.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
+            <a href="#" class="btn btn-primary"><i class="fa fa-arrow-up"></i> Top</a>
+        </div>
     </div>
     </div>
     <!-- Modal -->
@@ -193,49 +200,6 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="gameFull.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        var Counter = [];
-        var CountryName = [];
-        self.Id = ko.observable('');
-        self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/statistics/Medals_Country?id=');
-        $.ajax({
-        type: 'GET',
-        url: self.baseUri() + id,
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        success: function (data, status, xhr) {
-        
-        var medData = data;
-        
-        medData.forEach(element => {
-        Counter.push(element.Medals.reduce((accum, ele) => ele.Counter + accum, 1))
-        CountryName.push(element.CountryName);
-        });
-        
-        createBarGraph(Counter, CountryName);
-        
-        }
-        });
-        
-        function createBarGraph(Counter, CountryName) {
-        let barChart = new Chart("myChart", {
-        type: "bar",
-        data: {
-        labels: CountryName,
-        datasets: [{
-        data: Counter,
-        label: 'Number of Medals by Country in this Olympic Games Edition',
-        backgroundColor: ["#60a3bc", "#FFA64D"]
-        }]
-        },
-        options:{indexAxis: 'y',
-        
-        }
-        });
-        }
-        
-        </script>
 </body>
 
 </html>
