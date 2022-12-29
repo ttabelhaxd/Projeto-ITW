@@ -99,10 +99,15 @@
             </div>
             <div class="col-12 col-lg-5 mt-5 ms-lg-5" style="width: 350px; height:350px;">
                 <!--ko if: Photo-->
-                <img class="img-thumbnail" data-bind="attr:{src: Photo}">
+                <a data-bind="attr:{href: Photo}">
+                    <img class="img-thumbnail" data-bind="attr:{src: Photo}">
+                </a>
                 <!--/ko-->
                 <!--ko ifnot: Photo-->
+                <!--
                 <img src="https://media.tenor.com/5tMQDJlcOcYAAAAC/siuuu.gif" style="width: 350px; height:350px">
+                -->
+                <img src="https://www.pngall.com/wp-content/uploads/5/User-Profile-PNG.png" style="width: 350px; height:350px">
                 <!--/ko-->
             </div>
             <!-- /ko -->

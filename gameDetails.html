@@ -77,7 +77,9 @@
             </div>
             <div class="col-12 col-lg-5 mt-5 ms-lg-5" style="width: 175px; height: 175px;">
                 <!--ko if: Logo-->
-                <img class="img-thumbnail" data-bind="attr:{src: Logo}">
+                <a data-bind="attr:{href: Logo}">
+                    <img class="img-thumbnail" data-bind="attr:{src: Logo}">
+                </a>
                 <!--/ko-->
                 <!--ko ifnot: Logo-->
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">

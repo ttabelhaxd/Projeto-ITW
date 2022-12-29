@@ -94,33 +94,36 @@
             </div>
             <div class="col-12 text-center">
                 <!--ko if: Photo-->
-                <img class="img-thumbnail mt-2" data-bind="attr:{src: Photo}" style="width: 800px;height: 400px;">
+                <a data-bind="attr: { href: Photo }">
+                    <img class="img-thumbnail mt-2" data-bind="attr:{src: Photo}" style="width: 800px;height: 400px;">
+                </a>
                 <!--/ko-->
                 <!--ko ifnot: Photo-->
-                <img class="mt-2" style="width: 800px;height: 600px"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
+                <img class="mt-2" style="width: 800px;height: 600px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
                 <!--/ko-->
             </div>
         </div>
         <div class="col-12 col-lg-5 mt-5 ms-lg-5" style="width: 175px; height: 175px;">
             <!--ko if: Logo-->
-            <img class="img-thumbnail" data-bind="attr:{src: Logo}">
+            <a data-bind="attr: { href: Logo }">
+                <img class="img-thumbnail" data-bind="attr:{src: Logo}">
+            </a>
             <!--/ko-->
             <!--ko ifnot: Logo-->
-            <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
+            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
+            </a>
             <!--/ko-->
+            <h2 class="mt-5 text-center border-bottom">Medals</h2>
+            <div class="text-center" data-bind="foreach: Medals">
+                <a data-bind="text:Counter + ' ' + MedalName"></a></br>
+            </div>
         </div>
     </div>
     <!-- /ko -->
 
 
     <div class="container">
-
-        <h2 class="mt-5 border-bottom">Medals</h2>
-        <div data-bind="foreach: Medals">
-            <a data-bind="text:Counter + ' ' + MedalName"></a></br>
-        </div>
 
         <h2 class="mt-5 border-bottom">Modalities<span data-bind="text: ' [' + Modalities().length +']'"></span>
         </h2>
