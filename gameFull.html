@@ -85,6 +85,10 @@
                 <div class="col-7" data-bind="text: CountryName"></div>
             </div>
             <div class="row border-bottom mx-0  my-1">
+                <div class="col-5">City Name</div>
+                <div class="col-7" data-bind="text: City"></div>
+            </div>
+            <div class="row border-bottom mx-0  my-1">
                 <div class="col-5">Season</div>
                 <div class="col-7" data-bind="formatSeason: Season"></div>
             </div>
@@ -97,6 +101,7 @@
                 <a data-bind="attr: { href: Photo }">
                     <img class="img-thumbnail mt-2" data-bind="attr:{src: Photo}" style="width: 800px;height: 400px;">
                 </a>
+                
                 <!--/ko-->
                 <!--ko ifnot: Photo-->
                 <img class="mt-2" style="width: 800px;height: 600px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
