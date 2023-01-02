@@ -83,6 +83,31 @@ var vm = function () {
         });
     };
 
+    self.activate2 = function (id, season='name') {
+        console.log('CALL: getGames...');
+        var composedUri = self.baseUri() + "?season=" + season + "&page=" + id + "&pageSize=" + self.pagesize();
+        ajaxHelper(composedUri, 'GET').done(function (data) {
+            console.log(data);
+            hideLoading();
+            self.records(data.Records);
+            self.currentPage(data.CurrentPage);
+            self.hasNext(data.HasNext);
+            self.hasPrevious(data.HasPrevious);
+            self.pagesize(data.PageSize)
+            self.totalPages(2);
+            self.totalRecords(data.TotalRecords);
+            //self.SetFavourites();
+            if (season == 1){
+                self.totalRecords(29);
+                self.displayName('Summer Olympic Games editions List');
+            }
+            else if (season == 2){
+                self.totalRecords(22);
+                self.displayName('Winter Olympic Games editions List');
+            }
+        });
+    };
+
     //--- Internal functions
     function ajaxHelper(uri, method, data) {
         self.error(''); // Clear error message
@@ -141,6 +166,25 @@ var vm = function () {
     else {
         self.activate(pg);
     }
+    self.season = ko.observable(getUrlParameter('season'))
+    console.log(pg);
+    if (pg == undefined){
+        if (self.season()!=undefined){
+            self.activate2(1, self.season());
+            $("#divshow").removeClass("d-none")
+        }
+        else  {self.activate(1);}
+    }
+    else {
+        if (self.season()!=undefined){
+            self.activate2(pg, self.season())
+            $("#divshow").removeClass("d-none")
+        }
+        else {self.activate(pg);}
+    }
+    $("#remover").click(function(){
+        $("#divshow").addClass("d-none")
+    })
     console.log("VM initialized!");
 };
 

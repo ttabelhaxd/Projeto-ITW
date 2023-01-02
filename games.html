@@ -61,34 +61,90 @@
                 </div>
             </div>
         </div>
-        <!-- ko if:records().length > 0 -->
-        <div class="row small">
-            <p class=" col-4 mr-auto pt-2">
-                <span data-bind="html: 'Page: ' + currentPage() + ' of ' + totalPages()"></span><br />
-                <span data-bind="html: 'Games: '+ fromRecord() + '-' + toRecord() + ' of ' + totalRecords()"></span>
-            </p>
-            <div class="col-8 my-0 pt-3">
-                <ul class="pagination float-end">
-                    <!-- ko if: currentPage() > 5 && totalPages() > 10 -->
-                    <li class="page-item float-end"><a class="page-link" title="First Page" data-bind="attr: { href: './games.html?page=' + '1',  rel:'prev'}">⇤</a></li>
-                    <li class="page-item float-end"><a class="page-link" title="Previous Page" data-bind="attr: { href: './games.html?page=' + previousPage(),  rel:'prev'}">←</a></li>
-                    <!-- /ko -->
-                    <!-- ko foreach: pageArray()-->
-                    <!-- ko if:$data == $parent.currentPage() -->
-                    <li class="active page-item"><a class="page-link" data-bind="attr: { title:'Current Page ' + $data }, text: $data"></a></li>
-                    <!-- /ko -->
-                    <!-- ko if:$data != $parent.currentPage() -->
-                    <li class="page-item"><a class="page-link" data-bind="attr: { href: './games.html?page=' + $data, title:'Goto Page ' + $data }, text:$data"></a></li>
-                    <!-- /ko -->
-                    <!-- /ko -->
-                    <!-- ko if: currentPage() < totalPages() - 4 && totalPages() > 9 -->
-                    <li class="page-item"><a class="page-link" title="Next Page" data-bind="attr: { href: './games.html?page=' + nextPage(), rel:'next' }">→</a></li>
-                    <li class="page-item"><a class="page-link" title="Last Page" data-bind="attr: { href: './games.html?page=' + totalPages() }">⇥</a></li>
-                    <!-- /ko -->
-                </ul>
+               <!-- ko if:records().length > 0 -->
+               <div class="row small">
+                <p class=" col-4 mr-auto pt-2">
+                    <span data-bind="html: 'Page: ' + currentPage() + ' of ' + totalPages()"></span><br />
+                    <span data-bind="html: 'Games: '+ fromRecord() + '-' + toRecord() + ' of ' + totalRecords()"></span>
+                </p>
+                <div class="col-8 my-0 pt-3">
+                    <ul class="pagination float-end">
+                        <!-- ko if: currentPage() > 5 && totalPages() > 10 -->
+                        <li class="page-item float-end">
+                        <!-- ko ifnot: season -->
+                        <a class="page-link" title="First Page" data-bind="attr: { href: './games.html?page=' + '1',  rel:'prev'}">⇤</a>
+                        <!-- /ko -->
+                        <!-- ko if: season -->
+                        <a ckass="page-link" title="First Page" data-bind="attr: { href: './games.html?season=' + season() + '&page=' + '1',  rel:'prev'}">⇤</a>
+                        <!-- /ko -->
+                        </li>
+    
+    
+                        <li class="page-item float-end">
+                        <!-- ko ifnot: season -->
+                        <a class="page-link" title="Previous Page" data-bind="attr: { href: './games.html?page=' + previousPage(),  rel:'prev'}">←</a>
+                        <!-- /ko -->
+                        <!-- ko if: season -->
+                        <a class="page-link" title="Previous Page" data-bind="attr: { href: './games.html?season=' + season() + '&page=' + previousPage(),  rel:'prev'}">←</a>
+                        <!-- /ko -->
+                        </li>
+                        <!-- /ko -->
+                        <!-- ko foreach: pageArray()-->
+                        <!-- ko if:$data == $parent.currentPage() -->
+                        <li class="active page-item">
+                            <a class="page-link" data-bind="attr: { title:'Current Page ' + $data }, text: $data"></a>
+                        </li>
+                        <!-- /ko -->
+    
+                        <!-- ko if:$data != $parent.currentPage() -->
+                        <li class="page-item">
+                        <!-- ko ifnot: $parent.season() -->
+                        <a class="page-link" data-bind="attr: { href: './games.html?page=' + $data, title:'Goto Page ' + $data }, text:$data"></a>
+                        <!-- /ko -->
+                        <!-- ko if: $parent.season() -->
+                        <a class="page-link" data-bind="attr: { href: './games.html?season=' + $parent.season() + '&page=' + $data, title:'Goto Page ' + $data }, text:$data"></a>
+                        <!-- /ko -->
+                        </li>   
+                        <!-- /ko -->
+                        <!-- /ko -->
+    
+                        <!-- ko if: currentPage() < totalPages() - 4 && totalPages() > 9 -->
+                        <li class="page-item">
+                        <!-- ko ifnot: season -->
+                        <a class="page-link" title="Next Page" data-bind="attr: { href: './games.html?page=' + nextPage(), rel:'next' }">→</a> 
+                        <!-- /ko -->
+                        <!-- ko if: season -->
+                        <a class="page-link" title="Next Page" data-bind="attr: { href: './games.html?season=' + season() + '&page=' + nextPage(), rel:'next' }">→</a>
+                        <!-- /ko -->
+                        </li>
+                        <li class="page-item">
+                        <!-- ko ifnot: season -->
+                        <a class="page-link" title="Last Page" data-bind="attr: { href: './games.html?page=' + totalPages() }">⇥</a>
+                        <!-- /ko -->
+                        <!-- ko if: season -->
+                        <a class="page-link" title="Last Page" data-bind="attr: { href: './games.html?season=' + season() + '&page=' + totalPages() }">⇥</a>
+                        <!-- /ko -->
+                        </li>
+                        <!-- /ko -->
+                    </ul>
+                </div>
             </div>
-        </div>
-        <!-- /ko -->
+            <!-- /ko -->
+            <div class="row">
+                <div class="col-3 d-flex">
+                    <div class="dropdown me-3">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filter
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a id="summer" data-bind="attr:{href:'./games.html?season=1'}" class="dropdown-item" >Summer</a></li>
+                            <li><a id="winter" data-bind="attr:{href:'./games.html?season=2'}" class="dropdown-item" >Winter</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 d-none" id="divshow"><a href="games.html"><button id="remover" class=" btn btn-danger">Remover filtro</button></a></div>
+                </div>
+                
+        
         <div class="container">
             <div class="row justify-content-center" data-bind="foreach: records">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-2 card cardbig p-3 m-3 text-center">
