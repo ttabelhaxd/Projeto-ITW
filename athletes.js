@@ -5,7 +5,7 @@ var vm = function () {
     var self = this;
     self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/athletes');
     //self.baseUri = ko.observable('http://localhost:62595/api/drivers');
-    self.displayName = 'Athletes List';
+    self.displayName = ko.observable('');
     self.error = ko.observable('');
     self.passingMessage = ko.observable('');
     self.records = ko.observableArray([]);
@@ -81,8 +81,61 @@ var vm = function () {
             self.pagesize(data.PageSize)
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
+            self.displayName('Olympic Athletes List')
             self.SetFavourites();
             //self.SetFavourites();
+        });
+    };
+
+    self.activate2 = function (id, sortby='name') {
+        console.log('CALL: getGames...');
+        var composedUri = self.baseUri() + "?page=" + id + "&pageSize=" + self.pagesize() + "&sortby=" + sortby;
+        ajaxHelper(composedUri, 'GET').done(function (data) {
+            console.log(data);
+            hideLoading();
+            self.records(data.Records);
+            self.currentPage(data.CurrentPage);
+            self.hasNext(data.HasNext);
+            self.hasPrevious(data.HasPrevious);
+            self.pagesize(data.PageSize)
+            self.totalPages(data.TotalPages);
+            self.totalRecords(data.TotalRecords);
+            self.SetFavourites();
+            if (sortby == 'Id'){
+                self.displayName('Olympic Athletes List by Id')
+            }
+            if (sortby == 'NameUp'){
+                self.displayName('Olympic Athletes List by Name Ascending')
+            }
+            if (sortby == 'NameDn'){
+                self.displayName('Olympic Athletes List by Name Descending')
+            }
+            if (sortby == 'HeightUp'){
+                self.displayName('Olympic  Athletes List by Height Ascending')
+            }
+            if (sortby == 'HeightDn'){
+                self.displayName('Olympic Athletes List by Height Descending')
+            }
+            if (sortby == 'SexUp'){
+                self.displayName('Olympic Athletes List by Sex Ascending')
+            }
+            if (sortby == 'SexDn'){
+                self.displayName('Olympic Athletes List by Sex Descending')
+            }
+            if (sortby == 'BornDateUp'){
+                self.displayName('Olympic Athletes List by Born Date Ascending')
+            }
+            if (sortby == 'BornDateDn'){
+                self.displayName('Olympic Athletes List by Born Date Descending')
+            }
+            if (sortby == 'DiedDateUp'){
+                self.displayName('Olympic Athletes List by Died Date Ascending')
+            }
+            if (sortby == 'DiedDateDn'){
+                self.displayName('Olympic Athletes List by Died Date Descending')
+            }
+        
+         
         });
     };
 
@@ -137,13 +190,28 @@ var vm = function () {
 
     //--- start ....
     showLoading();
+    $("#tagsAthletes").val(undefined);
     var pg = getUrlParameter('page');
-    console.log(pg);
-    if (pg == undefined)
-        self.activate(1);
-    else {
-        self.activate(pg);
+    self.sortby = ko.observable(getUrlParameter('sortby'))
+console.log(pg);
+if (pg == undefined){
+    if (self.sortby()!=undefined){
+        self.activate2(1, self.sortby());
+        $("#divshow").removeClass("d-none")
     }
+    else  {self.activate(1);}
+}
+else {
+    if (self.sortby()!=undefined){
+        self.activate2(pg, self.sortby())
+        $("#divshow").removeClass("d-none")
+    }
+    else {self.activate(pg);}
+}
+$("#remover").click(function(){
+    $("#divshow").addClass("d-none")
+})
+
     console.log("VM initialized!");
 };
 

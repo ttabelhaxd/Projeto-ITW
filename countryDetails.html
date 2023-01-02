@@ -51,11 +51,12 @@
         </div>
     </nav>
     <!-- Work Area-->
-    <div class="container">
-        <!-- ko if:Name().length > 0 -->
+    <div class="container mt-4">
+
         <div class="py-2 border-bottom mb-3">
             <h2 data-bind="text:Name"></h2>
         </div>
+        <div class="container border rounded bg-light mt-4" style="padding:30px">
         <div class="col-12 text-center mt-5">
             <!--ko if: Flag-->
             <a data-bind="attr: { href: Flag }">
@@ -65,6 +66,7 @@
             <!--ko ifnot: Flag-->
             <img class="img-thumbnail"  style="height: 200px;width: 400px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/No_flag.svg/1024px-No_flag.svg.png">
             <!--/ko-->
+            
         </div>
         <div class="row mx-0 my-2 text-center">
             <div class="col-12" data-bind="text: Name"></div>
@@ -91,12 +93,26 @@
         <div class="d-flex flex-wrap mb-3" data-bind="if: Organizer().length == 0">
             This country did not organize any events.
         </div>
-        <div class="text-center mt-5">
-            <a href="countries.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
-            <a href="#" class="btn btn-primary"><i class="fa fa-arrow-up"></i> Top</a>
-        </div>
-        <!--/ko-->
+                                      <!--/ko-->
+         
+            <div class="border-bottom pt-4 pb-2 mb-3">
+                <h2>Medals per Olympic Games Edition</h2>
+            </div>
+     
+            <div class="chart-container justify-content-center mt-4"
+        style="margin-right:15px; position: relative; padding:40px; height:80vh; width:70vw">
+        <canvas class="mt-4" style="height:500px; width:1000px" id="myChart"></canvas>
     </div>
+
+            <div class="text-center mt-5">
+                <a href="countries.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
+                <a href="#" class="btn btn-primary"><i class="fa fa-arrow-up"></i> Top</a>
+            </div>
+
+    </div>
+
+    
+
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -126,5 +142,76 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="countryDetails.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+
+        var Counter = [];
+        var GameName = [];
+        
+        function getUrlParameter(sParam) {
+                var sPageURL = window.location.search.substring(1),
+                    sURLVariables = sPageURL.split('&'),
+                    sParameterName,
+                    i;
+        
+                for (i = 0; i < sURLVariables.length; i++) {
+                    sParameterName = sURLVariables[i].split('=');
+        
+                    if (sParameterName[0] === sParam) {
+                        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                    }
+                }
+            };
+        
+        var pg = getUrlParameter('id');
+        $.ajax({
+        type: 'GET',
+        url: 'http://192.168.160.58/Olympics/api/statistics/Medals_Games?id=' + pg,
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        success: function (data, status, xhr) {
+        
+        var medData = data;
+        
+        medData.forEach(element => {
+        Counter.push(element.Medals.reduce((accum, ele) => ele.Counter + accum, 0))
+        GameName.push(element.GameName);
+        });
+        
+        createBarGraph(Counter, GameName);
+        
+        }
+        });
+        
+        function createBarGraph(Counter, GameName) {
+        let barChart = new Chart("myChart", {
+        type: "bar",
+        data: {
+        labels: GameName,
+        datasets: [{
+        data: Counter,
+        label: 'Number of Medals per Olympic Games Edition',
+        backgroundColor: ["rgba(54, 162, 235, 0.5)", "rgba(54, 162, 235, 1)"],
+        borderColor: ['rgb(54, 162, 235)','rgb(54, 162, 235)'],
+        borderWidth: 1  
+        }]
+        },
+        options:{
+            animations: {
+              tension: {
+                duration: 1000,
+                easing: 'linear',
+                from: 1,
+                to: 0,
+                loop: true
+              }
+            },
+            
+        }
+        });
+        }
+        
+</script>
 </body>
 </html>

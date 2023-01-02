@@ -61,34 +61,98 @@
                 </div>
             </div>
         </div>
-        <!-- ko if:records().length > 0 -->
-        <div class="row small">
+           <!-- ko if:records().length > 0 -->
+           <div class="row small">
             <p class=" col-4 mr-auto pt-2">
                 <span data-bind="html: 'Page: ' + currentPage() + ' of ' + totalPages()"></span><br />
-                <span data-bind="html: 'Athletes: '+ fromRecord() + '-' + toRecord() + ' of ' + totalRecords()"></span>
+                <span data-bind="html: 'athletes: '+ fromRecord() + '-' + toRecord() + ' of ' + totalRecords()"></span>
             </p>
             <div class="col-8 my-0 pt-3">
                 <ul class="pagination float-end">
                     <!-- ko if: currentPage() > 5 && totalPages() > 10 -->
-                    <li class="page-item float-end"><a class="page-link" title="First Page" data-bind="attr: { href: './athletes.html?page=' + '1',  rel:'prev'}">⇤</a></li>
-                    <li class="page-item float-end"><a class="page-link" title="Previous Page" data-bind="attr: { href: './athletes.html?page=' + previousPage(),  rel:'prev'}">←</a></li>
+                    <li class="page-item float-end">
+                    <!-- ko ifnot: sortby -->
+                    <a class="page-link" title="First Page" data-bind="attr: { href: './athletes.html?page=' + '1',  rel:'prev'}">⇤</a>
+                    <!-- /ko -->
+                    <!-- ko if: sortby -->
+                    <a ckass="page-link" title="First Page" data-bind="attr: { href: './athletes.html?sortby=' + sortby() + '&page=' + '1',  rel:'prev'}">⇤</a>
+                    <!-- /ko -->
+                    </li>
+
+
+                    <li class="page-item float-end">
+                    <!-- ko ifnot: sortby -->
+                    <a class="page-link" title="Previous Page" data-bind="attr: { href: './athletes.html?page=' + previousPage(),  rel:'prev'}">←</a>
+                    <!-- /ko -->
+                    <!-- ko if: sortby -->
+                    <a class="page-link" title="Previous Page" data-bind="attr: { href: './athletes.html?sortby=' + sortby() + '&page=' + previousPage(),  rel:'prev'}">←</a>
+                    <!-- /ko -->
+                    </li>
                     <!-- /ko -->
                     <!-- ko foreach: pageArray()-->
                     <!-- ko if:$data == $parent.currentPage() -->
-                    <li class="active page-item"><a class="page-link" data-bind="attr: { title:'Current Page ' + $data }, text: $data"></a></li>
+                    <li class="active page-item">
+                        <a class="page-link" data-bind="attr: { title:'Current Page ' + $data }, text: $data"></a>
+                    </li>
                     <!-- /ko -->
+
                     <!-- ko if:$data != $parent.currentPage() -->
-                    <li class="page-item"><a class="page-link" data-bind="attr: { href: './athletes.html?page=' + $data, title:'Goto Page ' + $data }, text:$data"></a></li>
+                    <li class="page-item">
+                    <!-- ko ifnot: $parent.sortby() -->
+                    <a class="page-link" data-bind="attr: { href: './athletes.html?page=' + $data, title:'Goto Page ' + $data }, text:$data"></a>
+                    <!-- /ko -->
+                    <!-- ko if: $parent.sortby() -->
+                    <a class="page-link" data-bind="attr: { href: './athletes.html?sortby=' + $parent.sortby() + '&page=' + $data, title:'Goto Page ' + $data }, text:$data"></a>
+                    <!-- /ko -->
+                    </li>   
                     <!-- /ko -->
                     <!-- /ko -->
+
                     <!-- ko if: currentPage() < totalPages() - 4 && totalPages() > 9 -->
-                    <li class="page-item"><a class="page-link" title="Next Page" data-bind="attr: { href: './athletes.html?page=' + nextPage(), rel:'next' }">→</a></li>
-                    <li class="page-item"><a class="page-link" title="Last Page" data-bind="attr: { href: './athletes.html?page=' + totalPages() }">⇥</a></li>
+                    <li class="page-item">
+                    <!-- ko ifnot: sortby -->
+                    <a class="page-link" title="Next Page" data-bind="attr: { href: './athletes.html?page=' + nextPage(), rel:'next' }">→</a> 
+                    <!-- /ko -->
+                    <!-- ko if: sortby -->
+                    <a class="page-link" title="Next Page" data-bind="attr: { href: './athletes.html?sortby=' + sortby() + '&page=' + nextPage(), rel:'next' }">→</a>
+                    <!-- /ko -->
+                    </li>
+                    <li class="page-item">
+                    <!-- ko ifnot: sortby -->
+                    <a class="page-link" title="Last Page" data-bind="attr: { href: './athletes.html?page=' + totalPages() }">⇥</a>
+                    <!-- /ko -->
+                    <!-- ko if: sortby -->
+                    <a class="page-link" title="Last Page" data-bind="attr: { href: './athletes.html?sortby=' + sortby() + '&page=' + totalPages() }">⇥</a>
+                    <!-- /ko -->
+                    </li>
                     <!-- /ko -->
                 </ul>
             </div>
         </div>
         <!-- /ko -->
+        <div class="row">
+            <div class="col-6 d-flex">
+                <div class="dropdown me-4">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                         Filter
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a id="sortId" data-bind="attr:{href:'./athletes.html?sortby=Id'}" class="dropdown-item" >Id</a></li>
+                        <li><a id="sortNameUp" data-bind="attr:{href:'./athletes.html?sortby=NameUp'}" class="dropdown-item" >Name Up</a></li>
+                        <li><a id="sortNameDn" data-bind="attr:{href:'./athletes.html?sortby=NameDn'}" class="dropdown-item" >Name Down</a></li>
+                        <li><a id="sortHeightUp" data-bind="attr:{href:'./athletes.html?sortby=HeightUp'}" class="dropdown-item" >Height Up</a></li>
+                        <li><a id="sortHeightDn" data-bind="attr:{href:'./athletes.html?sortby=HeightDn'}" class="dropdown-item" >Height Down</a></li>
+                        <li><a id="sortSexUp" data-bind="attr:{href:'./athletes.html?sortby=SexUp'}" class="dropdown-item" >Sex Up</a></li>
+                        <li><a id="sortSexDn" data-bind="attr:{href:'./athletes.html?sortby=SexDn'}" class="dropdown-item" >Sex Down</a></li>
+                        <li><a id="sortBornDateUp" data-bind="attr:{href:'./athletes.html?sortby=BornDateUp'}" class="dropdown-item" >Born Date Up</a></li>
+                        <li><a id="sortBornDateDn" data-bind="attr:{href:'./athletes.html?sortby=BornDateDn'}" class="dropdown-item" >Born Date Down</a></li>
+                        <li><a id="sortDiedDateUp" data-bind="attr:{href:'./athletes.html?sortby=DiedDateUp'}" class="dropdown-item" >Died Date Up</a></li>
+                        <li><a id="sortDiedDateDn" data-bind="attr:{href:'./athletes.html?sortby=DiedDateDn'}" class="dropdown-item" >Died Date Down</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 d-none" id="divshow"><a href="athletes.html"><button id="remover" class=" btn btn-danger">Remove filter</button></a></div>
+            </div>
+           
 
         <div class="container">
             <div class="row justify-content-center" data-bind="foreach: records">

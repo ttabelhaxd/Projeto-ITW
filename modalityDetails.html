@@ -51,11 +51,12 @@
         </div>
     </nav>
     <!-- Work Area-->
-    <div class="container">
+    <div class="container mt-4">
         <!-- ko if:Name().length > 0 -->
         <div class="py-2 border-bottom mb-3">
             <h2 data-bind="text:Name"></h2>
         </div>
+        <div class="conatiner bg-light border rounded" style="padding:30px">
         <div class="col-12 text-center mt-5">
             <!--ko if: Photo-->
             <a data-bind="attr: { href: Photo }">
@@ -79,6 +80,7 @@
             <a href="modalities.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
             <a href="#" class="btn btn-primary"><i class="fa fa-arrow-up"></i> Top</a>
         </div>
+    </div>
         <!--/ko-->
     </div>
     <!-- Modal -->

@@ -5,7 +5,7 @@ var vm = function () {
     var self = this;
     self.baseUri = ko.observable('http://192.168.160.58/Olympics/api/games');
     //self.baseUri = ko.observable('http://localhost:62595/api/drivers');
-    self.displayName = 'Olympic Games editions List';
+    self.displayName = ko.observable('');
     self.error = ko.observable('');
     self.passingMessage = ko.observable('');
     self.records = ko.observableArray([]);
@@ -79,6 +79,7 @@ var vm = function () {
             self.pagesize(data.PageSize)
             self.totalPages(data.TotalPages);
             self.totalRecords(data.TotalRecords);
+            self.displayName('Olympic Games editions List');
             self.SetFavourites();
         });
     };
