@@ -47,7 +47,7 @@ var vm = function () {
         }
     }
     self.favourites = ko.observableArray([]);
-
+    
 
     //--- Page Events
     self.activate = function (id) {
