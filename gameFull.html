@@ -99,12 +99,14 @@
             <div class="col-12 text-center">
                 <!--ko if: Photo-->
                 <a data-bind="attr: { href: Photo }">
-                    <img class="img-thumbnail mt-2" data-bind="attr:{src: Photo}" style="width: 800px;height: 400px;">
+                    <img class="img-thumbnail mt-2 card-image" data-bind="attr:{src: Photo}"
+                        style="width: 800px;height: 400px;">
                 </a>
-                
+
                 <!--/ko-->
                 <!--ko ifnot: Photo-->
-                <img class="mt-2" style="width: 800px;height: 600px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
+                <img class="mt-2" style="width: 800px;height: 600px"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
                 <!--/ko-->
             </div>
         </div>
@@ -115,8 +117,10 @@
             </a>
             <!--/ko-->
             <!--ko ifnot: Logo-->
-            <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
+            <a
+                href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png">
             </a>
             <!--/ko-->
             <h2 class="mt-5 text-center border-bottom">Medals</h2>
@@ -166,9 +170,9 @@
             <h2>Medals per Country</h2>
         </div>
         <div class="chart-container justify-content-center mt-4"
-        style="margin-right:15px; position: relative; padding:40px; height:150vh; width:65vw">
-        <canvas class="mt-4" style="height:1000px; width:900px" id="myChart"></canvas>
-    </div>
+            style="margin-right:15px; position: relative; padding:40px; height:150vh; width:65vw">
+            <canvas class="mt-4" style="height:1000px; width:900px" id="myChart"></canvas>
+        </div>
         <div class="text-center mt-5">
             <a href="games.html" class="btn btn-primary"><i class="fa fa-list"></i> Back to List</a>
             <a href="#" class="btn btn-primary"><i class="fa fa-arrow-up"></i> Top</a>
@@ -211,72 +215,72 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
 
-var Counter = [];
-var CountryName = [];
+        var Counter = [];
+        var CountryName = [];
 
-function getUrlParameter(sParam) {
-        var sPageURL = window.location.search.substring(1),
-            sURLVariables = sPageURL.split('&'),
-            sParameterName,
-            i;
+        function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
 
-        for (i = 0; i < sURLVariables.length; i++) {
-            sParameterName = sURLVariables[i].split('=');
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
 
-            if (sParameterName[0] === sParam) {
-                return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
             }
+        };
+
+        var pg = getUrlParameter('id');
+        $.ajax({
+            type: 'GET',
+            url: 'http://192.168.160.58/Olympics/api/statistics/Medals_Country?id=' + pg,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            success: function (data, status, xhr) {
+
+                var medData = data;
+
+                medData.forEach(element => {
+                    Counter.push(element.Medals.reduce((accum, ele) => ele.Counter + accum, 0))
+                    CountryName.push(element.CountryName);
+                });
+
+                createBarGraph(Counter, CountryName);
+
+            }
+        });
+
+        function createBarGraph(Counter, CountryName) {
+            let barChart = new Chart("myChart", {
+                type: "bar",
+                data: {
+                    labels: CountryName,
+                    datasets: [{
+                        data: Counter,
+                        label: 'Number of Medals per country in this Olympic Games edition',
+                        backgroundColor: ["rgba(54, 162, 235, 0.5)", "rgba(54, 162, 235, 1)"],
+                        borderColor: ['rgb(54, 162, 235)', 'rgb(54, 162, 235)',],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    animations: {
+                        tension: {
+                            duration: 1000,
+                            easing: 'linear',
+                            from: 1,
+                            to: 0,
+                            loop: true
+                        }
+                    },
+                    indexAxis: 'y',
+                }
+            });
         }
-    };
-
-var pg = getUrlParameter('id');
-$.ajax({
-type: 'GET',
-url: 'http://192.168.160.58/Olympics/api/statistics/Medals_Country?id=' + pg,
-headers: {
-'Content-Type': 'application/json'
-},
-success: function (data, status, xhr) {
-
-var medData = data;
-
-medData.forEach(element => {
-Counter.push(element.Medals.reduce((accum, ele) => ele.Counter + accum, 0))
-CountryName.push(element.CountryName);
-});
-
-createBarGraph(Counter, CountryName);
-
-}
-});
-
-function createBarGraph(Counter, CountryName) {
-let barChart = new Chart("myChart", {
-type: "bar",
-data: {
-labels: CountryName,
-datasets: [{
-data: Counter,
-label: 'Number of Medals per country in this Olympic Games edition',
-backgroundColor: ["rgba(54, 162, 235, 0.5)", "rgba(54, 162, 235, 1)"],
-borderColor: ['rgb(54, 162, 235)','rgb(54, 162, 235)',],
-borderWidth: 1  
-}]
-},
-options:{
-    animations: {
-      tension: {
-        duration: 1000,
-        easing: 'linear',
-        from: 1,
-        to: 0,
-        loop: true
-      }
-    },
-    indexAxis: 'y',
-}
-});
-}
 
     </script>
 </body>

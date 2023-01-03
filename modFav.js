@@ -139,7 +139,7 @@ $(document).ready(function () {
                     `<tr id="fav-${Id}">
                         <td class="align-middle">${Id}</td>
                         <td class="align-middle">${data.Name}</td>
-                        <td class="align-middle"><img style="height: 100px; width: 150px;" src="${data.Photo}"></td>
+                        <td class="align-middle"><img class="card-image" style="height: 100px; width: 100px;" src="${data.Photo}"></td>
                         <td class="text-end align-middle">
                             <a class="btn btn-default btn-sm btn-favourite" onclick="removeFav(${Id})"><i class="fa fa-heart text-danger" title="Selecione para remover dos favoritos"></i></a>
                         </td>

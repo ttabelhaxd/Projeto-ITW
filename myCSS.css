@@ -12,7 +12,10 @@
     width: 100%;
 
 }
-
+.card-image {
+    object-position: center top;
+    object-fit: cover;
+  }
 /* button default
 ---------------------------- */
 .btn-default {
